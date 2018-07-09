@@ -85,7 +85,7 @@ public class Menu extends javax.swing.JFrame {
         menuInfo.setBackground(new java.awt.Color(204, 204, 204));
         menuInfo.setAutoscrolls(false);
         menuInfo.setBorder(null);
-        getContentPane().add(menuInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 265, 400, -1));
+        getContentPane().add(menuInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 259, 400, 20));
 
         mSetores1.setText("Operações");
         mSetores1.add(jSeparator2);
@@ -100,6 +100,7 @@ public class Menu extends javax.swing.JFrame {
         mSetores1.add(opVendas);
 
         rVendas.setText("Vendas Agendadas");
+        rVendas.setEnabled(false);
         rVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rVendasActionPerformed(evt);
@@ -110,6 +111,7 @@ public class Menu extends javax.swing.JFrame {
         MenuBar1.add(mSetores1);
 
         mConfig1.setText("Configurações");
+        mConfig1.setEnabled(false);
         MenuBar1.add(mConfig1);
 
         sys1.setText("Sobre");
@@ -122,7 +124,25 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-END:initComponents
 
     private void opVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opVendasActionPerformed
-        
+        try {
+            dba = DataBaseAcess.getInstance();
+            //supervisao_controle UPDATE autorizar S
+            //String answ;
+            //answ = JOptionPane.showInputDialog("Deseja liberar o logout dos operadores?");
+            int a = JOptionPane.showConfirmDialog(this, "Deseja liberar LOGOUT parar sua equipe?", "ARES :: Teleconectividade", JOptionPane.YES_NO_OPTION);
+            switch(a){
+                case 0:
+                    dba.execute("UPDATE supervisao_controle SET autorizar = 'S'");
+                    break;
+                case 1:
+                    dba.execute("UPDATE supervisao_controle SET autorizar = 'N'");
+                    break;
+                default:
+                    break;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_opVendasActionPerformed
 
     private void rVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rVendasActionPerformed

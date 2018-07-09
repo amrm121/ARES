@@ -5,16 +5,43 @@
  */
 package client.view.supervisao;
 
+import auxiliar.RandomString;
+import javax.swing.JOptionPane;
+import data.*;
+import java.sql.SQLException;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
- * @author suporteti
+ * @author Alexandre Magalhães
  */
 public class SupervisaoMenu extends javax.swing.JFrame {
-
+    private DataBaseAcess dba;
+    static private String nome;
+    static private String ramal;
+    private String dataLogin = ZonedDateTime.now().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
+    ZonedDateTime date = ZonedDateTime.now();
+    private String dataDia = date.format(DateTimeFormatter.ISO_LOCAL_DATE);
+    private String HoraLogin = date.format(DateTimeFormatter.ISO_LOCAL_TIME);
+    private String idlog;
+    private final RandomString session;
     /**
      * Creates new form SupervisaoMenu
      */
-    public SupervisaoMenu() {
+    public SupervisaoMenu(String nome, String ramal) {
+        this.nome = nome;
+        this.ramal = ramal;
+        try {
+            dba = DataBaseAcess.getInstance();
+        } catch (SQLException ex) {
+            Logger.getLogger(SupervisaoMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        session = new RandomString(8, ThreadLocalRandom.current());
+        idlog  = session.toString().substring(session.toString().indexOf("@")+1);
         initComponents();
     }
 
@@ -26,29 +53,53 @@ public class SupervisaoMenu extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     private void initComponents() {//GEN-BEGIN:initComponents
 
+        menuInfo = new javax.swing.JTextField();
         MenuBar1 = new javax.swing.JMenuBar();
         mSetores1 = new javax.swing.JMenu();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        opVendas = new javax.swing.JMenuItem();
+        supPonto = new javax.swing.JMenu();
+        liberarLogout = new javax.swing.JMenuItem();
+        gerarPonto = new javax.swing.JMenuItem();
         rVendas = new javax.swing.JMenuItem();
         mConfig1 = new javax.swing.JMenu();
         sys1 = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        mSetores1.setText("Operações");
-        mSetores1.add(jSeparator2);
-
-        opVendas.setText("Vendas");
-        opVendas.setMultiClickThreshhold(1L);
-        opVendas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opVendasActionPerformed(evt);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("ARES :: TELECONECTIVIDADE");
+        setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
-        mSetores1.add(opVendas);
 
-        rVendas.setText("Vendas Agendadas");
+        menuInfo.setEditable(false);
+        menuInfo.setBackground(new java.awt.Color(204, 204, 204));
+
+        mSetores1.setText("Supervisão");
+        mSetores1.add(jSeparator2);
+
+        supPonto.setText("Controle de Ponto");
+
+        liberarLogout.setText("Liberar Logout");
+        liberarLogout.setMultiClickThreshhold(1L);
+        liberarLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                liberarLogoutActionPerformed(evt);
+            }
+        });
+        supPonto.add(liberarLogout);
+
+        gerarPonto.setText("Gerar Planilha de Ponto");
+        supPonto.add(gerarPonto);
+
+        mSetores1.add(supPonto);
+
+        rVendas.setText("Juntar Planilhas");
+        rVendas.setEnabled(false);
         rVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rVendasActionPerformed(evt);
@@ -59,9 +110,15 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         MenuBar1.add(mSetores1);
 
         mConfig1.setText("Configurações");
+        mConfig1.setEnabled(false);
         MenuBar1.add(mConfig1);
 
         sys1.setText("Sobre");
+        sys1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sys1ActionPerformed(evt);
+            }
+        });
         MenuBar1.add(sys1);
 
         setJMenuBar(MenuBar1);
@@ -70,23 +127,86 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(menuInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 259, Short.MAX_VALUE)
+                .addComponent(menuInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }//GEN-END:initComponents
 
-    private void opVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opVendasActionPerformed
-
-    }//GEN-LAST:event_opVendasActionPerformed
+    private void liberarLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_liberarLogoutActionPerformed
+        try {
+            dba = DataBaseAcess.getInstance();
+            //supervisao_controle UPDATE autorizar S
+            //String answ;
+            //answ = JOptionPane.showInputDialog("Deseja liberar o logout dos operadores?");
+            int a = JOptionPane.showConfirmDialog(this, "Deseja liberar LOGOUT parar sua equipe?", "ARES :: Teleconectividade", JOptionPane.YES_NO_OPTION);
+            switch(a){
+                case 0:
+                    dba.execute("UPDATE supervisao_controle SET autorizar = 'S'");
+                    break;
+                case 1:
+                    dba.execute("UPDATE supervisao_controle SET autorizar = 'N'");
+                    break;
+                default:
+                    break;
+            }
+            //0 OK
+            //2 Cancel
+            //-1 Exit
+        } catch (SQLException ex) {
+            Logger.getLogger(SupervisaoMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_liberarLogoutActionPerformed
 
     private void rVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rVendasActionPerformed
     
     }//GEN-LAST:event_rVendasActionPerformed
+
+    private void sys1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sys1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_sys1ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        menuInfo.setText(ramal+" : "+nome + "   |   Logado às: " + dataLogin);
+        try {            
+            boolean ponto = dba.execute("INSERT INTO controle_ponto (ssid, ramal, data, hora_login) "
+                    + "VALUES ('"+idlog+"', '"+ramal+"', '"+dataDia+"', '"+HoraLogin+"')"
+            );            
+            if(ponto){
+               JOptionPane.showMessageDialog(this, "Hora de login registrada.\n"+HoraLogin);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SupervisaoMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        
+        try {
+           dba.execute("UPDATE usuario SET status = 1 WHERE (ramal = " + ramal + ")");
+           ZonedDateTime logout = ZonedDateTime.now();
+           String HoraLogout = logout.format(DateTimeFormatter.ISO_LOCAL_TIME);
+           boolean ponto = dba.execute("UPDATE controle_ponto SET hora_logout = '"+HoraLogout+"' WHERE (ssid = '" + idlog + "')");         
+           if(ponto){
+               JOptionPane.showMessageDialog(this, "Hora de logout registrada.\n"+HoraLogout);
+           }
+        } catch (SQLException ex) {
+            Logger.getLogger(SupervisaoMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        dba.closeConnnection();
+        this.setVisible(false);
+        this.dispose();
+        System.exit(0);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -117,17 +237,20 @@ public class SupervisaoMenu extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new SupervisaoMenu().setVisible(true);
+            new SupervisaoMenu(nome, ramal).setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar1;
+    private javax.swing.JMenuItem gerarPonto;
     private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JMenuItem liberarLogout;
     private javax.swing.JMenu mConfig1;
     private javax.swing.JMenu mSetores1;
-    private javax.swing.JMenuItem opVendas;
+    private javax.swing.JTextField menuInfo;
     private javax.swing.JMenuItem rVendas;
+    private javax.swing.JMenu supPonto;
     private javax.swing.JMenu sys1;
     // End of variables declaration//GEN-END:variables
 }

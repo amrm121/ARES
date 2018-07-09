@@ -1,6 +1,7 @@
 package client.view;
 
-import auxiliar.Cronometro;
+import client.view.operacao.OperacaoMenu;
+import client.view.supervisao.SupervisaoMenu;
 import controller.ControladorLogin;
 import data.APIAcess;
 import data.DataBaseAcess;
@@ -19,7 +20,7 @@ import model.Usuario;
 public class Login extends javax.swing.JFrame {
     private ControladorLogin log;
     private APIAcess api;
-    private final String[] results = new String[5];
+    private final String[] results = new String[6];
     /**
      * Creates new form Login
      */
@@ -102,41 +103,66 @@ public class Login extends javax.swing.JFrame {
         boolean loop = true;
         int key = -1;
         while(loop){
+            if(ramal.getText() == null || !ramal.getText().matches("[0-9]+")){
+                JOptionPane.showMessageDialog(this, "Apenas números no ramal.", "ARES :: Teleconectividade", JOptionPane.ERROR_MESSAGE);
+                break;
+            }
             String statusRamal = api.login(ramal.getText());     
             //System.out.println(statusRamal + " TESTE");
             for(int i = 0; i < 5; i++) if(statusRamal.equalsIgnoreCase(results[i])) key = i;
-            String[] user = log.getNomeID(ramal.getText()).split(";");
-            String idtipo = user[1];            
+            String[] user = log.getNomeID(ramal.getText()).split(";");                     
             switch(key){
             case 0:
                 errorDialog(key);
+                loop = false;
                 break;
             case 1:
                 errorDialog(key);
+                loop = false;
                 break;
             case 2:
-                if(api.campAtiva()){                    
-                    if(idtipo.equals("6")){}
-                    if(idtipo.equals("1")){}
-                    if(idtipo.equals("3")){}
-                    if(idtipo)
-                    Menu menu = new Menu(user[0], ramal.getText());
-                    menu.setVisible(true);
-                    this.setVisible(false);
-                    //System.out.println("client.view.Login.bLoginActionPerformed()");
-                    loop = false;
+                if(api.campAtiva()){
+                    String idtipo = user[1];
+                    if(idtipo.equals("1")){ //CPD                        
+                        Menu menu = new Menu(user[0], ramal.getText());
+                        menu.setVisible(true);
+                        this.setVisible(false);
+                        loop = false;
+                    }
+                    if(idtipo.equals("2")){ //ADM - BRUNO/MARCELA -> IGOR
+                        //URGENTE
+                    }
+                    if(idtipo.equals("3")){ //BACKOFFICE
+                        
+                    } 
+                    if(idtipo.equals("4")){ //SUPERVISAO
+                        SupervisaoMenu menu = new SupervisaoMenu(user[0], ramal.getText());
+                        menu.setVisible(true);
+                        this.setVisible(false);
+                        loop = false;
+                    }
+                    if(idtipo.equals("5")){ //MONITORIA
+                        
+                    }
+                    if(idtipo.equals("6")){ //OPERACAO
+                        OperacaoMenu menu = new OperacaoMenu(user[0], ramal.getText());
+                        menu.setVisible(true);
+                        this.setVisible(false);
+                        loop = false; 
+                    }           
+                   
                 }
                 else{
                 JOptionPane.showMessageDialog(this, "ESPERE a campanha ser ativada para logar!", "ARES :: Teleconectividade", JOptionPane.ERROR_MESSAGE); 
                 loop = false;
-                }
-                
+                }                
                 break;
             default:
-                JOptionPane.showMessageDialog(this, "Consultar CPD!", "ARES :: Teleconectividade", JOptionPane.ERROR_MESSAGE); 
+                JOptionPane.showMessageDialog(this, "Consultar CPD!", "ARES :: Teleconectividade", JOptionPane.ERROR_MESSAGE);
+                loop = false;
                 break;
             }
-            loop = false;
+            //loop = false;
        }
         
         /*boolean loop = true;

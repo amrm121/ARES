@@ -19,13 +19,13 @@ public class DataBaseAcess {
     }
     
     public ResultSet execQry(String qry) throws SQLException{       
-        ResultSet rs = stm.executeQuery(qry);        
+        ResultSet rs = stm.executeQuery(qry);    
         return rs;
     }
     
     public boolean execute(String qry) throws SQLException{
-        boolean ok;
-        ok = stm.execute(qry);        
+        boolean ok;        
+        ok = stm.execute(qry); 
         return !ok;
     }
     
