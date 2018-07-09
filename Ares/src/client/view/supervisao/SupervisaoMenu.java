@@ -148,10 +148,10 @@ public class SupervisaoMenu extends javax.swing.JFrame {
             int a = JOptionPane.showConfirmDialog(this, "Deseja liberar LOGOUT parar sua equipe?", "ARES :: Teleconectividade", JOptionPane.YES_NO_OPTION);
             switch(a){
                 case 0:
-                    dba.execute("UPDATE supervisao_controle SET autorizar = 'S'");
+                    dba.execute("UPDATE supervisao_controle SET autorizar = 'S' WHERE id_operador = 1");
                     break;
                 case 1:
-                    dba.execute("UPDATE supervisao_controle SET autorizar = 'N'");
+                    dba.execute("UPDATE supervisao_controle SET autorizar = 'N' WHERE id_operador = 1");
                     break;
                 default:
                     break;
