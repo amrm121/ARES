@@ -122,31 +122,23 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-END:initComponents
 
     private void opVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opVendasActionPerformed
-       
-         
-       
+        
     }//GEN-LAST:event_opVendasActionPerformed
 
     private void rVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rVendasActionPerformed
-        try {
-            dba.execQry("SELECT * FROM vw_consumer_geracao_ordem");
-        } catch (SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         
     }//GEN-LAST:event_rVendasActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-       
-        menuInfo.setText(ramalUsuario+" : "+nomeUsuario + "     |     Logado às: " + dataLogin);
-        try {
-            System.out.println("insert");
-           boolean ponto = dba.execute("INSERT INTO controle_ponto (ssid, ramal, data, hora_login) "
+        menuInfo.setText(ramalUsuario+" : "+nomeUsuario + "   |   Logado às: " + dataLogin);
+        try {            
+            boolean ponto = dba.execute("INSERT INTO controle_ponto (ssid, ramal, data, hora_login) "
                     + "VALUES ('"+idlog+"', '"+ramalUsuario+"', '"+dataDia+"', '"+HoraLogin+"')"
             );            
-           if(ponto){
-               JOptionPane.showMessageDialog(this, "Hora de login registrada.");
-           }
+            if(ponto){
+               JOptionPane.showMessageDialog(this, "Hora de login registrada.\n"+HoraLogin);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -159,10 +151,9 @@ public class Menu extends javax.swing.JFrame {
            dba.execute("UPDATE usuario SET status = 1 WHERE (ramal = " + ramalUsuario + ")");
            ZonedDateTime logout = ZonedDateTime.now();
            String HoraLogout = logout.format(DateTimeFormatter.ISO_LOCAL_TIME);
-           System.out.println(HoraLogout + "  TESTE");
            boolean ponto = dba.execute("UPDATE controle_ponto SET hora_logout = '"+HoraLogout+"' WHERE (ssid = '" + idlog + "')");         
            if(ponto){
-               JOptionPane.showMessageDialog(this, "Hora de logout registrada.");
+               JOptionPane.showMessageDialog(this, "Hora de logout registrada.\n"+HoraLogout);
            }
         } catch (SQLException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);

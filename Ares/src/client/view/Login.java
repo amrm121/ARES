@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package client.view;
 
 import auxiliar.Cronometro;
 import controller.ControladorLogin;
+import data.APIAcess;
 import data.DataBaseAcess;
 import java.awt.Toolkit;
 import java.sql.*;
@@ -18,15 +14,19 @@ import model.Usuario;
 
 /**
  *
- * @author suporteti
+ * @author Alexandre Magalhães
  */
 public class Login extends javax.swing.JFrame {
     private ControladorLogin log;
-    private DataBaseAcess dba;
+    private APIAcess api;
+    private final String[] results = new String[5];
     /**
      * Creates new form Login
      */
     public Login() {
+        this.results[0] = "SOFTPHONE NAO ESTA CONECTADO";
+        this.results[1] = "RAMAL NAO ENCONTRADO";
+        this.results[2] = "RAMAL LOGADO COM SUCESSO";
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -40,10 +40,8 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {//GEN-BEGIN:initComponents
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         ramal = new javax.swing.JTextField();
         bLogin = new javax.swing.JButton();
-        pwd = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,15 +50,10 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(240, 240, 240));
         jLabel1.setText("Ramal:");
         jLabel1.setRequestFocusEnabled(false);
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
-
-        jLabel2.setBackground(java.awt.Color.white);
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel2.setText("Senha:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
 
         ramal.setToolTipText("");
         ramal.setName("ramal"); // NOI18N
@@ -69,7 +62,7 @@ public class Login extends javax.swing.JFrame {
                 ramalActionPerformed(evt);
             }
         });
-        getContentPane().add(ramal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 130, -1));
+        getContentPane().add(ramal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 130, -1));
 
         bLogin.setText("Entrar");
         bLogin.setToolTipText("Java>Delphi");
@@ -83,19 +76,6 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(bLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 70, 30));
 
-        pwd.setToolTipText("");
-        pwd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pwdActionPerformed(evt);
-            }
-        });
-        pwd.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                pwdKeyPressed(evt);
-            }
-        });
-        getContentPane().add(pwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 130, -1));
-
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/resources/Teleconectividade.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -5, 280, 130));
 
@@ -104,10 +84,63 @@ public class Login extends javax.swing.JFrame {
 
     private void ramalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ramalActionPerformed
         //  static String login =
+        bLoginActionPerformed(evt);
     }//GEN-LAST:event_ramalActionPerformed
-
+    
+       
+    private void errorDialog(int key){        
+       JOptionPane.showMessageDialog(this, results[key], "ARES :: Teleconectividade", JOptionPane.ERROR_MESSAGE);       
+    }
+    
     private void bLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLoginActionPerformed
+        api = APIAcess.getInstance();
+        try {
+            log = ControladorLogin.getInstance();
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
         boolean loop = true;
+        int key = -1;
+        while(loop){
+            String statusRamal = api.login(ramal.getText());     
+            //System.out.println(statusRamal + " TESTE");
+            for(int i = 0; i < 5; i++) if(statusRamal.equalsIgnoreCase(results[i])) key = i;
+            String[] user = log.getNomeID(ramal.getText()).split(";");
+            String idtipo = user[1];            
+            switch(key){
+            case 0:
+                errorDialog(key);
+                break;
+            case 1:
+                errorDialog(key);
+                break;
+            case 2:
+                if(api.campAtiva()){                    
+                    if(idtipo.equals("6")){}
+                    if(idtipo.equals("1")){}
+                    if(idtipo.equals("3")){}
+                    if(idtipo)
+                    Menu menu = new Menu(user[0], ramal.getText());
+                    menu.setVisible(true);
+                    this.setVisible(false);
+                    //System.out.println("client.view.Login.bLoginActionPerformed()");
+                    loop = false;
+                }
+                else{
+                JOptionPane.showMessageDialog(this, "ESPERE a campanha ser ativada para logar!", "ARES :: Teleconectividade", JOptionPane.ERROR_MESSAGE); 
+                loop = false;
+                }
+                
+                break;
+            default:
+                JOptionPane.showMessageDialog(this, "Consultar CPD!", "ARES :: Teleconectividade", JOptionPane.ERROR_MESSAGE); 
+                break;
+            }
+            loop = false;
+       }
+        
+        /*boolean loop = true;
+        
             Usuario userLogin = new Usuario();
         try {
             dba = DataBaseAcess.getInstance();
@@ -145,17 +178,9 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, e.getMessage(), "ARES :: Teleconectividade", JOptionPane.ERROR_MESSAGE);               
                 loop = false;
             }            
-        }
+        }*/
         
     }//GEN-LAST:event_bLoginActionPerformed
-
-    private void pwdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pwdKeyPressed
-
-    }//GEN-LAST:event_pwdKeyPressed
-
-    private void pwdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdActionPerformed
-        bLoginActionPerformed(evt);
-    }//GEN-LAST:event_pwdActionPerformed
     
     /**
      * @param args the command line arguments
@@ -193,9 +218,7 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bLogin;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField pwd;
     private javax.swing.JTextField ramal;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,15 +4,15 @@ import model.Usuario;
 import data.DataBaseAcess;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ControladorLogin {
-    private Usuario usuario;
     private static ControladorLogin instance;
     private DataBaseAcess dba;
     
     private ControladorLogin() throws SQLException {
         dba = DataBaseAcess.getInstance();
-        usuario = new Usuario();
     }
     
     public static ControladorLogin getInstance() throws SQLException {
@@ -22,24 +22,21 @@ public class ControladorLogin {
         return instance;
     }
     
-    public boolean login(Usuario user) throws SQLException{        
-        boolean answ = false;
-        String ramal = user.getRamalLogin();
-        String pass = user.getSenha();
-        String qry = "SELECT nome, login, senha FROM usuario WHERE login = '"+ramal+"' AND senha = '"+pass+"'";
-        ResultSet rs = dba.execQry(qry);
+    public String getNomeID(String ramal){        
+        String answ = "";
+        String qry = "SELECT nome, idtipo_usuario FROM usuario WHERE ramal = '"+ramal+"'";
+        ResultSet rs;
+        try {
+            rs = dba.execQry(qry);
         if(rs.next()){
-            usuario.setNome(rs.getString("nome"));
-            answ = true;
+            String nome = rs.getString("nome");
+            int idt = rs.getInt("idtipo_usuario");
+            answ = nome + ";" + idt;
+        }else{answ = "ERRO";}
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
         return answ;
-    }
-
-    public String getName(){
-        return usuario.getNome();
-    }
-    
-    public Usuario getUsuarioCorrente() {
-        return usuario;
     }
 }
