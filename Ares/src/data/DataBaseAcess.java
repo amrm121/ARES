@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 public class DataBaseAcess {
     private static DataBaseAcess instance;
+    private boolean closed;
     private Connection con = null;
     private Statement stm = null;
     private final String url, usr, pswd;
@@ -16,11 +17,11 @@ public class DataBaseAcess {
         this.usr = "root";
         this.con = DriverManager.getConnection(url, usr, pswd);
         this.stm = con.createStatement();    
+        this.closed = false;
     }
     
-    public ResultSet execQry(String qry) throws SQLException{       
-        ResultSet rs = stm.executeQuery(qry);    
-        return rs;
+    public ResultSet execQry(String qry) throws SQLException{         
+        return stm.executeQuery(qry);
     }
     
     public boolean execute(String qry) throws SQLException{
@@ -36,6 +37,19 @@ public class DataBaseAcess {
         return instance;
     }
     
+    public void isClosed(){
+        if(!this.closed){
+            try {
+                this.con = DriverManager.getConnection(url, usr, pswd);
+                this.stm = con.createStatement();
+                this.closed = false;
+            } catch (SQLException ex) {
+                Logger.getLogger(DataBaseAcess.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    
     public void closeConnnection(){
         if(instance != null){
             try {
@@ -44,6 +58,7 @@ public class DataBaseAcess {
                 }
                 if(!con.isClosed()){
                     con.close();
+                    this.closed = true;
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(DataBaseAcess.class.getName()).log(Level.SEVERE, null, ex);

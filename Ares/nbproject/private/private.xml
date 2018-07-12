@@ -12,7 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/suporteti/Documents/GitKraken/ARES/Ares/src/client/view/backoffice/RelatorioVendas.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/operacao/OperacaoMenu.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/operacao/Vendas.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/supervisao/SupervisaoMenu.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/backoffice/BackOfficeMenu.java</file>
         </group>
     </open-files>
 </project-private>

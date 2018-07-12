@@ -122,14 +122,14 @@ public class Login extends javax.swing.JFrame {
                 loop = false;
                 break;
             case 2:
-                if(api.campAtiva()){
-                    String idtipo = user[1];
-                    if(idtipo.equals("1")){ //CPD                        
+                String idtipo = user[1];
+                if(idtipo.equals("1")){ //CPD                        
                         AdmMenu menu = new AdmMenu(user[0], ramal.getText());
                         menu.setVisible(true);
                         this.setVisible(false);
                         loop = false;
                     }
+                if(api.campAtiva()){
                     if(idtipo.equals("2")){ //ADM - BRUNO/MARCELA -> IGOR
                         //URGENTE
                     }
