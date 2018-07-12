@@ -233,7 +233,7 @@ public class OperacaoMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void sys1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sys1ActionPerformed
-     
+        JOptionPane.showMessageDialog(this, "Feito por Alexandre Magalhães.", "ARES :: Teleconectividade", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_sys1ActionPerformed
 
     /**

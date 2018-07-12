@@ -179,7 +179,7 @@ public class AdmMenu extends javax.swing.JFrame {
 
     private void sys1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sys1MouseClicked
         // TODO add your handling code here:
-        Vendas v = new Vendas("4000", "amrm");
+        Vendas v = new Vendas("40000", "amrm");
         v.setVisible(true);
     }//GEN-LAST:event_sys1MouseClicked
 

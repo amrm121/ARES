@@ -20,11 +20,19 @@ public class DataBaseAcess {
         this.closed = false;
     }
     
-    public ResultSet execQry(String qry) throws SQLException{         
+    public ResultSet execQry(String qry) throws SQLException{   
+        if(!con.isValid(2)){
+            this.con = DriverManager.getConnection(url, usr, pswd);
+            this.stm = con.createStatement();
+        }
         return stm.executeQuery(qry);
     }
     
     public boolean execute(String qry) throws SQLException{
+        if(!con.isValid(2)){
+            this.con = DriverManager.getConnection(url, usr, pswd);
+            this.stm = con.createStatement();
+        }
         boolean ok;        
         ok = stm.execute(qry); 
         return !ok;
