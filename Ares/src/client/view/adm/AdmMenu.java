@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package client.view;
+package client.view.adm;
 
 import auxiliar.RandomString;
+import client.view.ConfiguracaoRelatorioVendas;
+import client.view.RelatorioVendas;
 import controller.ControladorLogin;
 import data.DataBaseAcess;
 import java.sql.ResultSet;
@@ -22,7 +24,7 @@ import javax.swing.JOptionPane;
  *
  * @author suporteti
  */
-public class Menu extends javax.swing.JFrame {
+public class AdmMenu extends javax.swing.JFrame {
     static private String nomeUsuario;
     static private String ramalUsuario;
     private DataBaseAcess dba;
@@ -34,16 +36,16 @@ public class Menu extends javax.swing.JFrame {
     private String idlog;
     private final RandomString session;
 
-    public Menu(String nome, String ramal) {
+    public AdmMenu(String nome, String ramal) {
         this.setLocationRelativeTo(null);
         try {
             this.dba = DataBaseAcess.getInstance();
             this.clog = ControladorLogin.getInstance();
         } catch (SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdmMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Menu.nomeUsuario = nome;
-        Menu.ramalUsuario = ramal;    
+        AdmMenu.nomeUsuario = nome;
+        AdmMenu.ramalUsuario = ramal;    
         session = new RandomString(8, ThreadLocalRandom.current());
         idlog  = session.toString().substring(session.toString().indexOf("@")+1);
         initComponents();
@@ -60,10 +62,9 @@ public class Menu extends javax.swing.JFrame {
 
         menuInfo = new javax.swing.JTextField();
         MenuBar1 = new javax.swing.JMenuBar();
-        mSetores1 = new javax.swing.JMenu();
-        jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        opVendas = new javax.swing.JMenuItem();
-        rVendas = new javax.swing.JMenuItem();
+        GerarRelatorioVendas = new javax.swing.JMenu();
+        RelatorioDeVendas = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
         mConfig1 = new javax.swing.JMenu();
         sys1 = new javax.swing.JMenu();
 
@@ -87,28 +88,20 @@ public class Menu extends javax.swing.JFrame {
         menuInfo.setBorder(null);
         getContentPane().add(menuInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 259, 400, 20));
 
-        mSetores1.setText("Operações");
-        mSetores1.add(jSeparator2);
+        GerarRelatorioVendas.setText("Relatório");
 
-        opVendas.setText("Vendas");
-        opVendas.setMultiClickThreshhold(1L);
-        opVendas.addActionListener(new java.awt.event.ActionListener() {
+        RelatorioDeVendas.setText("Relatório de vendas");
+        RelatorioDeVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opVendasActionPerformed(evt);
+                RelatorioDeVendasActionPerformed(evt);
             }
         });
-        mSetores1.add(opVendas);
+        GerarRelatorioVendas.add(RelatorioDeVendas);
 
-        rVendas.setText("Vendas Agendadas");
-        rVendas.setEnabled(false);
-        rVendas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rVendasActionPerformed(evt);
-            }
-        });
-        mSetores1.add(rVendas);
+        MenuBar1.add(GerarRelatorioVendas);
 
-        MenuBar1.add(mSetores1);
+        jMenu2.setText("Supervisão");
+        MenuBar1.add(jMenu2);
 
         mConfig1.setText("Configurações");
         mConfig1.setEnabled(false);
@@ -123,33 +116,6 @@ public class Menu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }//GEN-END:initComponents
 
-    private void opVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opVendasActionPerformed
-        try {
-            dba = DataBaseAcess.getInstance();
-            //supervisao_controle UPDATE autorizar S
-            //String answ;
-            //answ = JOptionPane.showInputDialog("Deseja liberar o logout dos operadores?");
-            int a = JOptionPane.showConfirmDialog(this, "Deseja liberar LOGOUT parar sua equipe?", "ARES :: Teleconectividade", JOptionPane.YES_NO_OPTION);
-            switch(a){
-                case 0:
-                    dba.execute("UPDATE supervisao_controle SET autorizar = 'S'");
-                    break;
-                case 1:
-                    dba.execute("UPDATE supervisao_controle SET autorizar = 'N'");
-                    break;
-                default:
-                    break;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_opVendasActionPerformed
-
-    private void rVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rVendasActionPerformed
-        
-        
-    }//GEN-LAST:event_rVendasActionPerformed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         menuInfo.setText(ramalUsuario+" : "+nomeUsuario + "   |   Logado às: " + dataLogin);
         try {            
@@ -160,7 +126,7 @@ public class Menu extends javax.swing.JFrame {
                JOptionPane.showMessageDialog(this, "Hora de login registrada.\n"+HoraLogin);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdmMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
         
 
@@ -176,13 +142,18 @@ public class Menu extends javax.swing.JFrame {
                JOptionPane.showMessageDialog(this, "Hora de logout registrada.\n"+HoraLogout);
            }
         } catch (SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdmMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
         dba.closeConnnection();
         this.setVisible(false);
         this.dispose();
         System.exit(0);
     }//GEN-LAST:event_formWindowClosing
+
+    private void RelatorioDeVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RelatorioDeVendasActionPerformed
+        ConfiguracaoRelatorioVendas c = new ConfiguracaoRelatorioVendas();
+        c.setVisible(true);
+    }//GEN-LAST:event_RelatorioDeVendasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,31 +173,30 @@ public class Menu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         
         //</editor-fold>
         java.awt.EventQueue.invokeLater(() -> {
-            new Menu(nomeUsuario, ramalUsuario).setVisible(true);            
+            new AdmMenu(nomeUsuario, ramalUsuario).setVisible(true);            
         });
         /* Create and display the form */
         
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu GerarRelatorioVendas;
     private javax.swing.JMenuBar MenuBar1;
-    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JMenuItem RelatorioDeVendas;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu mConfig1;
-    private javax.swing.JMenu mSetores1;
     private javax.swing.JTextField menuInfo;
-    private javax.swing.JMenuItem opVendas;
-    private javax.swing.JMenuItem rVendas;
     private javax.swing.JMenu sys1;
     // End of variables declaration//GEN-END:variables
 

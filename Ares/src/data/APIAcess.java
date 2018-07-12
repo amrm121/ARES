@@ -44,7 +44,7 @@ public class APIAcess {
     public boolean campAtiva(){
         String func = "campanhas?";
         String[] campanhas = APIGet(func).split("\n");
-        String[] cAtiva = campanhas[0].split(";");
+        String[] cAtiva = campanhas[2].split(";");
         return !cAtiva[2].equalsIgnoreCase("INATIVA");
     }
     

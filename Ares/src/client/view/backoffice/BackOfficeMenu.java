@@ -5,16 +5,41 @@
  */
 package client.view.backoffice;
 
+import client.view.RelatorioVendas;
+import auxiliar.RandomString;
+import client.view.operacao.OperacaoMenu;
+import data.DataBaseAcess;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author suporteti
  */
 public class BackOfficeMenu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form BackOfficeMenu
-     */
-    public BackOfficeMenu() {
+    private static DataBaseAcess dba;
+    private String idlog;
+    static private String ramalUsuario;
+    private static String nomeUsuario;
+    private final RandomString session;
+    
+    public BackOfficeMenu(String nome, String ramal) {
+        session = new RandomString(8, ThreadLocalRandom.current());
+        idlog  = session.toString().substring(session.toString().indexOf("@")+1);
+        nomeUsuario = nome;
+        ramalUsuario = ramal;
+        try {
+            dba = DataBaseAcess.getInstance();
+        } catch (SQLException ex) {
+            Logger.getLogger(BackOfficeMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
         initComponents();
     }
 
@@ -31,12 +56,17 @@ public class BackOfficeMenu extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Logout");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, -1, -1));
 
         jMenu1.setText("Relatório");
@@ -55,8 +85,8 @@ public class BackOfficeMenu extends javax.swing.JFrame {
         jMenu2.setEnabled(false);
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Sobre");
-        jMenuBar1.add(jMenu3);
+        jMenu4.setText("Sobre");
+        jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
 
@@ -66,8 +96,37 @@ public class BackOfficeMenu extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         RelatorioVendas v = new RelatorioVendas();
         v.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        boolean auth = false;        
+        try {
+            ResultSet logOut = dba.execQry("SELECT autorizar FROM supervisao_controle WHERE id_operador = 1");
+            if(logOut.next()){
+                String out = logOut.getString("autorizar");
+                if(out.equals("S")){auth = true;}
+            }
+            if(auth){
+                dba.execute("UPDATE usuario SET status = 1 WHERE (ramal = " + ramalUsuario + ")");
+                ZonedDateTime logout = ZonedDateTime.now();
+                String HoraLogout = logout.format(DateTimeFormatter.ISO_LOCAL_TIME);
+                boolean ponto = dba.execute("UPDATE controle_ponto SET hora_logout = '"+HoraLogout+"' WHERE (ssid = '" + idlog + "')");
+                if(ponto){
+                    JOptionPane.showMessageDialog(this, "Hora de logout registrada.\n"+HoraLogout);
+                }
+                logOut.close();
+                dba.closeConnnection();
+                this.setVisible(false);
+                this.dispose();
+                System.exit(0);
+            }else{
+                JOptionPane.showMessageDialog(this, "Espere a Supervisão liberar o Login!", "ARES :: Teleconectividade", JOptionPane.ERROR_MESSAGE);    
+            }                  
+           
+        } catch (SQLException ex) {
+             Logger.getLogger(OperacaoMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }     
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -99,7 +158,7 @@ public class BackOfficeMenu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BackOfficeMenu().setVisible(true);
+                new BackOfficeMenu(nomeUsuario, ramalUsuario).setVisible(true);
             }
         });
     }
@@ -108,7 +167,7 @@ public class BackOfficeMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables

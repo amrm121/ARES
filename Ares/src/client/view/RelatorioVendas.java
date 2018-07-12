@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package client.view.backoffice;
+package client.view;
 
 import client.view.operacao.Vendas;
 import data.DataBaseAcess;
@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 import model.Venda;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -47,7 +48,7 @@ public class RelatorioVendas extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -55,33 +56,24 @@ public class RelatorioVendas extends javax.swing.JFrame {
         });
 
         jButton1.setText("Voltar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "idVenda", "Nome do operador", "Data da venda", "Região da venda", "Plano escolhido", "Nome", "CPF", "Telefone 1", "Telefone 2", "Data de nascimento", "Nome da mãe", "Status do Crivo", "Fidelização Ano", "Optou redes sociais", "CEP", "Cidade", "Estado", "Logradouro", "Numero", "Complemento", "Bairro", "Ponto de referência 1", "Ponto de referência 2", "Nome pessoa autorizada 1", "Nome pessoa autorizada 2", "Telefone pessoa autorizada 1", "Telefone pessoa autorizada 2", "Quantidade chips", "Boleto Digital", "Email", "Optou portabilidade", "DDD da portabilidadel", "Data de vencimento", "Estado da venda", "CEP (Alternativo)", "Estado (Alternativo)", "Cidade (Alternativa)", "Bairro (Alternativo)", "Logradouro (Alternativo)", "Numero (Alternativo)", "Complemento (Alternativo)", "Endereco de entrega alternativo"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jTable1.setIntercellSpacing(new java.awt.Dimension(2, 2));
         jTable1.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,8 +92,8 @@ public class RelatorioVendas extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(6, 6, 6))
         );
@@ -126,18 +118,67 @@ public class RelatorioVendas extends javax.swing.JFrame {
                      rs.getString("portabilidadeDDD"), rs.getString("dataVencimento"), rs.getInt("aceite"), rs.getString("cepAlternativo"), 
                      rs.getString("estadoAlternativo"), rs.getString("cidadeAlternativa"), rs.getString("bairroAlternativo"), 
                      rs.getString("logradouroAlternativo"), rs.getString("numeroAlternativo"), rs.getString("complementoAlternativo"), rs.getInt("enderecoAlternativo"));
-               vendas.add(v);
+               vendas.add(v); 
            }
        } catch (SQLException ex) {
            Logger.getLogger(RelatorioVendas.class.getName()).log(Level.SEVERE, null, ex);  
        }
-       String str = "";
+       String[] columns = new String [] {
+                "idVenda", "Nome do operador", "Data da venda", "Região da venda", "Plano escolhido", 
+            "Nome", "CPF", "Telefone 1", "Telefone 2", "Data de nascimento", "Nome da mãe", "Status do Crivo", 
+           "Fidelização Ano", "Optou redes sociais", "CEP", "Cidade", "Estado", "Logradouro", "Numero", "Complemento", 
+           "Bairro", "Ponto de referência 1", "Ponto de referência 2", "Nome pessoa autorizada 1", 
+           "Nome pessoa autorizada 2", "Telefone pessoa autorizada 1", "Telefone pessoa autorizada 2", 
+           "Quantidade chips", "Boleto Digital", "Email", "Optou portabilidade", "DDD da portabilidadel", 
+           "Data de vencimento", "Estado da venda", "CEP (Alternativo)", "Estado (Alternativo)", 
+           "Cidade (Alternativa)", "Bairro (Alternativo)", "Logradouro (Alternativo)", "Numero (Alternativo)", 
+           "Complemento (Alternativo)", "Endereco de entrega alternativo"
+            };
        
-       for(Venda v : vendas)
-           str += v + "\n\n";
+        String[] columnsDBNames = new String[] { //Array de apoio de nomes das colunas no banco
+                    "idvendas", "nomeOperador", "dataVenda", "regiaoVenda", 
+                    "planoEscolhido", "nomeCliente", "cpfCliente", "telefone1Cliente",
+                    "telefone2Cliente", "dataNascCliente", "nomeMaeCliente", "statusCrivo", 
+                    "fidelizadaAno", "optouAppsDataFree", "cepCliente", "cidadeCliente", 
+                    "estadoCliente", "logradouroCliente", "numeroCliente", "complementoCliente", 
+                    "bairroCliente", "pontoReferencia1", "pontoReferencia2", "nomePessoaAutorizada1", 
+                    "nomePessoaAutorizada2", "telefonePessoaAutorizada1", "telefonePessoaAutorizada2", 
+                    "quantidadeChipsAEnviar", "boletoDigital", "email", "optouPortabilidade", 
+                    "portabilidadeDDD", "dataVencimento", "aceite", "cepAlternativo", 
+                    "estadoAlternativo", "cidadeAlternativa", "bairroAlternativo", 
+                    "logradouroAlternativo", "numeroAlternativo", "complementoAlternativo", "enderecoAlternativo"
+           };
+        
+        
+        System.out.println(columns.length + "   " + columnsDBNames.length);
        
-
+       
+       try {
+           ResultSet rs = dba.execQry(qry);
+           Object[][] rows = new Object[vendas.size()][42];
+           
+            for(int i = 0 ; rs.next() ; i++) {
+                   for(int j = 1 ; j <= 42 ; j++) {
+                       
+                       if(j == 12 || j == 13 || j == 14 || j == 28 || j == 29 || j == 31 
+                                    || j == 34 || j == 42)
+                            rows[i][j-1] = (Integer) rs.getInt(j);
+                        else
+                            rows[i][j-1] = rs.getString(j);
+                    }
+           }
+            
+        DefaultTableModel tableModel = new DefaultTableModel(rows, columns);
+        jTable1.setModel(tableModel);
+                    
+       } catch (SQLException ex) {
+           Logger.getLogger(RelatorioVendas.class.getName()).log(Level.SEVERE, null, ex);
+       }
     }//GEN-LAST:event_formWindowOpened
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

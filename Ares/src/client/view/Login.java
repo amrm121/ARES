@@ -1,5 +1,6 @@
 package client.view;
 
+import client.view.adm.AdmMenu;
 import client.view.operacao.OperacaoMenu;
 import client.view.supervisao.SupervisaoMenu;
 import controller.ControladorLogin;
@@ -124,7 +125,7 @@ public class Login extends javax.swing.JFrame {
                 if(api.campAtiva()){
                     String idtipo = user[1];
                     if(idtipo.equals("1")){ //CPD                        
-                        Menu menu = new Menu(user[0], ramal.getText());
+                        AdmMenu menu = new AdmMenu(user[0], ramal.getText());
                         menu.setVisible(true);
                         this.setVisible(false);
                         loop = false;
@@ -184,7 +185,7 @@ public class Login extends javax.swing.JFrame {
                };
            }
         } catch (SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdmMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
         while(loop){            
             try {
@@ -194,7 +195,7 @@ public class Login extends javax.swing.JFrame {
                     throw new RuntimeException("Usuário ou senha incorretos!\nSe o erro persistir, contate o CPD.");
                 }else{
                     
-                    Menu menu = new Menu(log.getName(), userLogin.getRamalLogin());
+                    AdmMenu menu = new AdmMenu(log.getName(), userLogin.getRamalLogin());
                     menu.setVisible(true);
                     this.setVisible(false);
                     dba.execute("UPDATE usuario SET status = 2 WHERE (ramal = " + userLogin.getRamalLogin() + ")");

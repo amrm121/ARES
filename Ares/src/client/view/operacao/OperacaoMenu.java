@@ -7,7 +7,7 @@ package client.view.operacao;
 
 import client.view.*;
 import auxiliar.RandomString;
-import client.view.backoffice.RelatorioVendas;
+import client.view.RelatorioVendas;
 import controller.ControladorLogin;
 import data.DataBaseAcess;
 import java.sql.ResultSet;
@@ -96,7 +96,7 @@ public class OperacaoMenu extends javax.swing.JFrame {
                 logoutButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 180, 100));
+        getContentPane().add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 100, 30));
 
         mSetores1.setText("Operações");
         mSetores1.add(jSeparator2);
@@ -141,14 +141,12 @@ public class OperacaoMenu extends javax.swing.JFrame {
     private void opVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opVendasActionPerformed
         Vendas v = new Vendas(ramalUsuario, nomeUsuario);
         v.setVisible(true);
-        this.setVisible(false);
         
     }//GEN-LAST:event_opVendasActionPerformed
 
     private void rVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rVendasActionPerformed
         RelatorioVendas v = new RelatorioVendas();
         v.setVisible(true);
-        this.setVisible(false);
         
     }//GEN-LAST:event_rVendasActionPerformed
 
