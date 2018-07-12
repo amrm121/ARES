@@ -7,6 +7,7 @@ package client.view.backoffice;
 
 import client.view.RelatorioVendas;
 import auxiliar.RandomString;
+import client.view.ConfiguracaoRelatorioVendas;
 import client.view.operacao.OperacaoMenu;
 import data.DataBaseAcess;
 import java.sql.ResultSet;
@@ -94,8 +95,8 @@ public class BackOfficeMenu extends javax.swing.JFrame {
     }//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        RelatorioVendas v = new RelatorioVendas();
-        v.setVisible(true);
+        ConfiguracaoRelatorioVendas c = new ConfiguracaoRelatorioVendas();
+        c.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

@@ -5,6 +5,8 @@
  */
 package client.view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author suporteti
@@ -30,14 +32,12 @@ public class ConfiguracaoRelatorioVendas extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         dataInicialField = new javax.swing.JTextField();
-        dataFinalField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
+        dataFinalField = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         nomeOperadorField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        ramalOperadorField = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         gerarBttn = new javax.swing.JButton();
         voltarBttn = new javax.swing.JButton();
 
@@ -77,22 +77,22 @@ public class ConfiguracaoRelatorioVendas extends javax.swing.JFrame {
             }
         });
 
-        dataFinalField.setText("aaaa-mm-dd");
-        dataFinalField.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                dataFinalFieldMousePressed(evt);
-            }
-        });
-        dataFinalField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dataFinalFieldActionPerformed(evt);
-            }
-        });
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Data final");
 
         jCheckBox1.setText("Todo o período");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        dataFinalField.setText("aaaa-mm-dd");
+        dataFinalField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dataFinalFieldMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -106,8 +106,8 @@ public class ConfiguracaoRelatorioVendas extends javax.swing.JFrame {
                     .addComponent(jCheckBox1))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dataFinalField, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                    .addComponent(dataFinalField))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -142,15 +142,6 @@ public class ConfiguracaoRelatorioVendas extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Nome");
 
-        ramalOperadorField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ramalOperadorFieldActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Ramal");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -160,11 +151,8 @@ public class ConfiguracaoRelatorioVendas extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nomeOperadorField)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(ramalOperadorField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 174, Short.MAX_VALUE)))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 218, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -174,11 +162,7 @@ public class ConfiguracaoRelatorioVendas extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(3, 3, 3)
                 .addComponent(nomeOperadorField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ramalOperadorField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         gerarBttn.setText("Gerar");
@@ -221,7 +205,7 @@ public class ConfiguracaoRelatorioVendas extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(gerarBttn)
                     .addComponent(voltarBttn))
@@ -235,27 +219,26 @@ public class ConfiguracaoRelatorioVendas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_dataInicialFieldActionPerformed
 
-    private void dataFinalFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataFinalFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dataFinalFieldActionPerformed
-
     private void nomeOperadorFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeOperadorFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeOperadorFieldActionPerformed
 
-    private void ramalOperadorFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ramalOperadorFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ramalOperadorFieldActionPerformed
-
     private void gerarBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerarBttnActionPerformed
-        String dataInicial, dataFinal, nomeOperador, ramalOperador;
+        String dataInicial, dataFinal, nomeOperador;
         Boolean todoPeriodo;
         dataInicial = dataInicialField.getText();
         dataFinal = dataFinalField.getText();
         nomeOperador = nomeOperadorField.getText();
-        ramalOperador = ramalOperadorField.getText();
+        todoPeriodo = jCheckBox1.isSelected();
+        RelatorioVendas v;
         
-       
+        if(todoPeriodo) {
+            dataInicial = "";
+            dataFinal = "";
+        }
+        
+        v = new RelatorioVendas(dataInicial, dataFinal, nomeOperador);
+        v.setVisible(true);  
     }//GEN-LAST:event_gerarBttnActionPerformed
 
     private void voltarBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarBttnActionPerformed
@@ -267,27 +250,43 @@ public class ConfiguracaoRelatorioVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void dataInicialFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataInicialFieldMouseClicked
-        dataInicialField.setText("");
+        if(dataInicialField.getText().equals(""))
+            dataInicialField.setText("aaaa-mm-dd");
+        else if(dataInicialField.getText().equals("aaaa-mm-dd"))
+            dataInicialField.setText("");
     }//GEN-LAST:event_dataInicialFieldMouseClicked
 
-    private void dataFinalFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataFinalFieldMousePressed
-        dataFinalField.setText("");
-    }//GEN-LAST:event_dataFinalFieldMousePressed
-
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
-        dataInicialField.setText("aaaa-mm-dd");
-        dataFinalField.setText("aaaa-mm-dd");
+      
     }//GEN-LAST:event_jPanel1MouseClicked
 
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
-        dataInicialField.setText("aaaa-mm-dd");
-        dataFinalField.setText("aaaa-mm-dd");
+       
     }//GEN-LAST:event_jPanel2MouseClicked
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-        dataInicialField.setText("aaaa-mm-dd");
-        dataFinalField.setText("aaaa-mm-dd");
+        if(dataInicialField.getText().equals(""))
+            dataInicialField.setText("aaaa-mm-dd");
+        if(dataFinalField.getText().equals(""));
+            dataFinalField.setText("aaaa-mm-dd");
     }//GEN-LAST:event_formMouseClicked
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        if(jCheckBox1.isSelected()) {
+            dataInicialField.setEnabled(false);
+            dataFinalField.setEnabled(false);
+        } else {
+            dataInicialField.setEnabled(true);
+            dataFinalField.setEnabled(true);
+    }
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void dataFinalFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataFinalFieldMouseClicked
+        if(dataFinalField.getText().equals(""))
+            dataFinalField.setText("aaaa-mm-dd");
+        else if(dataFinalField.getText().equals("aaaa-mm-dd"))
+            dataFinalField.setText("");
+    }//GEN-LAST:event_dataFinalFieldMouseClicked
 
     /**
      * @param args the command line arguments
@@ -332,11 +331,9 @@ public class ConfiguracaoRelatorioVendas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField nomeOperadorField;
-    private javax.swing.JTextField ramalOperadorField;
     private javax.swing.JButton voltarBttn;
     // End of variables declaration//GEN-END:variables
 }

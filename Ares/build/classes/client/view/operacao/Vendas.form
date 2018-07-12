@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.6" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.JScrollBar" name="jScrollBar1">
     </Component>
@@ -13,6 +13,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowOpened"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -33,7 +36,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -44,39 +47,36 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="tVendas" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <Component id="jButton4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="tVendas" pref="625" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Component id="tVendas" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
         <Container class="javax.swing.JTabbedPane" name="tVendas">
-          <Properties>
-            <Property name="autoscrolls" type="boolean" value="true"/>
-          </Properties>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
           <SubComponents>
@@ -108,10 +108,13 @@
                                   <Component id="cliente" min="-2" pref="349" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel55" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cpftit" min="-2" pref="299" max="-2" attributes="0"/>
+                                      <Component id="cpftit" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel55" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="datanas" min="-2" pref="120" max="-2" attributes="0"/>
                                       <Component id="jLabel56" min="-2" max="-2" attributes="0"/>
@@ -144,11 +147,11 @@
                                       <Component id="tel1" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
                                       <Component id="jLabel79" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel58" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="339" max="32767" attributes="0"/>
                                       </Group>
                                       <Component id="maenome" max="32767" attributes="0"/>
                                   </Group>
@@ -167,7 +170,7 @@
                                               <Component id="ptel1" alignment="0" min="-2" pref="346" max="-2" attributes="0"/>
                                               <Component id="jLabel74" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace pref="104" max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel75" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel76" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -261,7 +264,7 @@
                                   <Component id="ptel2" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="40" max="32767" attributes="0"/>
+                          <EmptySpace pref="145" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -572,6 +575,10 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Dados de Entrega do Chip Diferente da Cobran&#xe7;a"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="endifMouseClicked"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="endifActionPerformed"/>
+                  </Events>
                 </Component>
                 <Container class="javax.swing.JPanel" name="pEnd3">
                   <Properties>
@@ -694,14 +701,17 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="ENDERE&#xc7;O DE ENTREGA CHIP:"/>
                       </Properties>
-                      <BindingProperties>
-                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="jLabel66" targetPath="enabled" updateStrategy="0" immediately="false"/>
-                      </BindingProperties>
+                      <Events>
+                        <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jLabel66jLabel68VetoableChange"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="endDif">
-                      <BindingProperties>
-                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="endDif" targetPath="enabled" updateStrategy="0" immediately="false"/>
-                      </BindingProperties>
+                      <Properties>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="endDifjLabel68VetoableChange"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel67">
                       <Properties>
@@ -710,14 +720,14 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
                       </Properties>
-                      <BindingProperties>
-                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="jLabel67" targetPath="enabled" updateStrategy="0" immediately="false"/>
-                      </BindingProperties>
+                      <Events>
+                        <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jLabel67jLabel68VetoableChange"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="nDif">
-                      <BindingProperties>
-                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="nDif" targetPath="enabled" updateStrategy="0" immediately="false"/>
-                      </BindingProperties>
+                      <Properties>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nDifActionPerformed"/>
                         <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="nDifjLabel68VetoableChange"/>
@@ -730,14 +740,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Complemento:"/>
                       </Properties>
-                      <BindingProperties>
-                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="jLabel68" targetPath="enabled" updateStrategy="0" immediately="false"/>
-                      </BindingProperties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="compDif">
-                      <BindingProperties>
-                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="compDif" targetPath="enabled" updateStrategy="0" immediately="false"/>
-                      </BindingProperties>
+                      <Properties>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
                       <Events>
                         <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="compDifjLabel68VetoableChange"/>
                       </Events>
@@ -749,17 +756,14 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Bairro:"/>
                       </Properties>
-                      <BindingProperties>
-                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="jLabel69" targetPath="enabled" updateStrategy="0" immediately="false"/>
-                      </BindingProperties>
                       <Events>
                         <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jLabel69jLabel68VetoableChange"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="bairroDif">
-                      <BindingProperties>
-                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="bairroDif" targetPath="enabled" updateStrategy="0" immediately="false"/>
-                      </BindingProperties>
+                      <Properties>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
                       <Events>
                         <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="bairroDifjLabel68VetoableChange"/>
                       </Events>
@@ -771,17 +775,17 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Cidade:"/>
                       </Properties>
-                      <BindingProperties>
-                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="jLabel70" targetPath="enabled" updateStrategy="0" immediately="false"/>
-                      </BindingProperties>
                       <Events>
                         <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jLabel70jLabel68VetoableChange"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="cidDif">
-                      <BindingProperties>
-                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="cidDif" targetPath="enabled" updateStrategy="0" immediately="false"/>
-                      </BindingProperties>
+                      <Properties>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="cidDifjLabel68VetoableChange"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel71">
                       <Properties>
@@ -790,17 +794,17 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="CEP:"/>
                       </Properties>
-                      <BindingProperties>
-                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="jLabel71" targetPath="enabled" updateStrategy="0" immediately="false"/>
-                      </BindingProperties>
                       <Events>
                         <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jLabel71jLabel68VetoableChange"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="cepDif">
-                      <BindingProperties>
-                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="cepDif" targetPath="enabled" updateStrategy="0" immediately="false"/>
-                      </BindingProperties>
+                      <Properties>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="cepDifjLabel68VetoableChange"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton5">
                       <Properties>
@@ -811,19 +815,17 @@
                             <EtchetBorder/>
                           </Border>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
-                      <BindingProperties>
-                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="jButton5" targetPath="enabled" updateStrategy="0" immediately="false"/>
-                      </BindingProperties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
                         <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jButton5jLabel68VetoableChange"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="estadoDif">
-                      <BindingProperties>
-                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="estadoDif" targetPath="enabled" updateStrategy="0" immediately="false"/>
-                      </BindingProperties>
+                      <Properties>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel78">
                       <Properties>
@@ -832,9 +834,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Estado:"/>
                       </Properties>
-                      <BindingProperties>
-                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="jLabel78" targetPath="enabled" updateStrategy="0" immediately="false"/>
-                      </BindingProperties>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1069,9 +1068,9 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="redesSociasA1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="58" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1157,9 +1156,6 @@
                       </StringArray>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="estadoVActionPerformed"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -1278,6 +1274,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Optou portabilidade"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="portabilidadeVActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="nPortab">
                   <Properties>
@@ -1329,46 +1328,46 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jSeparator4" alignment="1" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jComboBox8" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
+                                          <Component id="depTipoComboBox" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
                                           <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField8" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="numCelDependente" alignment="0" pref="271" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox9" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
+                                          <Component id="tipoContaDepComboBox" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox10" alignment="0" min="-2" pref="223" max="-2" attributes="0"/>
+                                          <Component id="tipoPlanoDepComboBOx" alignment="0" min="-2" pref="223" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                              <Component id="adcDependente" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                              <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                                              <Component id="removerDependente" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jButton7" min="-2" max="-2" attributes="0"/>
+                                              <Component id="editarDependente" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField9" alignment="0" min="-2" pref="383" max="-2" attributes="0"/>
+                                          <Component id="emailDependTextField" alignment="0" min="-2" pref="383" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
+                                  <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -1379,9 +1378,9 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="adcDependente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="removerDependente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editarDependente" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
@@ -1395,44 +1394,52 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jComboBox8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="depTipoComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="numCelDependente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tipoContaDepComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jComboBox10" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tipoPlanoDepComboBOx" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField9" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" min="-2" pref="91" max="-2" attributes="0"/>
-                              <EmptySpace pref="14" max="32767" attributes="0"/>
+                              <Component id="emailDependTextField" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" min="-2" pref="173" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JButton" name="jButton2">
+                    <Component class="javax.swing.JButton" name="adcDependente">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Adicionar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="adcDependenteActionPerformed"/>
+                      </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton6">
+                    <Component class="javax.swing.JButton" name="removerDependente">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Remover"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removerDependenteActionPerformed"/>
+                      </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton7">
+                    <Component class="javax.swing.JButton" name="editarDependente">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Editar"/>
-                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editarDependenteActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel17">
                       <Properties>
@@ -1442,7 +1449,7 @@
                         <Property name="text" type="java.lang.String" value="Tipo:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox8">
+                    <Component class="javax.swing.JComboBox" name="depTipoComboBox">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="4">
@@ -1465,9 +1472,9 @@
                         <Property name="text" type="java.lang.String" value="N&#xfa;mero Celular:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField8">
+                    <Component class="javax.swing.JTextField" name="numCelDependente">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField8ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="numCelDependenteActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JSeparator" name="jSeparator4">
@@ -1480,7 +1487,7 @@
                         <Property name="text" type="java.lang.String" value="Tipo da Conta:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox9">
+                    <Component class="javax.swing.JComboBox" name="tipoContaDepComboBox">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="4">
@@ -1503,7 +1510,7 @@
                         <Property name="text" type="java.lang.String" value="Tipo do Plano:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox10">
+                    <Component class="javax.swing.JComboBox" name="tipoPlanoDepComboBOx">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="4">
@@ -1526,28 +1533,71 @@
                         <Property name="text" type="java.lang.String" value="E-Mail:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField9">
+                    <Component class="javax.swing.JTextField" name="emailDependTextField">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField9ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emailDependTextFieldActionPerformed"/>
                       </Events>
                     </Component>
-                    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
                       <AuxValues>
                         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                       </AuxValues>
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JList" name="jList1">
+                        <Component class="javax.swing.JTable" name="dependTable">
                           <Properties>
-                            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                              <StringArray count="0"/>
+                            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                              <Table columnCount="5" rowCount="0">
+                                <Column editable="true" title="Tipo" type="java.lang.String"/>
+                                <Column editable="true" title="N&#xfa;mero Celular" type="java.lang.String"/>
+                                <Column editable="true" title="Tipo da Conta" type="java.lang.String"/>
+                                <Column editable="true" title="Tipo do Plano" type="java.lang.String"/>
+                                <Column editable="true" title="Email" type="java.lang.String"/>
+                              </Table>
                             </Property>
-                            <Property name="selectionMode" type="int" value="0"/>
+                            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                              <TableColumnModel selectionModel="0">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                              </TableColumnModel>
+                            </Property>
+                            <Property name="selectionModel" type="javax.swing.ListSelectionModel" editor="org.netbeans.modules.form.editors2.JTableSelectionModelEditor">
+                              <JTableSelectionModel selectionMode="0"/>
+                            </Property>
+                            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                            </Property>
                           </Properties>
-                          <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                          </AuxValues>
+                          <AccessibilityProperties>
+                            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+                          </AccessibilityProperties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="dependTableMouseClicked"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -1596,7 +1646,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="597" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="702" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>

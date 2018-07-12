@@ -151,8 +151,7 @@ public class OperacaoMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_opVendasActionPerformed
 
     private void rVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rVendasActionPerformed
-        RelatorioVendas v = new RelatorioVendas();
-        v.setVisible(true);
+
     }//GEN-LAST:event_rVendasActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -233,7 +232,7 @@ public class OperacaoMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void sys1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sys1ActionPerformed
-     
+        JOptionPane.showMessageDialog(this, "Feito por Alexandre Magalhães.", "ARES :: Teleconectividade", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_sys1ActionPerformed
 
     /**

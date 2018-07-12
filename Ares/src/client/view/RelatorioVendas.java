@@ -10,6 +10,8 @@ import data.DataBaseAcess;
 import java.awt.TextField;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -26,14 +28,21 @@ import javax.swing.table.DefaultTableModel;
 public class RelatorioVendas extends javax.swing.JFrame {
 
    DataBaseAcess dba;
+   private static String dataInicial, dataFinal, nomeOperador;
    
-    public RelatorioVendas() {
-        initComponents();
+   
+    public RelatorioVendas(String dataInicial, String dataFinal, String nomeOperador) {
+       this.dataInicial = dataInicial;
+       this.dataFinal = dataFinal;
+       this.nomeOperador = nomeOperador;
+       
        try {
            dba = DataBaseAcess.getInstance();
        } catch (SQLException ex) {
            Logger.getLogger(RelatorioVendas.class.getName()).log(Level.SEVERE, null, ex);
        }
+       
+       initComponents();
     }
 
     /**
@@ -50,7 +59,7 @@ public class RelatorioVendas extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setUndecorated(true);
+        setTitle("ARES :: TELECONECTIVIDADE");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -104,8 +113,32 @@ public class RelatorioVendas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-       String qry = "SELECT * FROM vendas";
+        
+       String qryFiltrada = "";
+       if(dataInicial.equals("") && dataFinal.equals("")) {
+            if(nomeOperador.equals(""))
+               qryFiltrada = "SELECT * FROM vendas";
+            else if(!nomeOperador.equals(""))
+               qryFiltrada = "SELECT * FROM vendas WHERE nomeOperador = '"+nomeOperador+"'";
+       } else if(!dataInicial.equals("") && dataFinal.equals("")) {
+            if(nomeOperador.equals(""))
+               qryFiltrada = "SELECT * FROM vendas WHERE dataVenda BETWEEN '"+dataInicial+"' AND '"+ZonedDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE)+"'";
+            else if(!nomeOperador.equals(""))
+               qryFiltrada = "SELECT * FROM vendas WHERE nomeOperador = '"+nomeOperador+"', dataVenda BETWEEN '"+dataInicial+"' AND '"+ZonedDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE)+"'";
+       } else if(dataInicial.equals("") && !dataFinal.equals("")) {
+            if(nomeOperador.equals(""))
+               qryFiltrada = "SELECT * FROM vendas WHERE dataVenda BETWEEN '"+ZonedDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE)+"' AND '"+dataFinal+"'";
+            else if(!nomeOperador.equals(""))
+               qryFiltrada = "SELECT * FROM vendas WHERE nomeOperador = '"+nomeOperador+"', dataVenda BETWEEN '"+ZonedDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE)+"' AND '"+dataFinal+"'";
+       } else if(!dataInicial.equals("") && !dataFinal.equals("")) {
+           if(nomeOperador.equals(""))
+               qryFiltrada = "SELECT * FROM vendas WHERE dataVenda BETWEEN '"+dataInicial+"' AND '"+dataFinal+"'";
+            else if(!nomeOperador.equals(""))
+               qryFiltrada = "SELECT * FROM vendas WHERE nomeOperador = '"+nomeOperador+"', dataVenda BETWEEN '"+dataInicial+"' AND '"+dataFinal+"'";
+       }
+           
        List<Venda> vendas = new ArrayList<>();
+       String qry = "SELECT * FROM vendas";
        try {
            ResultSet rs = dba.execQry(qry);
            while(rs.next()) {
@@ -136,27 +169,9 @@ public class RelatorioVendas extends javax.swing.JFrame {
            "Cidade (Alternativa)", "Bairro (Alternativo)", "Logradouro (Alternativo)", "Numero (Alternativo)", 
            "Complemento (Alternativo)", "Endereco de entrega alternativo"
             };
-       
-        String[] columnsDBNames = new String[] { //Array de apoio de nomes das colunas no banco
-                    "idvendas", "nomeOperador", "dataVenda", "regiaoVenda", 
-                    "planoEscolhido", "nomeCliente", "cpfCliente", "telefone1Cliente",
-                    "telefone2Cliente", "dataNascCliente", "nomeMaeCliente", "statusCrivo", 
-                    "fidelizadaAno", "optouAppsDataFree", "cepCliente", "cidadeCliente", 
-                    "estadoCliente", "logradouroCliente", "numeroCliente", "complementoCliente", 
-                    "bairroCliente", "pontoReferencia1", "pontoReferencia2", "nomePessoaAutorizada1", 
-                    "nomePessoaAutorizada2", "telefonePessoaAutorizada1", "telefonePessoaAutorizada2", 
-                    "quantidadeChipsAEnviar", "boletoDigital", "email", "optouPortabilidade", 
-                    "portabilidadeDDD", "dataVencimento", "aceite", "cepAlternativo", 
-                    "estadoAlternativo", "cidadeAlternativa", "bairroAlternativo", 
-                    "logradouroAlternativo", "numeroAlternativo", "complementoAlternativo", "enderecoAlternativo"
-           };
         
-        
-        System.out.println(columns.length + "   " + columnsDBNames.length);
-       
-       
-       try {
-           ResultSet rs = dba.execQry(qry);
+        try {
+           ResultSet rs = dba.execQry(qryFiltrada);
            Object[][] rows = new Object[vendas.size()][42];
            
             for(int i = 0 ; rs.next() ; i++) {
@@ -212,7 +227,7 @@ public class RelatorioVendas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RelatorioVendas().setVisible(true);
+                new RelatorioVendas(dataInicial, dataFinal, nomeOperador).setVisible(true);
             }
         });
     }
