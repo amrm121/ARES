@@ -25,8 +25,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="rVendas">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Vendas Agendadas"/>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="text" type="java.lang.String" value="Visualisar Vendas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rVendasActionPerformed"/>

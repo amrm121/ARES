@@ -43,16 +43,11 @@
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="visualisarVendas">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Visualizar Vendas Lan&#xe7;adas"/>
+                    <Property name="text" type="java.lang.String" value="Visualizar/Exportar Vendas Lan&#xe7;adas"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="visualisarVendasActionPerformed"/>
                   </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="exportarVendas">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Exportar Vendas"/>
-                  </Properties>
                 </MenuItem>
               </SubComponents>
             </Menu>

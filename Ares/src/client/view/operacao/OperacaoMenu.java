@@ -116,8 +116,7 @@ public class OperacaoMenu extends javax.swing.JFrame {
         });
         mSetores1.add(opVendas);
 
-        rVendas.setText("Vendas Agendadas");
-        rVendas.setEnabled(false);
+        rVendas.setText("Visualisar Vendas");
         rVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rVendasActionPerformed(evt);
@@ -152,8 +151,8 @@ public class OperacaoMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_opVendasActionPerformed
 
     private void rVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rVendasActionPerformed
-        RelatorioVendas v = new RelatorioVendas();
-        v.setVisible(true);
+        OpVendas a = new OpVendas(ramalUsuario);
+        a.setVisible(true);
     }//GEN-LAST:event_rVendasActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

@@ -9,13 +9,13 @@ public class Venda {
             telefonePessoaAutorizada1, telefonePessoaAutorizada2, 
                 email, portabilidadeDDD, dataVencimento, cepAlternativo, estadoAlternativo, 
             cidadeAlternativa, bairroAlternativo, logradouroAlternativo, 
-                numeroAlternativo, complementoAlternativo; 
+                numeroAlternativo, complementoAlternativo, aceitoCrivo; 
     
-        private int entregaAlternativa, optouPortabilidade, aceitoCrivo, fidelizadaAno, optouAppsDataFree, boletoDigital, 
+        private int entregaAlternativa, optouPortabilidade, fidelizadaAno, optouAppsDataFree, boletoDigital, 
             vendaAceitaCliente, qtdChipsEnviar;
 
     public Venda(String nomeOperador, String dataVenda, String regiaoVenda, String planoEscolhido, String nomeCliente, 
-            String cpfCliente, String telefone1Cliente, String telefone2Cliente, String dataNascCliente, String nomeMaeCliente, int aceitoCrivo, 
+            String cpfCliente, String telefone1Cliente, String telefone2Cliente, String dataNascCliente, String nomeMaeCliente, String aceitoCrivo, 
             int fidelizadaAno, int optouAppsDataFree, String cepCliente, String cidadeCliente, String estadoCliente, String logradouroCliente, String numeroCliente, 
             String complementoCliente, String bairroCliente, String pontoReferencia1, String pontoReferencia2, 
             String nomePessoaAutorizada1, String nomePessoaAutorizada2, String telefonePessoaAutorizada1, String telefonePessoaAutorizada2, int qtdChipsEnviar, 

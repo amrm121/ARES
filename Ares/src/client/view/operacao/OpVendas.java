@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package client.view;
+package client.view.operacao;
 
+import client.view.*;
 import au.com.bytecode.opencsv.CSVWriter;
 import data.DataBaseAcess;
 import java.io.File;
@@ -25,15 +26,17 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author suporteti
  */
-public class RelatorioVendas extends javax.swing.JFrame {
+public class OpVendas extends javax.swing.JFrame {
    DataBaseAcess dba;
+   private static String ramal;
    
-    public RelatorioVendas() {
+    public OpVendas(String ramal) {
+        this.ramal = ramal;
         initComponents();
        try {
            dba = DataBaseAcess.getInstance();
        } catch (SQLException ex) {
-           Logger.getLogger(RelatorioVendas.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(OpVendas.class.getName()).log(Level.SEVERE, null, ex);
        }
     }
 
@@ -129,7 +132,7 @@ public class RelatorioVendas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void showVendas(){
-        String qry = "SELECT * FROM vendas";
+        String qry = "SELECT * FROM vendas WHERE ramal ='"+ ramal+"'";
        List<Venda> vendas = new ArrayList<>();
        try {
            ResultSet rs = dba.execQry(qry);           
@@ -148,7 +151,7 @@ public class RelatorioVendas extends javax.swing.JFrame {
                vendas.add(v); 
            }
        } catch (SQLException ex) {
-           Logger.getLogger(RelatorioVendas.class.getName()).log(Level.SEVERE, null, ex);  
+           Logger.getLogger(OpVendas.class.getName()).log(Level.SEVERE, null, ex);  
        }
        String[] columns = new String [] {
                 "idVenda", "Nome do operador", "Ramal" ,"Data da venda", "Região da venda", "Plano escolhido", 
@@ -200,7 +203,7 @@ public class RelatorioVendas extends javax.swing.JFrame {
         jTable1.setModel(tableModel);
                     
        } catch (SQLException ex) {
-           Logger.getLogger(RelatorioVendas.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(OpVendas.class.getName()).log(Level.SEVERE, null, ex);
        }
     }
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -222,7 +225,7 @@ public class RelatorioVendas extends javax.swing.JFrame {
         File ff;
         if(status == JFileChooser.APPROVE_OPTION){
             try {
-                String qry = "SELECT * FROM vendas";
+                String qry = "SELECT * FROM vendas WHERE ramal ='"+ ramal+"'";
                 ResultSet rs = dba.execQry(qry);
                 ff = fileC.getSelectedFile();
                 String fn = ff.getCanonicalPath();
@@ -232,9 +235,9 @@ public class RelatorioVendas extends javax.swing.JFrame {
                 //ff = new File(fn+".csv");
                 //e.toExcel(jTable1, ff);
             } catch (IOException ex) {
-                Logger.getLogger(RelatorioVendas.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(OpVendas.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
-                Logger.getLogger(RelatorioVendas.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(OpVendas.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
@@ -258,21 +261,20 @@ public class RelatorioVendas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RelatorioVendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpVendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RelatorioVendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpVendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RelatorioVendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpVendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RelatorioVendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpVendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RelatorioVendas().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new OpVendas(ramal).setVisible(true);
         });
     }
 

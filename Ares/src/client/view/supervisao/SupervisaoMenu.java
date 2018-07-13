@@ -5,6 +5,7 @@
  */
 package client.view.supervisao;
 
+import au.com.bytecode.opencsv.CSVWriter;
 import auxiliar.RandomString;
 import client.view.RelatorioVendas;
 import javax.swing.JOptionPane;
@@ -65,7 +66,6 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         gerarPonto = new javax.swing.JMenuItem();
         vendasControle = new javax.swing.JMenu();
         visualisarVendas = new javax.swing.JMenuItem();
-        exportarVendas = new javax.swing.JMenuItem();
         rVendas = new javax.swing.JMenuItem();
         mConfig1 = new javax.swing.JMenu();
         sys1 = new javax.swing.JMenu();
@@ -113,16 +113,13 @@ public class SupervisaoMenu extends javax.swing.JFrame {
 
         vendasControle.setText("Controle de Vendas");
 
-        visualisarVendas.setText("Visualizar Vendas Lançadas");
+        visualisarVendas.setText("Visualizar/Exportar Vendas Lançadas");
         visualisarVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 visualisarVendasActionPerformed(evt);
             }
         });
         vendasControle.add(visualisarVendas);
-
-        exportarVendas.setText("Exportar Vendas");
-        vendasControle.add(exportarVendas);
 
         mSetores1.add(vendasControle);
 
@@ -191,7 +188,7 @@ public class SupervisaoMenu extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        menuInfo.setText(ramal+" : "+nome + "   |   Logado às: " + dataLogin);
+        menuInfo.setText(ramal+" : "+nome + " | Logado às: " + dataLogin);
         try {            
             boolean ponto = dba.execute("INSERT INTO controle_ponto (ssid, ramal, data, hora_login) "
                     + "VALUES ('"+idlog+"', '"+ramal+"', '"+dataDia+"', '"+HoraLogin+"')"
@@ -264,7 +261,6 @@ public class SupervisaoMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar1;
-    private javax.swing.JMenuItem exportarVendas;
     private javax.swing.JMenuItem gerarPonto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPopupMenu.Separator jSeparator2;

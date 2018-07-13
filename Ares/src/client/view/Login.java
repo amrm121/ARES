@@ -134,7 +134,15 @@ public class Login extends javax.swing.JFrame {
                         menu.setVisible(true);
                         this.setVisible(false);
                         loop = false;
-                    }
+                        break;
+                }
+                if(idtipo.equals("4")){ //SUPERVISAO
+                        SupervisaoMenu menu = new SupervisaoMenu(user[0], ramal.getText());
+                        menu.setVisible(true);
+                        this.setVisible(false);
+                        loop = false;
+                        break;
+                }
                 if(api.campAtiva()){
                     if(idtipo.equals("2")){ //ADM - BRUNO/MARCELA -> IGOR
                         //URGENTE
@@ -142,12 +150,6 @@ public class Login extends javax.swing.JFrame {
                     if(idtipo.equals("3")){ //BACKOFFICE
                         
                     } 
-                    if(idtipo.equals("4")){ //SUPERVISAO
-                        SupervisaoMenu menu = new SupervisaoMenu(user[0], ramal.getText());
-                        menu.setVisible(true);
-                        this.setVisible(false);
-                        loop = false;
-                    }
                     if(idtipo.equals("5")){ //MONITORIA
                         
                     }
@@ -171,48 +173,7 @@ public class Login extends javax.swing.JFrame {
             }
             //loop = false;
        }
-        
-        /*boolean loop = true;
-        
-            Usuario userLogin = new Usuario();
-        try {
-            dba = DataBaseAcess.getInstance();
-            log = ControladorLogin.getInstance();
-        } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         try {
-           ResultSet logs = dba.execQry("SELECT status FROM usuario WHERE (ramal = "+ramal.getText()+")");
-           if(logs.next()){               
-               int a = logs.getInt("status");
-               if(a == 2){throw new RuntimeException("Usuário já logado!");} 
-               if(a == 0){
-                   JOptionPane.showInputDialog("Você precisa redefinir sua senha!");
-               };
-           }
-        } catch (SQLException ex) {
-            Logger.getLogger(AdmMenu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        while(loop){            
-            try {
-                userLogin.setRamalLogin(ramal.getText());
-                userLogin.setSenha(pwd.getText());                
-                if(log.login(userLogin) == false){
-                    throw new RuntimeException("Usuário ou senha incorretos!\nSe o erro persistir, contate o CPD.");
-                }else{
-                    
-                    AdmMenu menu = new AdmMenu(log.getName(), userLogin.getRamalLogin());
-                    menu.setVisible(true);
-                    this.setVisible(false);
-                    dba.execute("UPDATE usuario SET status = 2 WHERE (ramal = " + userLogin.getRamalLogin() + ")");
-                    loop = false;
-                }                                
-            } catch (RuntimeException | SQLException e) {
-                JOptionPane.showMessageDialog(this, e.getMessage(), "ARES :: Teleconectividade", JOptionPane.ERROR_MESSAGE);               
-                loop = false;
-            }            
-        }*/
-        
+
     }//GEN-LAST:event_bLoginActionPerformed
     
     /**
