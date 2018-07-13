@@ -117,6 +117,7 @@ public class OperacaoMenu extends javax.swing.JFrame {
         mSetores1.add(opVendas);
 
         rVendas.setText("Vendas Agendadas");
+        rVendas.setEnabled(false);
         rVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rVendasActionPerformed(evt);
@@ -156,7 +157,7 @@ public class OperacaoMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_rVendasActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        menuInfo.setText(ramalUsuario+" : "+nomeUsuario + "   |   Logado às: " + dataLogin);
+        menuInfo.setText(ramalUsuario+" : "+nomeUsuario + " | Logado às: " + dataLogin);
         try {            
             boolean ponto = dba.execute("INSERT INTO controle_ponto (ssid, ramal, data, hora_login) "
                     + "VALUES ('"+idlog+"', '"+ramalUsuario+"', '"+dataDia+"', '"+HoraLogin+"')"

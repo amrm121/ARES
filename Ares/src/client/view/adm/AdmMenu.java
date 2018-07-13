@@ -86,7 +86,6 @@ public class AdmMenu extends javax.swing.JFrame {
 
         menuInfo.setEditable(false);
         menuInfo.setBackground(new java.awt.Color(204, 204, 204));
-        menuInfo.setAutoscrolls(false);
         menuInfo.setBorder(null);
         getContentPane().add(menuInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 259, 400, 20));
 
@@ -119,11 +118,6 @@ public class AdmMenu extends javax.swing.JFrame {
                 sys1MouseClicked(evt);
             }
         });
-        sys1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sys1ActionPerformed(evt);
-            }
-        });
         MenuBar1.add(sys1);
 
         setJMenuBar(MenuBar1);
@@ -133,7 +127,7 @@ public class AdmMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        menuInfo.setText(ramalUsuario+" : "+nomeUsuario + "   |   Logado às: " + dataLogin);
+        menuInfo.setText(ramalUsuario+" : "+nomeUsuario + " | Logado às: " + dataLogin);
         try {            
             boolean ponto = dba.execute("INSERT INTO controle_ponto (ssid, ramal, data, hora_login) "
                     + "VALUES ('"+idlog+"', '"+ramalUsuario+"', '"+dataDia+"', '"+HoraLogin+"')"
@@ -166,20 +160,15 @@ public class AdmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void RelatorioDeVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RelatorioDeVendasActionPerformed
-        ConfiguracaoRelatorioVendas c = new ConfiguracaoRelatorioVendas();
-        c.setVisible(true);
+        //ConfiguracaoRelatorioVendas c = new ConfiguracaoRelatorioVendas();
+        //c.setVisible(true);
         RelatorioVendas a = new RelatorioVendas();
         a.setVisible(true);
     }//GEN-LAST:event_RelatorioDeVendasActionPerformed
 
-    private void sys1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sys1ActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_sys1ActionPerformed
-
     private void sys1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sys1MouseClicked
         // TODO add your handling code here:
-        Vendas v = new Vendas("40000", "amrm");
+        Vendas v = new Vendas(ramalUsuario, nomeUsuario);
         v.setVisible(true);
     }//GEN-LAST:event_sys1MouseClicked
 

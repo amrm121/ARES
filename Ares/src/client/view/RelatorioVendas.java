@@ -48,8 +48,9 @@ public class RelatorioVendas extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        attVendas = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ARES :: TELECONECTIVIDADE");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -64,6 +65,7 @@ public class RelatorioVendas extends javax.swing.JFrame {
             }
         });
 
+        jTable1.setAutoCreateRowSorter(true);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -73,9 +75,17 @@ public class RelatorioVendas extends javax.swing.JFrame {
             }
         ));
         jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jTable1.setIntercellSpacing(new java.awt.Dimension(2, 2));
+        jTable1.setAutoscrolls(false);
+        jTable1.setIntercellSpacing(new java.awt.Dimension(1, 0));
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jTable1);
+
+        attVendas.setText("Atualizar");
+        attVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                attVendasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,9 +95,10 @@ public class RelatorioVendas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(attVendas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1))
-                    .addComponent(jScrollPane2))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -96,15 +107,17 @@ public class RelatorioVendas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(attVendas))
                 .addGap(6, 6, 6))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-       String qry = "SELECT * FROM vendas";
+    
+    private void showVendas(){
+        String qry = "SELECT * FROM vendas";
        List<Venda> vendas = new ArrayList<>();
        try {
            ResultSet rs = dba.execQry(qry);
@@ -152,7 +165,7 @@ public class RelatorioVendas extends javax.swing.JFrame {
            };
         
         
-        System.out.println(columns.length + "   " + columnsDBNames.length);
+        //System.out.println(columns.length + "   " + columnsDBNames.length);
        
        
        try {
@@ -176,11 +189,19 @@ public class RelatorioVendas extends javax.swing.JFrame {
        } catch (SQLException ex) {
            Logger.getLogger(RelatorioVendas.class.getName()).log(Level.SEVERE, null, ex);
        }
+    }
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+       showVendas();
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.setVisible(false);
+       this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void attVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attVendasActionPerformed
+        // TODO add your handling code here:
+       showVendas();
+    }//GEN-LAST:event_attVendasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,6 +239,7 @@ public class RelatorioVendas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton attVendas;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
