@@ -6,6 +6,7 @@
 package client.view.supervisao;
 
 import auxiliar.RandomString;
+import client.view.RelatorioVendas;
 import javax.swing.JOptionPane;
 import data.*;
 import java.sql.SQLException;
@@ -113,6 +114,11 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         vendasControle.setText("Controle de Vendas");
 
         visualisarVendas.setText("Visualizar Vendas Lançadas");
+        visualisarVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visualisarVendasActionPerformed(evt);
+            }
+        });
         vendasControle.add(visualisarVendas);
 
         exportarVendas.setText("Exportar Vendas");
@@ -216,6 +222,12 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         this.dispose();
         System.exit(0);
     }//GEN-LAST:event_formWindowClosing
+
+    private void visualisarVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualisarVendasActionPerformed
+       // TODO add your handling code here:
+       RelatorioVendas v = new RelatorioVendas();
+       v.setVisible(true);        
+    }//GEN-LAST:event_visualisarVendasActionPerformed
 
     /**
      * @param args the command line arguments

@@ -108,8 +108,13 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Apenas números no ramal.", "ARES :: Teleconectividade", JOptionPane.ERROR_MESSAGE);
                 break;
             }
-            String statusRamal = api.login(ramal.getText());     
-            //System.out.println(statusRamal + " TESTE");
+            if(log.getLogedIn(ramal.getText())){
+                JOptionPane.showMessageDialog(this, "Ramal já logado!", "ARES :: Teleconectividade", JOptionPane.ERROR_MESSAGE);
+                this.dispose();
+                System.exit(0);
+                break;
+            }
+            String statusRamal = api.login(ramal.getText());
             for(int i = 0; i < 5; i++) if(statusRamal.equalsIgnoreCase(results[i])) key = i;
             String[] user = log.getNomeID(ramal.getText()).split(";");                     
             switch(key){
@@ -122,6 +127,7 @@ public class Login extends javax.swing.JFrame {
                 loop = false;
                 break;
             case 2:
+                log.logIn(ramal.getText());
                 String idtipo = user[1];
                 if(idtipo.equals("1")){ //CPD                        
                         AdmMenu menu = new AdmMenu(user[0], ramal.getText());

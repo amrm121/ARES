@@ -22,6 +22,31 @@ public class ControladorLogin {
         return instance;
     }
     
+    public boolean getLogedIn(String ramal){
+        boolean answ = false;
+        try {            
+            String qry = "SELECT status FROM usuario WHERE ramal = '"+ramal+"'";
+            ResultSet rs = dba.execQry(qry);
+            if(rs.next()){
+                int st = rs.getInt("status");
+                if(st == 2) answ = true;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return answ;
+    }
+    
+    public void logIn(String ramal){
+         try {            
+            String qry = "UPDATE usuario SET status = 2 WHERE ramal = "+ramal;
+            dba.execute(qry);
+        } catch (SQLException ex) {
+            Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public String getNomeID(String ramal){        
         String answ = "";
         String qry = "SELECT nome, idtipo_usuario FROM usuario WHERE ramal = '"+ramal+"'";

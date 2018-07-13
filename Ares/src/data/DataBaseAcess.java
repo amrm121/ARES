@@ -21,7 +21,7 @@ public class DataBaseAcess {
     }
     
     public ResultSet execQry(String qry) throws SQLException{   
-        if(!con.isValid(2)){
+        if(!con.isValid(1)){
             this.con = DriverManager.getConnection(url, usr, pswd);
             this.stm = con.createStatement();
         }
@@ -29,7 +29,7 @@ public class DataBaseAcess {
     }
     
     public boolean execute(String qry) throws SQLException{
-        if(!con.isValid(2)){
+        if(!con.isValid(1)){
             this.con = DriverManager.getConnection(url, usr, pswd);
             this.stm = con.createStatement();
         }

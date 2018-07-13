@@ -45,6 +45,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Visualizar Vendas Lan&#xe7;adas"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="visualisarVendasActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="exportarVendas">
                   <Properties>
