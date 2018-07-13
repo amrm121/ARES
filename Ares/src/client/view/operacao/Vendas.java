@@ -59,8 +59,6 @@ public class Vendas extends javax.swing.JFrame {
         jLabel55 = new javax.swing.JLabel();
         jLabel56 = new javax.swing.JLabel();
         cliente = new javax.swing.JTextField();
-        cpftit = new javax.swing.JTextField();
-        datanas = new javax.swing.JTextField();
         jLabel57 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
         tel = new javax.swing.JTextField();
@@ -113,6 +111,8 @@ public class Vendas extends javax.swing.JFrame {
         jLabel77 = new javax.swing.JLabel();
         tel1 = new javax.swing.JTextField();
         jLabel79 = new javax.swing.JLabel();
+        datanas = new javax.swing.JFormattedTextField();
+        cpftit = new javax.swing.JFormattedTextField();
         tDadosV = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -158,9 +158,9 @@ public class Vendas extends javax.swing.JFrame {
         tipoV1 = new javax.swing.JComboBox<>();
         fidelizacaoA1 = new javax.swing.JCheckBox();
         redesSociasA1 = new javax.swing.JCheckBox();
-        jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Vendas");
@@ -189,18 +189,13 @@ public class Vendas extends javax.swing.JFrame {
         jLabel56.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel56.setText("Data de Nascimento:");
 
-        cpftit.setToolTipText("");
-
-        datanas.setText("ano-mes-dia");
-        datanas.setToolTipText("");
-
         jLabel57.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel57.setText("Telefone de Contato 1:");
 
         jLabel58.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel58.setText("Nome da Mãe:");
 
-        statusVenda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aceita pelo cliente", "Rascunho" }));
+        statusVenda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aceita", "Rascunho" }));
         statusVenda.setBorder(null);
 
         pEnd2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -547,6 +542,24 @@ public class Vendas extends javax.swing.JFrame {
         jLabel79.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel79.setText("Telefone de Contato 2:");
 
+        try {
+            datanas.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-##-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        datanas.setToolTipText("1994-05-11");
+        datanas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                datanasActionPerformed(evt);
+            }
+        });
+
+        try {
+            cpftit.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout tDadosC1Layout = new javax.swing.GroupLayout(tDadosC1);
         tDadosC1.setLayout(tDadosC1Layout);
         tDadosC1Layout.setHorizontalGroup(
@@ -559,22 +572,24 @@ public class Vendas extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(tDadosC1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel55)
-                            .addComponent(cpftit, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(tDadosC1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(datanas, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel56))
-                        .addContainerGap())
+                            .addComponent(cpftit, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(tDadosC1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel56, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(datanas))
+                        .addGap(14, 14, 14))
                     .addGroup(tDadosC1Layout.createSequentialGroup()
                         .addComponent(endif)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(tDadosC1Layout.createSequentialGroup()
                         .addGroup(tDadosC1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel54)
-                            .addComponent(jLabel14)
+                            .addGroup(tDadosC1Layout.createSequentialGroup()
+                                .addGroup(tDadosC1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel54)
+                                    .addComponent(jLabel14))
+                                .addGap(271, 271, 271)
+                                .addComponent(jLabel53))
                             .addComponent(opField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(271, 271, 271)
-                        .addComponent(jLabel53)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(statusVenda, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(26, 26, 26))
@@ -605,7 +620,7 @@ public class Vendas extends javax.swing.JFrame {
                                     .addComponent(pau1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ptel1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel74))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
                                 .addGroup(tDadosC1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel75)
                                     .addComponent(jLabel76)
@@ -635,8 +650,8 @@ public class Vendas extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(tDadosC1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cpftit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(datanas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(datanas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cpftit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel57)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -681,7 +696,7 @@ public class Vendas extends javax.swing.JFrame {
                         .addComponent(jLabel77)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ptel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         tVendas.addTab("Dados do Cliente:", tDadosC1);
@@ -703,17 +718,19 @@ public class Vendas extends javax.swing.JFrame {
 
         dVenda.setEditable(false);
 
+        campV.setEnabled(false);
+
         resCrivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sim", "Não" }));
         resCrivo.setToolTipText("");
 
-        estadoV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RJ/ES", "MG/BA/SE/DF/RS", "Demais estados", " " }));
+        estadoV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RJ/ES", "SP", "Demais estados", " " }));
         estadoV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 estadoVActionPerformed(evt);
             }
         });
 
-        planoV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Controle B", "Controle A", "Controle Light", "Pos A", "Pos B", "Pos C", "Pos D" }));
+        planoV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Controle A", "Controle B", "Controle Light", "Pos A", "Pos B", "Pos C", "Pos D", "Pos E" }));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setText("Vencimento:");
@@ -760,52 +777,70 @@ public class Vendas extends javax.swing.JFrame {
         jLabel16.setText("Print do score:");
 
         print.setText("Carregar Imagem");
+        print.setEnabled(false);
 
         jPanel3.setBackground(new java.awt.Color(218, 218, 218));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Vincular Dependentes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        jPanel3.setEnabled(false);
 
         jButton2.setText("Adicionar");
+        jButton2.setEnabled(false);
 
         jButton6.setText("Remover");
+        jButton6.setEnabled(false);
 
         jButton7.setText("Editar");
         jButton7.setEnabled(false);
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel17.setText("Tipo:");
+        jLabel17.setEnabled(false);
 
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox8.setEnabled(false);
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel18.setText("Número Celular:");
+        jLabel18.setEnabled(false);
 
+        jTextField8.setEnabled(false);
         jTextField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField8ActionPerformed(evt);
             }
         });
 
+        jSeparator4.setEnabled(false);
+
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel19.setText("Tipo da Conta:");
+        jLabel19.setEnabled(false);
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel20.setText("Tipo do Plano:");
+        jLabel20.setEnabled(false);
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel21.setText("E-Mail:");
+        jLabel21.setEnabled(false);
 
+        jTextField9.setEnabled(false);
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField9ActionPerformed(evt);
             }
         });
 
+        jScrollPane1.setEnabled(false);
+
         jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jList1);
 
         planoV1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Controle B", "Controle A", "Controle Light", "Pos A", "Pos B", "Pos C", "Pos D" }));
+        planoV1.setEnabled(false);
 
         tipoV1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Físico", "Digital" }));
+        tipoV1.setEnabled(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -821,14 +856,14 @@ public class Vendas extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel18)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE))
+                            .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel19)
                             .addComponent(tipoV1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(planoV1, 0, 243, Short.MAX_VALUE)
+                            .addComponent(planoV1, 0, 289, Short.MAX_VALUE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel20)
                                 .addGap(0, 0, Short.MAX_VALUE))))
@@ -932,7 +967,7 @@ public class Vendas extends javax.swing.JFrame {
                             .addGroup(tDadosVLayout.createSequentialGroup()
                                 .addGap(149, 149, 149)
                                 .addComponent(jLabel15)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 50, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 97, Short.MAX_VALUE)
                         .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
                             .addGroup(tDadosVLayout.createSequentialGroup()
@@ -966,7 +1001,7 @@ public class Vendas extends javax.swing.JFrame {
                                     .addComponent(opV, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(fidelizacaoA1)
                                     .addComponent(redesSociasA1))))
-                        .addGap(0, 40, Short.MAX_VALUE))
+                        .addGap(0, 86, Short.MAX_VALUE))
                     .addGroup(tDadosVLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -1026,19 +1061,6 @@ public class Vendas extends javax.swing.JFrame {
 
         tVendas.addTab("Dados da Venda:", tDadosV);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 816, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 597, Short.MAX_VALUE)
-        );
-
-        tVendas.addTab("Consulta de Vendas:", jPanel2);
-
         jButton1.setText("Enviar");
         jButton1.setToolTipText("");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -1055,6 +1077,9 @@ public class Vendas extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("APENAS APERTAR ENVIAR APÓS PREENCHER TODOS OS DADOS - 1ª PESSOA AUTORIZADA OBRIGATÓRIO 2ª OPCIONAL!");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1065,6 +1090,8 @@ public class Vendas extends javax.swing.JFrame {
                     .addComponent(tVendas)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton4)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)))
                 .addContainerGap())
@@ -1077,7 +1104,8 @@ public class Vendas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(jLabel1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1198,84 +1226,37 @@ public class Vendas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String qry = "";
-        String cep = "";
-        String endereco = "";
-        String bairro = "";
-        String cidade = "";
-        String estado = "";
-        int bairroCod = -1;
-        int cidCod = -1;
-        int ufCod = -1;
-        
-        cep = this.cep.getText();
-        
-        try {
-            qry = "SELECT endereco_logradouro, bairro_codigo FROM endereco WHERE (endereco_cep = " +cep+ " ) ";
-            ResultSet rs = dba.execQry(qry);
-            if(rs.next()){
-                endereco = rs.getString("endereco_logradouro");
-                bairroCod = rs.getInt("bairro_codigo");
-            }
-            qry = "SELECT bairro_descricao, cidade_codigo FROM bairro WHERE (bairro_codigo = " +bairroCod+ " ) ";
-            rs = dba.execQry(qry);
-            if(rs.next()) {
-                bairro = rs.getString("bairro_descricao");
-                cidCod = rs.getInt("cidade_codigo");
-            }
-            qry = "SELECT cidade_descricao, uf_codigo FROM cidade WHERE (cidade_codigo = " +cidCod+ " ) ";
-            rs = dba.execQry(qry);
-            if(rs.next()) {
-                cidade = rs.getString("cidade_descricao");
-                ufCod = rs.getInt("uf_codigo");
-            }
-            qry = "SELECT uf_descricao FROM uf WHERE (uf_codigo = " +ufCod+ " ) ";
-            rs = dba.execQry(qry);
-            if(rs.next()) {
-                estado = rs.getString("uf_descricao");
-            }           
-        } catch (SQLException ex) {
-            Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        this.end.setText(endereco);
-        this.bairro.setText(bairro);
-        this.cidade.setText(cidade);
-        this.estado.setText(estado);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void numActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numActionPerformed
+    private void redesSociasA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redesSociasA1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_numActionPerformed
+    }//GEN-LAST:event_redesSociasA1ActionPerformed
 
-    private void nDifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nDifActionPerformed
+    private void fidelizacaoA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fidelizacaoA1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nDifActionPerformed
+    }//GEN-LAST:event_fidelizacaoA1ActionPerformed
 
-    private void nDifjLabel68VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_nDifjLabel68VetoableChange
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nDifjLabel68VetoableChange
+    }//GEN-LAST:event_jTextField9ActionPerformed
 
-    private void compDifjLabel68VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_compDifjLabel68VetoableChange
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_compDifjLabel68VetoableChange
+    }//GEN-LAST:event_jTextField8ActionPerformed
 
-    private void jLabel69jLabel68VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jLabel69jLabel68VetoableChange
+    private void nPortabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nPortabActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel69jLabel68VetoableChange
+    }//GEN-LAST:event_nPortabActionPerformed
 
-    private void bairroDifjLabel68VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_bairroDifjLabel68VetoableChange
+    private void estadoVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadoVActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_bairroDifjLabel68VetoableChange
+    }//GEN-LAST:event_estadoVActionPerformed
 
-    private void jLabel70jLabel68VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jLabel70jLabel68VetoableChange
+    private void jButton5jLabel68VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jButton5jLabel68VetoableChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel70jLabel68VetoableChange
-
-    private void jLabel71jLabel68VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jLabel71jLabel68VetoableChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel71jLabel68VetoableChange
+    }//GEN-LAST:event_jButton5jLabel68VetoableChange
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         String qry = "";
@@ -1287,9 +1268,9 @@ public class Vendas extends javax.swing.JFrame {
         int bairroCod = -1;
         int cidCod = -1;
         int ufCod = -1;
-        
+
         cep = this.cepDif.getText();
-        
+
         try {
             qry = "SELECT endereco_logradouro, bairro_codigo FROM endereco WHERE (endereco_cep = " +cep+ " ) ";
             ResultSet rs = dba.execQry(qry);
@@ -1313,48 +1294,99 @@ public class Vendas extends javax.swing.JFrame {
             rs = dba.execQry(qry);
             if(rs.next()) {
                 estado = rs.getString("uf_descricao");
-            }           
+            }
         } catch (SQLException ex) {
             Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         this.endDif.setText(endereco);
         this.bairroDif.setText(bairro);
         this.cidDif.setText(cidade);
         this.estadoDif.setText(estado);
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton5jLabel68VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jButton5jLabel68VetoableChange
+    private void jLabel71jLabel68VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jLabel71jLabel68VetoableChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5jLabel68VetoableChange
+    }//GEN-LAST:event_jLabel71jLabel68VetoableChange
 
-    private void nPortabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nPortabActionPerformed
+    private void jLabel70jLabel68VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jLabel70jLabel68VetoableChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_nPortabActionPerformed
+    }//GEN-LAST:event_jLabel70jLabel68VetoableChange
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void bairroDifjLabel68VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_bairroDifjLabel68VetoableChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_bairroDifjLabel68VetoableChange
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void jLabel69jLabel68VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jLabel69jLabel68VetoableChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_jLabel69jLabel68VetoableChange
 
-    private void fidelizacaoA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fidelizacaoA1ActionPerformed
+    private void compDifjLabel68VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_compDifjLabel68VetoableChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_fidelizacaoA1ActionPerformed
+    }//GEN-LAST:event_compDifjLabel68VetoableChange
 
-    private void redesSociasA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redesSociasA1ActionPerformed
+    private void nDifjLabel68VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_nDifjLabel68VetoableChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_redesSociasA1ActionPerformed
+    }//GEN-LAST:event_nDifjLabel68VetoableChange
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void estadoVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadoVActionPerformed
+    private void nDifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nDifActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_estadoVActionPerformed
+    }//GEN-LAST:event_nDifActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String qry = "";
+        String cep = "";
+        String endereco = "";
+        String bairro = "";
+        String cidade = "";
+        String estado = "";
+        int bairroCod = -1;
+        int cidCod = -1;
+        int ufCod = -1;
+
+        cep = this.cep.getText();
+
+        try {
+            qry = "SELECT endereco_logradouro, bairro_codigo FROM endereco WHERE (endereco_cep = " +cep+ " ) ";
+            ResultSet rs = dba.execQry(qry);
+            if(rs.next()){
+                endereco = rs.getString("endereco_logradouro");
+                bairroCod = rs.getInt("bairro_codigo");
+            }
+            qry = "SELECT bairro_descricao, cidade_codigo FROM bairro WHERE (bairro_codigo = " +bairroCod+ " ) ";
+            rs = dba.execQry(qry);
+            if(rs.next()) {
+                bairro = rs.getString("bairro_descricao");
+                cidCod = rs.getInt("cidade_codigo");
+            }
+            qry = "SELECT cidade_descricao, uf_codigo FROM cidade WHERE (cidade_codigo = " +cidCod+ " ) ";
+            rs = dba.execQry(qry);
+            if(rs.next()) {
+                cidade = rs.getString("cidade_descricao");
+                ufCod = rs.getInt("uf_codigo");
+            }
+            qry = "SELECT uf_descricao FROM uf WHERE (uf_codigo = " +ufCod+ " ) ";
+            rs = dba.execQry(qry);
+            if(rs.next()) {
+                estado = rs.getString("uf_descricao");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        this.end.setText(endereco);
+        this.bairro.setText(bairro);
+        this.cidade.setText(cidade);
+        this.estado.setText(estado);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void numActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numActionPerformed
+
+    private void datanasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datanasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_datanasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1402,9 +1434,9 @@ public class Vendas extends javax.swing.JFrame {
     private javax.swing.JTextField cliente;
     private javax.swing.JTextField comp;
     private javax.swing.JTextField compDif;
-    private javax.swing.JTextField cpftit;
+    private javax.swing.JFormattedTextField cpftit;
     private javax.swing.JTextField dVenda;
-    private javax.swing.JTextField datanas;
+    private javax.swing.JFormattedTextField datanas;
     private javax.swing.JTextField email;
     private javax.swing.JTextField end;
     private javax.swing.JTextField endDif;
@@ -1421,6 +1453,7 @@ public class Vendas extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox8;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1468,7 +1501,6 @@ public class Vendas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;

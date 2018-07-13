@@ -62,6 +62,9 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         supPonto = new javax.swing.JMenu();
         liberarLogout = new javax.swing.JMenuItem();
         gerarPonto = new javax.swing.JMenuItem();
+        vendasControle = new javax.swing.JMenu();
+        visualisarVendas = new javax.swing.JMenuItem();
+        exportarVendas = new javax.swing.JMenuItem();
         rVendas = new javax.swing.JMenuItem();
         mConfig1 = new javax.swing.JMenu();
         sys1 = new javax.swing.JMenu();
@@ -102,9 +105,20 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         supPonto.add(liberarLogout);
 
         gerarPonto.setText("Gerar Planilha de Ponto");
+        gerarPonto.setEnabled(false);
         supPonto.add(gerarPonto);
 
         mSetores1.add(supPonto);
+
+        vendasControle.setText("Controle de Vendas");
+
+        visualisarVendas.setText("Visualizar Vendas Lançadas");
+        vendasControle.add(visualisarVendas);
+
+        exportarVendas.setText("Exportar Vendas");
+        vendasControle.add(exportarVendas);
+
+        mSetores1.add(vendasControle);
 
         rVendas.setText("Juntar Planilhas");
         rVendas.setEnabled(false);
@@ -238,6 +252,7 @@ public class SupervisaoMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar1;
+    private javax.swing.JMenuItem exportarVendas;
     private javax.swing.JMenuItem gerarPonto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
@@ -248,5 +263,7 @@ public class SupervisaoMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem rVendas;
     private javax.swing.JMenu supPonto;
     private javax.swing.JMenu sys1;
+    private javax.swing.JMenu vendasControle;
+    private javax.swing.JMenuItem visualisarVendas;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,62 +7,25 @@
         <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="menu_MenuBar"/>
       </AuxValues>
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="mSetores1">
+        <Menu class="javax.swing.JMenu" name="GerarRelatorioVendas">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Supervis&#xe3;o"/>
+            <Property name="text" type="java.lang.String" value="Relat&#xf3;rio"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator2">
-            </MenuItem>
-            <Menu class="javax.swing.JMenu" name="supPonto">
+            <MenuItem class="javax.swing.JMenuItem" name="RelatorioDeVendas">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Controle de Ponto"/>
-              </Properties>
-              <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="liberarLogout">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Liberar Logout"/>
-                    <Property name="multiClickThreshhold" type="long" value="1"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="liberarLogoutActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="gerarPonto">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Gerar Planilha de Ponto"/>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
-                </MenuItem>
-              </SubComponents>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="vendasControle">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Controle de Vendas"/>
-              </Properties>
-              <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="visualisarVendas">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Visualizar Vendas Lan&#xe7;adas"/>
-                  </Properties>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="exportarVendas">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Exportar Vendas"/>
-                  </Properties>
-                </MenuItem>
-              </SubComponents>
-            </Menu>
-            <MenuItem class="javax.swing.JMenuItem" name="rVendas">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Juntar Planilhas"/>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="text" type="java.lang.String" value="Relat&#xf3;rio de vendas"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rVendasActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RelatorioDeVendasActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Supervis&#xe3;o"/>
+          </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="mConfig1">
           <Properties>
@@ -75,6 +38,7 @@
             <Property name="text" type="java.lang.String" value="Sobre"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="sys1MouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sys1ActionPerformed"/>
           </Events>
         </Menu>
@@ -83,13 +47,14 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="0"/>
-    <Property name="title" type="java.lang.String" value="ARES :: TELECONECTIVIDADE"/>
+    <Property name="title" type="java.lang.String" value="Teleconectividade :: Ares"/>
+    <Property name="locationByPlatform" type="boolean" value="true"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="MenuBar1"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <Events>
     <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowClosing"/>
@@ -118,10 +83,14 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
+        <Property name="autoscrolls" type="boolean" value="false"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="259" width="400" height="-1"/>
+          <AbsoluteConstraints x="0" y="259" width="400" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
