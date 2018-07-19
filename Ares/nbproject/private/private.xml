@@ -5,18 +5,24 @@
             <url>src/client/view/Login.java</url>
             <bookmark id="1">
                 <name/>
-                <line>175</line>
+                <line>178</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/operacao/Vendas.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/ConfiguracaoRelatorioVendas.java</file>
             <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/operacao/OperacaoMenu.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/RelatorioVendas.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/operacao/Vendas.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/data/DataBaseAcess.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/supervisao/SupervisaoMenu.java</file>
             <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/adm/AdmMenu.java</file>
-            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/operacao/OpVendas.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/backoffice/BackOfficeMenu.java</file>
             <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/model/Venda.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/Login.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/operacao/FileClient.java</file>
         </group>
     </open-files>
 </project-private>

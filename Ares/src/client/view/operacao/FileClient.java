@@ -27,12 +27,12 @@ public class FileClient {
 				
 	}
 	
-	public void sendFile(File file) throws IOException {
+	private void sendFile(File file) throws IOException {
 		DataOutputStream dos = new DataOutputStream(s.getOutputStream());
                 FileInputStream fis = new FileInputStream(file);
                 long fs = file.length();
                 String fp = ramal+"_"+data;
-		dos.writeUTF(fp+":"+".png:+"+fs);
+		dos.writeUTF(fp+":"+fp+".png:+"+fs);
                 dos.flush();
                 byte[] buffer = new byte[4096];
 		

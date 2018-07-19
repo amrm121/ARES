@@ -190,9 +190,7 @@ public class OpVendas extends javax.swing.JFrame {
            
             for(int i = 0 ; rs.next() ; i++) {
                    for(int j = 1 ; j <= 43 ; j++) {
-                       
-                       if(j == 14 || j == 15 || j == 29 || j == 30 || j == 32 
-                                    || j == 35 || j == 43)
+                       if(j == 29 || j == 30 || j == 32 || j == 35 || j == 43)
                             rows[i][j-1] = (Integer) rs.getInt(j);
                         else
                             rows[i][j-1] = rs.getString(j);

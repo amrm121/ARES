@@ -13,7 +13,6 @@ import controller.ControladorLogin;
 import data.DataBaseAcess;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.net.Socket;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.*;
@@ -166,19 +165,11 @@ public class AdmMenu extends javax.swing.JFrame {
     private void RelatorioDeVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RelatorioDeVendasActionPerformed
         //ConfiguracaoRelatorioVendas c = new ConfiguracaoRelatorioVendas();
         //c.setVisible(true);
-        //RelatorioVendas a = new RelatorioVendas();
-        //a.setVisible(true);
-        //OpVendas a = new OpVendas("20002");
-        //a.setVisible(true);
-        Socket c;
-        try {
-            c = new Socket("10.81.32.11", 5000);
-            DataOutputStream sout = new DataOutputStream(c.getOutputStream());
-            sout.writeUTF("find");
-            } catch (IOException ex) {
-            Logger.getLogger(AdmMenu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        RelatorioVendas a = new RelatorioVendas();
+        a.setVisible(true);
+        OpVendas z = new OpVendas("20002");
+        z.setVisible(true);
+      
     }//GEN-LAST:event_RelatorioDeVendasActionPerformed
 
     private void sys1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sys1MouseClicked
