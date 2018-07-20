@@ -138,9 +138,9 @@ public class OpVendas extends javax.swing.JFrame {
            ResultSet rs = dba.execQry(qry);           
            while(rs.next()) {
                Venda v = new Venda(rs.getString("nomeOperador"), rs.getString("dataVenda"), rs.getString("regiaoVenda"), 
+                      rs.getString("statusCrivo"), rs.getInt("fidelizadaAno"), rs.getInt("optouAppsDataFree"),
                      rs.getString("planoEscolhido"), rs.getString("nomeCliente"), rs.getString("cpfCliente"), rs.getString("telefone1Cliente"), 
-                     rs.getString("telefone2Cliente"), rs.getString("dataNascCliente"), rs.getString("nomeMaeCliente"), rs.getString("statusCrivo"), 
-                     rs.getInt("fidelizadaAno"), rs.getInt("optouAppsDataFree"), rs.getString("cepCliente"), rs.getString("cidadeCliente"), 
+                     rs.getString("telefone2Cliente"), rs.getString("dataNascCliente"), rs.getString("nomeMaeCliente"), rs.getString("cepCliente"), rs.getString("cidadeCliente"), 
                      rs.getString("estadoCliente"), rs.getString("logradouroCliente"), rs.getString("numeroCliente"), rs.getString("complementoCliente"), 
                      rs.getString("bairroCliente"), rs.getString("pontoReferencia1"), rs.getString("pontoReferencia2"), rs.getString("nomePessoaAutorizada1"), 
                      rs.getString("nomePessoaAutorizada2"), rs.getString("telefonePessoaAutorizada1"), rs.getString("telefonePessoaAutorizada2"), 
@@ -154,9 +154,9 @@ public class OpVendas extends javax.swing.JFrame {
            Logger.getLogger(OpVendas.class.getName()).log(Level.SEVERE, null, ex);  
        }
        String[] columns = new String [] {
-                "idVenda", "Nome do operador", "Ramal" ,"Data da venda", "Região da venda", "Plano escolhido", 
-            "Nome", "CPF", "Telefone 1", "Telefone 2", "Data de nascimento", "Nome da mãe", "Status do Crivo", 
-           "Fidelização Ano", "Optou redes sociais", "CEP", "Cidade", "Estado", "Logradouro", "Numero", "Complemento", 
+                "idVenda", "Nome do operador", "Ramal" ,"Data da venda", "Região da venda", "Status do Crivo", 
+           "Fidelização Ano", "Optou redes sociais", "Plano escolhido", 
+            "Nome", "CPF", "Telefone 1", "Telefone 2", "Data de nascimento", "Nome da mãe", "CEP", "Cidade", "Estado", "Logradouro", "Numero", "Complemento", 
            "Bairro", "Ponto de referência 1", "Ponto de referência 2", "Nome pessoa autorizada 1", 
            "Nome pessoa autorizada 2", "Telefone pessoa autorizada 1", "Telefone pessoa autorizada 2", 
            "Quantidade chips", "Boleto Digital", "Email", "Optou portabilidade", "DDD da portabilidadel", 

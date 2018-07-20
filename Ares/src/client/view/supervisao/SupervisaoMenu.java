@@ -8,6 +8,7 @@ package client.view.supervisao;
 import au.com.bytecode.opencsv.CSVWriter;
 import auxiliar.RandomString;
 import client.view.RelatorioVendas;
+import controller.SipConnector;
 import javax.swing.JOptionPane;
 import data.*;
 import java.sql.SQLException;
@@ -23,6 +24,7 @@ import java.util.logging.Logger;
  */
 public class SupervisaoMenu extends javax.swing.JFrame {
     private DataBaseAcess dba;
+    private APIAcess api;
     static private String nome;
     static private String ramal;
     private String dataLogin = ZonedDateTime.now().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
@@ -38,6 +40,7 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         this.nome = nome;
         this.ramal = ramal;
         try {
+            api = APIAcess.getInstance();
             dba = DataBaseAcess.getInstance();
         } catch (SQLException ex) {
             Logger.getLogger(SupervisaoMenu.class.getName()).log(Level.SEVERE, null, ex);
@@ -214,6 +217,11 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(SupervisaoMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        dba.closeConnnection();
+        SipConnector sip = new SipConnector();
+        api.logout(ramal);
+        sip.Logout();
         dba.closeConnnection();
         this.setVisible(false);
         this.dispose();

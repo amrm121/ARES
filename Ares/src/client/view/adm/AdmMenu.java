@@ -10,6 +10,8 @@ import client.view.*;
 import client.view.operacao.OpVendas;
 import client.view.operacao.Vendas;
 import controller.ControladorLogin;
+import controller.SipConnector;
+import data.APIAcess;
 import data.DataBaseAcess;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -35,15 +37,15 @@ public class AdmMenu extends javax.swing.JFrame {
     ZonedDateTime date = ZonedDateTime.now();
     private String dataDia = date.format(DateTimeFormatter.ISO_LOCAL_DATE);
     private String HoraLogin = date.format(DateTimeFormatter.ISO_LOCAL_TIME);
-    private ControladorLogin clog;
     private String idlog;
+    private APIAcess api;
     private final RandomString session;
 
     public AdmMenu(String nome, String ramal) {
         this.setLocationRelativeTo(null);
         try {
+            this.api = APIAcess.getInstance();
             this.dba = DataBaseAcess.getInstance();
-            this.clog = ControladorLogin.getInstance();
         } catch (SQLException ex) {
             Logger.getLogger(AdmMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -152,13 +154,16 @@ public class AdmMenu extends javax.swing.JFrame {
            boolean ponto = dba.execute("UPDATE controle_ponto SET hora_logout = '"+HoraLogout+"' WHERE (ssid = '" + idlog + "')");         
            if(ponto){
                JOptionPane.showMessageDialog(this, "Hora de logout registrada.\n"+HoraLogout);
+               SipConnector sip = new SipConnector();
+               api.logout(ramalUsuario);
+               sip.Logout();
            }
         } catch (SQLException ex) {
             Logger.getLogger(AdmMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
         dba.closeConnnection();
         this.setVisible(false);
-        this.dispose();
+        this.dispose();        
         System.exit(0);
     }//GEN-LAST:event_formWindowClosing
 

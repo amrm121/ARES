@@ -159,13 +159,14 @@ public class Vendas extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
         planoV1 = new javax.swing.JComboBox<>();
         tipoV1 = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        dependTable = new javax.swing.JTable();
         fidelizacaoA1 = new javax.swing.JCheckBox();
         redesSociasA1 = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
+        chipsT = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -647,7 +648,7 @@ public class Vendas extends javax.swing.JFrame {
                                     .addComponent(pau1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ptel1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel74))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
                                 .addGroup(tDadosC1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel75)
                                     .addComponent(jLabel76)
@@ -723,7 +724,7 @@ public class Vendas extends javax.swing.JFrame {
                         .addComponent(jLabel77)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ptel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         tVendas.addTab("Dados do Cliente:", tDadosC1);
@@ -746,6 +747,7 @@ public class Vendas extends javax.swing.JFrame {
         dVenda.setEditable(false);
 
         campV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tim 2.0", "Nova Campanha" }));
+        campV.setEnabled(false);
 
         resCrivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sim", "Não" }));
         resCrivo.setSelectedIndex(1);
@@ -813,7 +815,6 @@ public class Vendas extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(218, 218, 218));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Vincular Dependentes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
-        jPanel3.setEnabled(false);
 
         jButton2.setText("Adicionar");
         jButton2.setEnabled(false);
@@ -828,7 +829,7 @@ public class Vendas extends javax.swing.JFrame {
         jLabel17.setText("Tipo:");
         jLabel17.setEnabled(false);
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cônjuge", "Filho(a)", "Família(geral)", " " }));
         jComboBox8.setEnabled(false);
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -863,16 +864,23 @@ public class Vendas extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane1.setEnabled(false);
-
-        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane1.setViewportView(jList1);
-
         planoV1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Controle B", "Controle A", "Controle Light", "Pos A", "Pos B", "Pos C", "Pos D" }));
         planoV1.setEnabled(false);
 
         tipoV1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Físico", "Digital" }));
         tipoV1.setEnabled(false);
+
+        jScrollPane2.setEnabled(false);
+
+        dependTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Tipo", "Num Celular", "Tipo Plano", "Tipo Conta", "E-Mail"
+            }
+        ));
+        jScrollPane2.setViewportView(dependTable);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -888,7 +896,7 @@ public class Vendas extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel18)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE))
+                            .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel19)
@@ -896,13 +904,12 @@ public class Vendas extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(planoV1, 0, 283, Short.MAX_VALUE)
+                                .addComponent(planoV1, 0, 281, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator4))
+                                .addComponent(jSeparator4, javax.swing.GroupLayout.DEFAULT_SIZE, 6, Short.MAX_VALUE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel20)
                                 .addGap(0, 0, Short.MAX_VALUE))))
-                    .addComponent(jScrollPane1)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -915,6 +922,11 @@ public class Vendas extends javax.swing.JFrame {
                             .addComponent(jLabel21))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 855, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -948,9 +960,12 @@ public class Vendas extends javax.swing.JFrame {
                 .addComponent(jLabel21)
                 .addGap(12, 12, 12)
                 .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(238, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addContainerGap(154, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         fidelizacaoA1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -973,6 +988,11 @@ public class Vendas extends javax.swing.JFrame {
 
         jLabel3.setForeground(new java.awt.Color(255, 0, 0));
         jLabel3.setText("Ao escolher a imagem, não precisa definir um nome");
+
+        chipsT.setEditable(false);
+        chipsT.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        chipsT.setText("Quantidade de Chips à enviar:");
+        chipsT.setEnabled(false);
 
         javax.swing.GroupLayout tDadosVLayout = new javax.swing.GroupLayout(tDadosV);
         tDadosV.setLayout(tDadosVLayout);
@@ -1006,7 +1026,7 @@ public class Vendas extends javax.swing.JFrame {
                                     .addGroup(tDadosVLayout.createSequentialGroup()
                                         .addGap(149, 149, 149)
                                         .addComponent(jLabel15)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 95, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 99, Short.MAX_VALUE)
                                 .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(tDadosVLayout.createSequentialGroup()
                                         .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1031,7 +1051,7 @@ public class Vendas extends javax.swing.JFrame {
                                             .addComponent(jLabel7)
                                             .addComponent(resCrivo, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tDadosVLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap()
                                 .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tDadosVLayout.createSequentialGroup()
                                         .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1042,12 +1062,14 @@ public class Vendas extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(opV, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tDadosVLayout.createSequentialGroup()
+                                        .addComponent(chipsT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel3)
                                         .addGap(18, 18, 18)
                                         .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(redesSociasA1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(fidelizacaoA1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(0, 84, Short.MAX_VALUE))
+                        .addGap(0, 86, Short.MAX_VALUE))
                     .addGroup(tDadosVLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -1104,9 +1126,11 @@ public class Vendas extends javax.swing.JFrame {
                         .addComponent(fidelizacaoA1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(redesSociasA1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(redesSociasA1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(chipsT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1153,7 +1177,7 @@ public class Vendas extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tVendas, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
+                .addComponent(tVendas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
@@ -1228,7 +1252,7 @@ public class Vendas extends javax.swing.JFrame {
         logradouroAlternativo = endDif.getText();
         numeroAlternativo = this.nDif.getText();
         complementoAlternativo = this.compDif.getText();
-        qtdChipsEnviar = jList1.getComponentCount();
+        qtdChipsEnviar = 0;
         
         if(portabilidadeV.isSelected())
             optouPortabilidade = 1;
@@ -1498,6 +1522,7 @@ public class Vendas extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> campV;
     private javax.swing.JTextField cep;
     private javax.swing.JTextField cepDif;
+    private javax.swing.JTextField chipsT;
     private javax.swing.JTextField cidDif;
     private javax.swing.JTextField cidade;
     private javax.swing.JTextField cliente;
@@ -1506,6 +1531,7 @@ public class Vendas extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField cpftit;
     private javax.swing.JTextField dVenda;
     private javax.swing.JFormattedTextField datanas;
+    private javax.swing.JTable dependTable;
     private javax.swing.JTextField email;
     private javax.swing.JTextField end;
     private javax.swing.JTextField endDif;
@@ -1570,11 +1596,10 @@ public class Vendas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;

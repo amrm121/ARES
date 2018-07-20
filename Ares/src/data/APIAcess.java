@@ -36,16 +36,34 @@ public class APIAcess {
         return answ;
     }
     
+    public boolean logout(String ramal){
+        boolean st = false;
+        String func = "set_status?ramal="+ramal+"&status_id=2";
+        String rr = APIGet(func).trim();
+        //System.out.println(rr + " <- test");
+        if(rr.equalsIgnoreCase("Deslogado do sistema com sucesso")){
+            
+            st = true;
+        }
+        return st;
+    }
+    
     public String login(String ramal){
         String func = "login?ramal="+ramal;
         return APIGet(func).trim();
     }
     
     public boolean campAtiva(){
+        boolean res = false;
         String func = "campanhas?";
         String[] campanhas = APIGet(func).split("\n");
-        String[] cAtiva = campanhas[2].split(";");
-        return !cAtiva[2].equalsIgnoreCase("INATIVA");
+        for (String campanha : campanhas) {
+            String[] op = campanha.split(";");
+            if(op[2].equalsIgnoreCase("ativa")){
+                res = true;
+            }
+        }
+        return res;
     }
     
     

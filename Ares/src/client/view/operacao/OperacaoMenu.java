@@ -9,6 +9,8 @@ import client.view.*;
 import auxiliar.RandomString;
 import client.view.RelatorioVendas;
 import controller.ControladorLogin;
+import controller.SipConnector;
+import data.APIAcess;
 import data.DataBaseAcess;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,6 +35,7 @@ public class OperacaoMenu extends javax.swing.JFrame {
     private String dataDia = date.format(DateTimeFormatter.ISO_LOCAL_DATE);
     private String HoraLogin = date.format(DateTimeFormatter.ISO_LOCAL_TIME);
     private ControladorLogin clog;
+    private APIAcess api;
     private String idlog;
     private final RandomString session;
 
@@ -40,6 +43,7 @@ public class OperacaoMenu extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         try {
             this.dba = DataBaseAcess.getInstance();
+            this.api = APIAcess.getInstance();
             this.clog = ControladorLogin.getInstance();
         } catch (SQLException ex) {
             Logger.getLogger(OperacaoMenu.class.getName()).log(Level.SEVERE, null, ex);
@@ -190,6 +194,9 @@ public class OperacaoMenu extends javax.swing.JFrame {
                 logOut.close();
                 dba.closeConnnection();
                 this.setVisible(false);
+                SipConnector sip = new SipConnector();
+                api.logout(ramalUsuario);
+                sip.Logout();
                 this.dispose();
                 System.exit(0);
             }else{
@@ -218,8 +225,11 @@ public class OperacaoMenu extends javax.swing.JFrame {
                 if(ponto){
                     JOptionPane.showMessageDialog(this, "Hora de logout registrada.\n"+HoraLogout);
                 }
-                logOut.close();
+                
                 dba.closeConnnection();
+                SipConnector sip = new SipConnector();
+                api.logout(ramalUsuario);
+                sip.Logout();
                 this.setVisible(false);
                 this.dispose();
                 System.exit(0);
