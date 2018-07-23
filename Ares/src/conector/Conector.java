@@ -38,11 +38,30 @@ public class Conector {
         }
     }
     
+    private Statement conectarPostGreSql() throws ClassNotFoundException, SQLException {
+        Class.forName("org.postgresql.Driver");
+        String local = "10.81.32.50";
+        String banco = "totalipdb";
+        String usuario = "integracao";
+        String senha = "";
+        con = DriverManager.getConnection("jdbc:postgresql://"
+                + local + "/" + banco
+                + "?charSet=LATIN1", usuario,
+                senha);
+        //stmt = conn.createStatement();
+        return con.createStatement();
+        //return stmt;
+    }
+    
     public void desconectar() throws SQLException {
         con.close();
     }
     
     public Statement conectar() throws ClassNotFoundException, SQLException {
         return this.conectarMySql();
+    }
+    
+    public Statement conectarP() throws ClassNotFoundException, SQLException {
+        return this.conectarPostGreSql();
     }
 }
