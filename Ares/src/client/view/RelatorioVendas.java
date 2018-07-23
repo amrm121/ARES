@@ -187,10 +187,22 @@ public class RelatorioVendas extends javax.swing.JFrame {
            
             for(int i = 0 ; rs.next() ; i++) {
                    for(int j = 1 ; j <= 43 ; j++) {
-                       if(j == 29 || j == 30 || j == 32 || j == 35 || j == 43)
-                            rows[i][j-1] = (Integer) rs.getInt(j);
-                        else
-                            rows[i][j-1] = rs.getString(j);
+                       if(j == 29){//35 aceite 32 portabilidade 30 boleto/email fatura 29 qtdchips
+                           rows[i][j-1] = (Integer) rs.getInt(j);
+                       }
+                       else if(j == 30){
+                           int a = (Integer) rs.getInt(j);
+                           if(a == 1) rows[i][j-1] = "DIGITAL";
+                           else rows[i][j-1] = "BOLETO";
+                       }
+                       else if(j == 32 || j == 35 || j == 43){
+                          int a = (Integer) rs.getInt(j);
+                           if(a == 1) rows[i][j-1] = "SIM";
+                           else rows[i][j-1] = "NAO";
+                       }
+                       else{
+                           rows[i][j-1] = rs.getString(j);      
+                       }    
                     }
            }
             
