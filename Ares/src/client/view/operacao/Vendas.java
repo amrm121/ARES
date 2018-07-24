@@ -21,18 +21,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author suporteti
  */
 public class Vendas extends javax.swing.JFrame {
-    private int qtChip = 0;
+    private int qtChip = 1;
     static private String ramal;
     static private String nome;
     static private int idUsuario;
     private static DataBaseAcess dba;
     private ArrayList<String> planos = new ArrayList<>();
+    private ArrayList<String> ops = new ArrayList<>();
     private ArrayList<Double> valor = new ArrayList<>();
     
     public Vendas(String ramal, String nome) {
@@ -44,25 +46,39 @@ public class Vendas extends javax.swing.JFrame {
             Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
         }
         String qry = "SELECT descricao, valor FROM plano WHERE status = 1";
+        String qry2 = "SELECT descricao FROM operadoras WHERE status = 1";
         ResultSet rs = null;
+        ResultSet rs2 = null;
         try {
             rs = dba.execQry(qry);
             while(rs.next()){
                 planos.add(rs.getString("descricao"));
                 valor.add(rs.getDouble("valor"));
-            }
+            }            
+        } catch (SQLException ex) {
+            Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            rs2 = dba.execQry(qry2);
+            while(rs2.next()){
+                ops.add(rs2.getString("descricao"));
+            }            
         } catch (SQLException ex) {
             Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         initComponents();
+        ops.forEach((z) -> {
+            opV.addItem(z);
+        });
         planos.forEach((z) -> {
             planoV.addItem(z);
             planoV1.addItem(z);
         });
         //planoV.setModel(aModel); //statusVenda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aceita", "Rascunho" }));
-        vplano.setText(" "+valor.get(planoV.getSelectedIndex()));
+        vplano.setText("R$:"+valor.get(planoV.getSelectedIndex()));
         opField.setText(nome);
+        chipN.setText(""+this.qtChip);
         dVenda.setText(ZonedDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE));
     }
 
@@ -169,20 +185,19 @@ public class Vendas extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         print = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        adcD = new javax.swing.JButton();
+        remD = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox<>();
+        tipoD = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        celD = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        emailD = new javax.swing.JTextField();
         planoV1 = new javax.swing.JComboBox<>();
-        tipoV1 = new javax.swing.JComboBox<>();
+        portD = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         dependTable = new javax.swing.JTable();
         fidelizacaoA1 = new javax.swing.JCheckBox();
@@ -237,7 +252,6 @@ public class Vendas extends javax.swing.JFrame {
         jLabel58.setText("Nome da Mãe:");
 
         statusVenda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aceita", "Rascunho" }));
-        statusVenda.setSelectedIndex(1);
         statusVenda.setBorder(null);
 
         pEnd2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -766,7 +780,7 @@ public class Vendas extends javax.swing.JFrame {
                         .addComponent(jLabel77)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ptel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
 
         tVendas.addTab("Dados do Cliente:", tDadosC1);
@@ -826,9 +840,11 @@ public class Vendas extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setText("Operadora de Origem:");
 
-        opV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         opV.setSelectedIndex(-1);
-        opV.setEnabled(false);
+        opV.setToolTipText("");
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, portabilidadeV, org.jdesktop.beansbinding.ELProperty.create("${selected}"), opV, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
 
         portabilidadeV.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         portabilidadeV.setText("Optou portabilidade");
@@ -866,28 +882,36 @@ public class Vendas extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(218, 218, 218));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Vincular Dependentes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
-        jButton2.setText("Adicionar");
+        adcD.setText("Adicionar");
+        adcD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adcDActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Remover");
-
-        jButton7.setText("Editar");
+        remD.setText("Remover");
+        remD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                remDActionPerformed(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel17.setText("Tipo:");
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "FILHOS", "CONJUGE", "FAMILIA" }));
+        tipoD.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "FILHOS", "CONJUGE", "FAMILIA" }));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel18.setText("Número Celular:");
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        celD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                celDActionPerformed(evt);
             }
         });
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel19.setText("Tipo do Boleto:");
+        jLabel19.setText("Portabilidade:");
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel20.setText("Tipo do Plano:");
@@ -895,20 +919,20 @@ public class Vendas extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel21.setText("E-Mail:");
 
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        emailD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                emailDActionPerformed(evt);
             }
         });
 
-        tipoV1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Físico", "Digital" }));
+        portD.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIM", "NAO" }));
 
         dependTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Tipo", "Num Celular", "Tipo Plano", "Tipo Conta", "E-Mail"
+                "Tipo", "Num Celular", "Tipo Plano", "Portabilidade", "E-Mail"
             }
         ));
         jScrollPane2.setViewportView(dependTable);
@@ -922,16 +946,16 @@ public class Vendas extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tipoD, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel18)
-                            .addComponent(jTextField8))
+                            .addComponent(celD))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel19)
-                            .addComponent(tipoV1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(portD, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -944,12 +968,10 @@ public class Vendas extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(adcD)
                                 .addGap(10, 10, 10)
-                                .addComponent(jButton6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton7))
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(remD))
+                            .addComponent(emailD, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel21))
                         .addGap(0, 472, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -964,9 +986,8 @@ public class Vendas extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7))
+                    .addComponent(adcD)
+                    .addComponent(remD))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -975,8 +996,8 @@ public class Vendas extends javax.swing.JFrame {
                             .addComponent(jLabel18))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(tipoD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(celD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel20)
@@ -985,12 +1006,12 @@ public class Vendas extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(planoV1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tipoV1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(portD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel21)
                 .addGap(12, 12, 12)
-                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(emailD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(238, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -1002,11 +1023,6 @@ public class Vendas extends javax.swing.JFrame {
         fidelizacaoA1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         fidelizacaoA1.setText("Optou fidelização anual");
         fidelizacaoA1.setActionCommand("");
-        fidelizacaoA1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fidelizacaoA1ActionPerformed(evt);
-            }
-        });
 
         redesSociasA1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         redesSociasA1.setText("Optou redes sociais");
@@ -1135,10 +1151,11 @@ public class Vendas extends javax.swing.JFrame {
                     .addComponent(resCrivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(estadoV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8)
+                        .addComponent(jLabel9)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(planoV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1179,7 +1196,7 @@ public class Vendas extends javax.swing.JFrame {
                         .addComponent(tChips)
                         .addComponent(chipN))
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1335,12 +1352,38 @@ public class Vendas extends javax.swing.JFrame {
                 + "'"+qtdChipsEnviar+"', '"+boletoDigital+"', '"+email+"', '"+optouPortabilidade+"', '"+portabilidadeDDD+"', '"+dataVencimento+"', "
                 + "'"+vendaAceitaCliente+"', '"+cepAlternativo+"', '"+estadoAlternativo+"', '"+cidadeAlternativa+"', "
                 + "'"+bairroAlternativo+"', '"+logradouroAlternativo+"', '"+numeroAlternativo+"', '"+complementoAlternativo+"', '"+entregaAlternativa+"')";
-        String qryp = ""; //Query do protocolo+dependentes
+        //Query do protocolo+dependentes
         
        
         
         try {
             dba.execute(qry);
+            ResultSet rs = dba.execQry("SELECT idvendas FROM vendas WHERE ramal = "+ramal);
+            rs.last();
+            int idvenda = rs.getInt("idvendas");
+            String qryp = "INSERT INTO `teleconectividade`.`protocolo` (`ramal`, `idvendas`, `protocolo`, `data`) VALUES "
+                + "('"+ramal+"', '"+idvenda+"', '"+protocolo.getText()+"', '"+dataVenda+"')";
+            //while(rs.next()) System.out.println(rs.getInt("idvendas"));
+            
+            if(dependTable.getRowCount() > 0){
+            //qry add dependentes
+            for(int i = 0; i < dependTable.getRowCount(); i++){
+                String[] val = new String[5];
+                for(int z = 0; z < 5; z++){
+                    //System.out.println(dependTable.getValueAt(i, z).toString());
+                    val[z] = dependTable.getValueAt(i, z).toString();
+                }
+                String qryd = "INSERT INTO `teleconectividade`.`vendas_dependentes` (`plano`, `numero`, `idvendas`, `portabilidade`, `email`, `tipo`)"
+                    + "VALUES "+"('"+val[2]+"', '"+val[1]+"', '"+idvenda+"', '"+val[3]+"', '"+val[4]+"', '"+val[0]+"')";
+                try {
+                    dba.execute(qryd);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+        }
+            dba.execute(qryp);
             JOptionPane.showMessageDialog(this, "Pedido realizado com sucesso");
         } catch (SQLException ex) {
             Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
@@ -1357,17 +1400,13 @@ public class Vendas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_redesSociasA1ActionPerformed
 
-    private void fidelizacaoA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fidelizacaoA1ActionPerformed
+    private void emailDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fidelizacaoA1ActionPerformed
+    }//GEN-LAST:event_emailDActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void celDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_celDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
-
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_celDActionPerformed
 
     private void nPortabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nPortabActionPerformed
         // TODO add your handling code here:
@@ -1520,7 +1559,7 @@ public class Vendas extends javax.swing.JFrame {
         if(status == JFileChooser.APPROVE_OPTION){
             try {
             ff = fileC.getSelectedFile();
-            FileClient fc = new FileClient(ramal+"_"+this.cpftit.getText(), data, "10.81.32.11", 9000, ff);
+            FileClient fc = new FileClient(ramal+"_"+cpftit.getText(), data, "10.81.32.11", 9000, ff);
             
             }catch (InterruptedException ex) {
                 Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
@@ -1538,12 +1577,11 @@ public class Vendas extends javax.swing.JFrame {
 
     private void portabilidadeVItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_portabilidadeVItemStateChanged
         // TODO add your handling code here:
-        System.out.println(evt.getStateChange());
         if(evt.getStateChange() == 1){
-            this.qtChip++;
+            this.qtChip--;
             chipN.setText(""+this.qtChip);
         }else{
-            this.qtChip--;
+            this.qtChip++;
             chipN.setText(""+this.qtChip);
         }
     }//GEN-LAST:event_portabilidadeVItemStateChanged
@@ -1555,6 +1593,52 @@ public class Vendas extends javax.swing.JFrame {
             vplano.setText("R$:"+valor.get(planoV.getSelectedIndex()));
         }
     }//GEN-LAST:event_planoVItemStateChanged
+
+    private void adcDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adcDActionPerformed
+        // TODO add your handling code here:
+        //System.out.println(dependTable.getRowCount());
+        if(dependTable.getRowCount() < 4){
+            String tipo = tipoD.getItemAt(tipoD.getSelectedIndex());
+            String num = celD.getText();
+            String portabilidade = portD.getItemAt(portD.getSelectedIndex());
+            String plano = planoV1.getItemAt(planoV1.getSelectedIndex());
+            String email = emailD.getText();
+
+            if(portabilidade.equalsIgnoreCase("nao")){
+                this.qtChip++;
+                chipN.setText(""+this.qtChip);
+            }
+            Object[] rowData = new Object[5];
+            rowData[0] = tipo;
+            rowData[1] = num;
+            rowData[2] = plano;
+            rowData[3] = portabilidade;
+            rowData[4] = email;
+            DefaultTableModel tm = (DefaultTableModel) dependTable.getModel();
+            tm.addRow(rowData);
+            dependTable.setModel(tm);
+            celD.setText("");
+            emailD.setText("");
+        }else{
+            JOptionPane.showMessageDialog(this, "Máximo de dependentes.");
+        }
+        
+    }//GEN-LAST:event_adcDActionPerformed
+
+    private void remDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remDActionPerformed
+        // TODO add your handling code here:
+        if(dependTable.getRowCount() > 0){
+            int sr = dependTable.getSelectedRow();
+            Object op = dependTable.getValueAt(sr, 3);
+            if(op.toString().equalsIgnoreCase("nao")){
+                this.qtChip--;
+                chipN.setText(""+this.qtChip);
+            }
+            DefaultTableModel tm = (DefaultTableModel) dependTable.getModel();
+            tm.removeRow(sr);
+        }       
+        
+    }//GEN-LAST:event_remDActionPerformed
     
     /**
      * @param args the command line arguments
@@ -1592,9 +1676,11 @@ public class Vendas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton adcD;
     private javax.swing.JTextField bairro;
     private javax.swing.JTextField bairroDif;
     private javax.swing.JComboBox<String> campV;
+    private javax.swing.JTextField celD;
     private javax.swing.JTextField cep;
     private javax.swing.JTextField cepDif;
     private javax.swing.JLabel chipN;
@@ -1608,6 +1694,7 @@ public class Vendas extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField datanas;
     private javax.swing.JTable dependTable;
     private javax.swing.JTextField email;
+    private javax.swing.JTextField emailD;
     private javax.swing.JTextField end;
     private javax.swing.JTextField endDif;
     private javax.swing.JCheckBox endif;
@@ -1616,13 +1703,9 @@ public class Vendas extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> estadoV;
     private javax.swing.JCheckBox fidelizacaoA1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1676,8 +1759,6 @@ public class Vendas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField maenome;
     private javax.swing.JTextField nDif;
     private javax.swing.JTextField nPortab;
@@ -1690,6 +1771,7 @@ public class Vendas extends javax.swing.JFrame {
     private javax.swing.JTextField pau2;
     private javax.swing.JComboBox<String> planoV;
     private javax.swing.JComboBox<String> planoV1;
+    private javax.swing.JComboBox<String> portD;
     private javax.swing.JCheckBox portabilidadeV;
     private javax.swing.JTextField pref1;
     private javax.swing.JTextField pref2;
@@ -1698,6 +1780,7 @@ public class Vendas extends javax.swing.JFrame {
     private javax.swing.JTextField ptel1;
     private javax.swing.JTextField ptel2;
     private javax.swing.JCheckBox redesSociasA1;
+    private javax.swing.JButton remD;
     private javax.swing.JComboBox<String> resCrivo;
     private javax.swing.JComboBox<String> statusVenda;
     private javax.swing.JLabel tChips;
@@ -1706,8 +1789,8 @@ public class Vendas extends javax.swing.JFrame {
     private javax.swing.JTabbedPane tVendas;
     private javax.swing.JTextField tel;
     private javax.swing.JTextField tel1;
+    private javax.swing.JComboBox<String> tipoD;
     private javax.swing.JComboBox<String> tipoV;
-    private javax.swing.JComboBox<String> tipoV1;
     private javax.swing.JLabel vPlano;
     private javax.swing.JComboBox<String> vencV;
     private javax.swing.JLabel vplano;

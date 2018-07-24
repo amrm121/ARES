@@ -8,6 +8,7 @@ package client.view.supervisao;
 import au.com.bytecode.opencsv.CSVWriter;
 import auxiliar.RandomString;
 import client.view.RelatorioVendas;
+import client.view.VendasDependentes;
 import controller.SipConnector;
 import javax.swing.JOptionPane;
 import data.*;
@@ -69,6 +70,7 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         gerarPonto = new javax.swing.JMenuItem();
         vendasControle = new javax.swing.JMenu();
         visualisarVendas = new javax.swing.JMenuItem();
+        supDep = new javax.swing.JMenuItem();
         rVendas = new javax.swing.JMenuItem();
         mConfig1 = new javax.swing.JMenu();
         sys1 = new javax.swing.JMenu();
@@ -123,6 +125,14 @@ public class SupervisaoMenu extends javax.swing.JFrame {
             }
         });
         vendasControle.add(visualisarVendas);
+
+        supDep.setText("Visualizar Dependentes");
+        supDep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supDepActionPerformed(evt);
+            }
+        });
+        vendasControle.add(supDep);
 
         mSetores1.add(vendasControle);
 
@@ -234,6 +244,12 @@ public class SupervisaoMenu extends javax.swing.JFrame {
        v.setVisible(true);        
     }//GEN-LAST:event_visualisarVendasActionPerformed
 
+    private void supDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supDepActionPerformed
+        // TODO add your handling code here:
+        VendasDependentes v = new VendasDependentes();
+        v.setVisible(true);
+    }//GEN-LAST:event_supDepActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -277,6 +293,7 @@ public class SupervisaoMenu extends javax.swing.JFrame {
     private javax.swing.JMenu mSetores1;
     private javax.swing.JTextField menuInfo;
     private javax.swing.JMenuItem rVendas;
+    private javax.swing.JMenuItem supDep;
     private javax.swing.JMenu supPonto;
     private javax.swing.JMenu sys1;
     private javax.swing.JMenu vendasControle;

@@ -71,6 +71,7 @@ public class AdmMenu extends javax.swing.JFrame {
         MenuBar1 = new javax.swing.JMenuBar();
         GerarRelatorioVendas = new javax.swing.JMenu();
         RelatorioDeVendas = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mConfig1 = new javax.swing.JMenu();
         sys1 = new javax.swing.JMenu();
@@ -107,6 +108,14 @@ public class AdmMenu extends javax.swing.JFrame {
             }
         });
         GerarRelatorioVendas.add(RelatorioDeVendas);
+
+        jMenuItem1.setText("Vendas Dependentes");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        GerarRelatorioVendas.add(jMenuItem1);
 
         MenuBar1.add(GerarRelatorioVendas);
 
@@ -183,6 +192,12 @@ public class AdmMenu extends javax.swing.JFrame {
         v.setVisible(true);
     }//GEN-LAST:event_sys1MouseClicked
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        VendasDependentes v = new VendasDependentes();
+        v.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -224,6 +239,7 @@ public class AdmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem RelatorioDeVendas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu mConfig1;
     private javax.swing.JTextField menuInfo;
     private javax.swing.JMenu sys1;
