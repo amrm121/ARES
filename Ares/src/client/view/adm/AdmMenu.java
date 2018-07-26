@@ -9,6 +9,7 @@ import auxiliar.RandomString;
 import client.view.*;
 import client.view.operacao.OpVendas;
 import client.view.operacao.Vendas;
+import client.view.supervisao.PaLogadas;
 import controller.ControladorLogin;
 import controller.SipConnector;
 import data.APIAcess;
@@ -134,6 +135,16 @@ public class AdmMenu extends javax.swing.JFrame {
         MenuBar1.add(GerarRelatorioVendas);
 
         jMenu2.setText("Supervisão");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
+        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu2ActionPerformed(evt);
+            }
+        });
         MenuBar1.add(jMenu2);
 
         mConfig1.setText("Configurações");
@@ -216,6 +227,16 @@ public class AdmMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_fatCrivoDiaActionPerformed
+
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu2ActionPerformed
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        // TODO add your handling code here:
+        PaLogadas pa = new PaLogadas();
+        pa.setVisible(true);
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
      * @param args the command line arguments

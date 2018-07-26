@@ -38,9 +38,11 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="gerarPonto">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Gerar Planilha de Ponto"/>
-                    <Property name="enabled" type="boolean" value="false"/>
+                    <Property name="text" type="java.lang.String" value="Visualizar/Gerar Planilha de Ponto"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gerarPontoActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>

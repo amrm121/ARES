@@ -5,18 +5,35 @@
  */
 package client.view.supervisao;
 
+import data.DataBaseAcess;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Alexandre
  */
 public class PaLogadas extends javax.swing.JFrame {
-
+private DataBaseAcess dba;
+private ArrayList<String> operador = new ArrayList<>();
+private ArrayList<String> ramal = new ArrayList<>();
+private ArrayList<Integer> status = new ArrayList<>();
     /**
      * Creates new form PaLogadas
      */
     public PaLogadas() {
+    try {
+        dba = DataBaseAcess.getInstance();
+    } catch (SQLException ex) {
+        Logger.getLogger(PaLogadas.class.getName()).log(Level.SEVERE, null, ex);
+    }
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,11 +45,19 @@ public class PaLogadas extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table = new javax.swing.JTable();
+        attB = new javax.swing.JButton();
+        lbl = new javax.swing.JLabel();
+        nPas = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -48,7 +73,16 @@ public class PaLogadas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(table);
+
+        attB.setText("Atualizar");
+        attB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                attBActionPerformed(evt);
+            }
+        });
+
+        lbl.setText("Total de PA's Logadas/Total de PA's:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -56,19 +90,71 @@ public class PaLogadas extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbl)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nPas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(attB)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(attB)
+                    .addComponent(lbl)
+                    .addComponent(nPas))
+                .addGap(4, 4, 4))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private void showT(){
+        try {
+        // TODO add your handling code here:
+        String qry = "SELECT ramal, nome, status FROM usuario WHERE idtipo_usuario = 6";
+        ResultSet rs = dba.execQry(qry);
+        while(rs.next()){            
+            ramal.add(rs.getString("ramal"));
+            operador.add(rs.getString("nome"));
+            status.add(rs.getInt("status"));
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(PaLogadas.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    DefaultTableModel dm = (DefaultTableModel) table.getModel();
+    Object[] row = new Object[3];
+    int ct = 0;
+    for(int i = 0; i < ramal.size(); i++){
+        row[0] = ramal.get(i);
+        row[1] = operador.get(i);
+        if(status.get(i) == 1){
+            row[2] = "DESLOGADO";
+        }else{
+            row[2] = "LOGADO";
+            ct++;
+        }
+        
+        dm.addRow(row);
+    }
+    nPas.setText(ct+"/"+ramal.size()+" "+(ct/ramal.size())+"(% Logados)");
+    table.setModel(dm);
+    }
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        showT();
+    
+    }//GEN-LAST:event_formWindowOpened
+
+    private void attBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attBActionPerformed
+        // TODO add your handling code here:
+        showT();
+    }//GEN-LAST:event_attBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,15 +184,16 @@ public class PaLogadas extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PaLogadas().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new PaLogadas().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton attB;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lbl;
+    private javax.swing.JLabel nPas;
+    private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 }

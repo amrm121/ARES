@@ -120,8 +120,12 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         });
         supPonto.add(supPA);
 
-        gerarPonto.setText("Gerar Planilha de Ponto");
-        gerarPonto.setEnabled(false);
+        gerarPonto.setText("Visualizar/Gerar Planilha de Ponto");
+        gerarPonto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gerarPontoActionPerformed(evt);
+            }
+        });
         supPonto.add(gerarPonto);
 
         mSetores1.add(supPonto);
@@ -277,8 +281,15 @@ public class SupervisaoMenu extends javax.swing.JFrame {
 
     private void supPAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supPAActionPerformed
         // TODO add your handling code here:
-        
+        PaLogadas v = new PaLogadas();
+        v.setVisible(true);
     }//GEN-LAST:event_supPAActionPerformed
+
+    private void gerarPontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerarPontoActionPerformed
+        // TODO add your handling code here:
+        PlanilhaPonto v = new PlanilhaPonto();
+        v.setVisible(true);
+    }//GEN-LAST:event_gerarPontoActionPerformed
 
     /**
      * @param args the command line arguments
