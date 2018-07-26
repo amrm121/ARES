@@ -67,10 +67,12 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         supPonto = new javax.swing.JMenu();
         liberarLogout = new javax.swing.JMenuItem();
+        supPA = new javax.swing.JMenuItem();
         gerarPonto = new javax.swing.JMenuItem();
         vendasControle = new javax.swing.JMenu();
         visualisarVendas = new javax.swing.JMenuItem();
         supDep = new javax.swing.JMenuItem();
+        supVendas = new javax.swing.JMenuItem();
         rVendas = new javax.swing.JMenuItem();
         mConfig1 = new javax.swing.JMenu();
         sys1 = new javax.swing.JMenu();
@@ -110,6 +112,14 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         });
         supPonto.add(liberarLogout);
 
+        supPA.setText("PA's Logadas");
+        supPA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supPAActionPerformed(evt);
+            }
+        });
+        supPonto.add(supPA);
+
         gerarPonto.setText("Gerar Planilha de Ponto");
         gerarPonto.setEnabled(false);
         supPonto.add(gerarPonto);
@@ -133,6 +143,15 @@ public class SupervisaoMenu extends javax.swing.JFrame {
             }
         });
         vendasControle.add(supDep);
+
+        supVendas.setText("Vendas x Planos");
+        supVendas.setEnabled(false);
+        supVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supVendasActionPerformed(evt);
+            }
+        });
+        vendasControle.add(supVendas);
 
         mSetores1.add(vendasControle);
 
@@ -250,6 +269,17 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         v.setVisible(true);
     }//GEN-LAST:event_supDepActionPerformed
 
+    private void supVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supVendasActionPerformed
+        // TODO add your handling code here:
+        VendasCrivadas v = new VendasCrivadas();
+        v.setVisible(true);
+    }//GEN-LAST:event_supVendasActionPerformed
+
+    private void supPAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supPAActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_supPAActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -294,7 +324,9 @@ public class SupervisaoMenu extends javax.swing.JFrame {
     private javax.swing.JTextField menuInfo;
     private javax.swing.JMenuItem rVendas;
     private javax.swing.JMenuItem supDep;
+    private javax.swing.JMenuItem supPA;
     private javax.swing.JMenu supPonto;
+    private javax.swing.JMenuItem supVendas;
     private javax.swing.JMenu sys1;
     private javax.swing.JMenu vendasControle;
     private javax.swing.JMenuItem visualisarVendas;

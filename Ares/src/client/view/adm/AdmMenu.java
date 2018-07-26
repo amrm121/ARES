@@ -72,6 +72,8 @@ public class AdmMenu extends javax.swing.JFrame {
         GerarRelatorioVendas = new javax.swing.JMenu();
         RelatorioDeVendas = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        admFaturamento = new javax.swing.JMenu();
+        fatCrivoDia = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mConfig1 = new javax.swing.JMenu();
         sys1 = new javax.swing.JMenu();
@@ -116,6 +118,18 @@ public class AdmMenu extends javax.swing.JFrame {
             }
         });
         GerarRelatorioVendas.add(jMenuItem1);
+
+        admFaturamento.setText("Faturamento");
+
+        fatCrivoDia.setText("Faturamento Crivos (Dia)");
+        fatCrivoDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fatCrivoDiaActionPerformed(evt);
+            }
+        });
+        admFaturamento.add(fatCrivoDia);
+
+        GerarRelatorioVendas.add(admFaturamento);
 
         MenuBar1.add(GerarRelatorioVendas);
 
@@ -198,6 +212,11 @@ public class AdmMenu extends javax.swing.JFrame {
         v.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void fatCrivoDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fatCrivoDiaActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_fatCrivoDiaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -237,6 +256,8 @@ public class AdmMenu extends javax.swing.JFrame {
     private javax.swing.JMenu GerarRelatorioVendas;
     private javax.swing.JMenuBar MenuBar1;
     private javax.swing.JMenuItem RelatorioDeVendas;
+    private javax.swing.JMenu admFaturamento;
+    private javax.swing.JMenuItem fatCrivoDia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;

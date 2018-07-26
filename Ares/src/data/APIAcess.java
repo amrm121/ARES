@@ -66,25 +66,6 @@ public class APIAcess {
         return res;
     }
     
-    
-    /*public DataBaseAcess(String ramal, int func)
-  {
-      
-    try
-    {
-      
-      String loginRamal = prefix+"login?ramal="+ramal+key;      
-      String alterarClienteCampanha = prefix + "";
-      
-      String results = doHttpUrlConnectionAction(myUrl);      
-      
-    }
-    catch (Exception e)
-    {
-      // deal with the exception in your "controller"
-    }
-  }*/
-  
 
   /**
    * Returns the output from the given URL.

@@ -28,6 +28,14 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="liberarLogoutActionPerformed"/>
                   </Events>
                 </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="supPA">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="PA&apos;s Logadas"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="supPAActionPerformed"/>
+                  </Events>
+                </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="gerarPonto">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Gerar Planilha de Ponto"/>
@@ -55,6 +63,15 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="supDepActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="supVendas">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Vendas x Planos"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="supVendasActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>

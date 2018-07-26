@@ -36,6 +36,7 @@ public class Vendas extends javax.swing.JFrame {
     private ArrayList<String> planos = new ArrayList<>();
     private ArrayList<String> ops = new ArrayList<>();
     private ArrayList<Double> valor = new ArrayList<>();
+    private ArrayList<String> regiao = new ArrayList<>();
     
     public Vendas(String ramal, String nome) {
         this.nome = nome;
@@ -47,8 +48,10 @@ public class Vendas extends javax.swing.JFrame {
         }
         String qry = "SELECT descricao, valor FROM plano WHERE status = 1";
         String qry2 = "SELECT descricao FROM operadoras WHERE status = 1";
+        String qry3 = "SELECT * FROM regiaoVenda";
         ResultSet rs = null;
         ResultSet rs2 = null;
+        ResultSet rs3 = null;
         try {
             rs = dba.execQry(qry);
             while(rs.next()){
@@ -65,9 +68,19 @@ public class Vendas extends javax.swing.JFrame {
             }            
         } catch (SQLException ex) {
             Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
+        }try {
+            rs3 = dba.execQry(qry3);
+            while(rs3.next()){
+                regiao.add(rs3.getString("regiao"));
+            }            
+        } catch (SQLException ex) {
+            Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         initComponents();
+        regiao.forEach((z) ->{
+           estadoV.addItem(z); 
+        });
         ops.forEach((z) -> {
             opV.addItem(z);
         });
@@ -177,13 +190,13 @@ public class Vendas extends javax.swing.JFrame {
         email = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        protocolo = new javax.swing.JTextField();
         opV = new javax.swing.JComboBox<>();
         portabilidadeV = new javax.swing.JCheckBox();
         nPortab = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         print = new javax.swing.JButton();
+        prot = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         adcD = new javax.swing.JButton();
         remD = new javax.swing.JButton();
@@ -207,6 +220,7 @@ public class Vendas extends javax.swing.JFrame {
         chipN = new javax.swing.JLabel();
         vPlano = new javax.swing.JLabel();
         vplano = new javax.swing.JLabel();
+        protocolo = new javax.swing.JFormattedTextField();
         jButton1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -687,7 +701,7 @@ public class Vendas extends javax.swing.JFrame {
                                     .addComponent(pau1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ptel1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel74))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
                                 .addGroup(tDadosC1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel75)
                                     .addComponent(jLabel76)
@@ -780,7 +794,7 @@ public class Vendas extends javax.swing.JFrame {
                         .addComponent(jLabel77)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ptel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         tVendas.addTab("Dados do Cliente:", tDadosC1);
@@ -808,13 +822,6 @@ public class Vendas extends javax.swing.JFrame {
         resCrivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIM", "NAO" }));
         resCrivo.setToolTipText("");
 
-        estadoV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RJ/ES", "SP", "DEMAIS ESTADOS" }));
-        estadoV.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                estadoVActionPerformed(evt);
-            }
-        });
-
         planoV.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 planoVItemStateChanged(evt);
@@ -840,7 +847,6 @@ public class Vendas extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setText("Operadora de Origem:");
 
-        opV.setSelectedIndex(-1);
         opV.setToolTipText("");
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, portabilidadeV, org.jdesktop.beansbinding.ELProperty.create("${selected}"), opV, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
@@ -878,6 +884,10 @@ public class Vendas extends javax.swing.JFrame {
                 printActionPerformed(evt);
             }
         });
+
+        prot.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        prot.setForeground(new java.awt.Color(255, 0, 0));
+        prot.setText("13 dígitos sem espaço");
 
         jPanel3.setBackground(new java.awt.Color(218, 218, 218));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Vincular Dependentes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
@@ -973,13 +983,9 @@ public class Vendas extends javax.swing.JFrame {
                                 .addComponent(remD))
                             .addComponent(emailD, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel21))
-                        .addGap(0, 472, Short.MAX_VALUE)))
+                        .addGap(0, 478, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 855, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 855, Short.MAX_VALUE)
-                    .addContainerGap()))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1012,12 +1018,9 @@ public class Vendas extends javax.swing.JFrame {
                 .addComponent(jLabel21)
                 .addGap(12, 12, 12)
                 .addComponent(emailD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(238, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                    .addContainerGap(154, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         fidelizacaoA1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -1051,89 +1054,97 @@ public class Vendas extends javax.swing.JFrame {
         vplano.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         vplano.setToolTipText("");
 
+        try {
+            protocolo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#############")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout tDadosVLayout = new javax.swing.GroupLayout(tDadosV);
         tDadosV.setLayout(tDadosVLayout);
         tDadosVLayout.setHorizontalGroup(
             tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tDadosVLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(tDadosVLayout.createSequentialGroup()
                         .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(tDadosVLayout.createSequentialGroup()
+                                    .addComponent(portabilidadeV)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(nPortab))
+                                .addComponent(email, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(tDadosVLayout.createSequentialGroup()
+                                    .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel5)
+                                        .addComponent(dVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel4)
+                                        .addComponent(estadoV, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel8)
+                                .addComponent(planoV, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel11))
                             .addGroup(tDadosVLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(tDadosVLayout.createSequentialGroup()
-                                        .addComponent(portabilidadeV)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(nPortab))
-                                    .addComponent(email, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(tDadosVLayout.createSequentialGroup()
-                                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel5)
-                                            .addComponent(dVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4)
-                                            .addComponent(estadoV, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jLabel8)
-                                    .addComponent(planoV, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel11)))
+                                .addGap(139, 139, 139)
+                                .addComponent(jLabel15))
                             .addGroup(tDadosVLayout.createSequentialGroup()
-                                .addGap(149, 149, 149)
-                                .addComponent(jLabel15)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(tDadosVLayout.createSequentialGroup()
-                                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(tDadosVLayout.createSequentialGroup()
-                                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel9)
-                                            .addComponent(jLabel12))
-                                        .addGap(94, 94, 94))
-                                    .addGroup(tDadosVLayout.createSequentialGroup()
-                                        .addComponent(vencV, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(7, 7, 7)))
-                                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tipoV, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel10)))
-                            .addGroup(tDadosVLayout.createSequentialGroup()
-                                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(campV, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(resCrivo, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(tDadosVLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tDadosVLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(print, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                                    .addComponent(protocolo, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(opV, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tDadosVLayout.createSequentialGroup()
                                 .addComponent(tChips)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(chipN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
+                                .addComponent(chipN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
+                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(tDadosVLayout.createSequentialGroup()
+                                    .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(tDadosVLayout.createSequentialGroup()
+                                            .addComponent(vencV, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGap(7, 7, 7))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tDadosVLayout.createSequentialGroup()
+                                            .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(tDadosVLayout.createSequentialGroup()
+                                                    .addComponent(jLabel12)
+                                                    .addGap(84, 84, 84))
+                                                .addComponent(protocolo))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                        .addGroup(tDadosVLayout.createSequentialGroup()
+                                            .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel9)
+                                                .addComponent(prot))
+                                            .addGap(95, 95, 95)))
+                                    .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tipoV, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel13)
+                                        .addComponent(jLabel10)))
+                                .addGroup(tDadosVLayout.createSequentialGroup()
+                                    .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel6)
+                                        .addComponent(campV, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel7)
+                                        .addComponent(resCrivo, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tDadosVLayout.createSequentialGroup()
                                 .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(redesSociasA1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(fidelizacaoA1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(print, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel16))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(opV, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(tDadosVLayout.createSequentialGroup()
+                        .addComponent(vPlano)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(vplano, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tDadosVLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(redesSociasA1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fidelizacaoA1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
-            .addGroup(tDadosVLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(vPlano)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(vplano, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tDadosVLayout.setVerticalGroup(
             tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1162,22 +1173,14 @@ public class Vendas extends javax.swing.JFrame {
                     .addComponent(vencV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tipoV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
-                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(vPlano)
-                    .addComponent(vplano, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(protocolo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(opV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tDadosVLayout.createSequentialGroup()
+                        .addComponent(jLabel12)
                         .addGap(7, 7, 7)
+                        .addComponent(protocolo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(prot)
+                        .addGap(24, 24, 24)
                         .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
                             .addComponent(jLabel16))
@@ -1185,10 +1188,22 @@ public class Vendas extends javax.swing.JFrame {
                         .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(portabilidadeV)
                             .addComponent(nPortab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(print)))
+                            .addComponent(print))
+                        .addGap(0, 24, Short.MAX_VALUE))
                     .addGroup(tDadosVLayout.createSequentialGroup()
+                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(vPlano)
+                            .addComponent(vplano, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel13))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(opV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(fidelizacaoA1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))
+                        .addComponent(fidelizacaoA1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1196,9 +1211,9 @@ public class Vendas extends javax.swing.JFrame {
                         .addComponent(tChips)
                         .addComponent(chipN))
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(6, 6, 6)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(31, 31, 31))
         );
 
         tVendas.addTab("Dados da Venda:", tDadosV);
@@ -1243,8 +1258,8 @@ public class Vendas extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tVendas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 683, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
                     .addComponent(jButton1)
@@ -1260,7 +1275,7 @@ public class Vendas extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         bindingGroup.bind();
@@ -1275,7 +1290,7 @@ public class Vendas extends javax.swing.JFrame {
                 nomeMaeCliente, cepCliente, cidadeCliente, estadoCliente, logradouroCliente, numeroCliente, complementoCliente, bairroCliente, 
                 pontoReferencia1, pontoReferencia2, nomePessoaAutorizada1, nomePessoaAutorizada2, telefonePessoaAutorizada1, telefonePessoaAutorizada2, 
                 email, portabilidadeDDD, dataVencimento, cepAlternativo, estadoAlternativo, cidadeAlternativa, bairroAlternativo, logradouroAlternativo, 
-                numeroAlternativo, complementoAlternativo;
+                numeroAlternativo, complementoAlternativo, operadoraOrigem;
         int qtdChipsEnviar;
         
         entregaAlternativa = 0;
@@ -1295,6 +1310,7 @@ public class Vendas extends javax.swing.JFrame {
         regiaoVenda = estadoV.getItemAt(statusVenda.getSelectedIndex());
         aceitoCrivo = resCrivo.getItemAt(resCrivo.getSelectedIndex());
         planoEscolhido = planoV.getItemAt(planoV.getSelectedIndex());
+        operadoraOrigem = opV.getItemAt(opV.getSelectedIndex());
         nomeCliente = cliente.getText();
         cpfCliente = this.cpftit.getText();
         telefone1Cliente = tel.getText();
@@ -1343,7 +1359,7 @@ public class Vendas extends javax.swing.JFrame {
                 + "`telefonePessoaAutorizada1`, `telefonePessoaAutorizada2`, `quantidadeChipsAEnviar`, "
                 + "`boletoDigital`, `email`, `optouPortabilidade`, `portabilidadeDDD`, `dataVencimento`, "
                 + "`aceite`, `cepAlternativo`, `estadoAlternativo`, `cidadeAlternativa`, `bairroAlternativo`, "
-                + "`logradouroAlternativo`, `numeroAlternativo`, `complementoAlternativo`, `enderecoAlternativo`) "
+                + "`logradouroAlternativo`, `numeroAlternativo`, `complementoAlternativo`, `enderecoAlternativo`, `operadoraOrigem`) "
                 + "VALUES ('"+nomeOperador+"', '"+ramal+"', '"+dataVenda+"', '"+regiaoVenda+"', '"+planoEscolhido+"', '"+nomeCliente+"', '"+cpfCliente+"', "
                 + "'"+telefone1Cliente+"', '"+telefone2Cliente+"', '"+dataNascCliente+"', '"+nomeMaeCliente+"', '"+aceitoCrivo+"', "
                 + "'"+fidelizadaAno+"', '"+optouAppsDataFree+"', '"+cepCliente+"', '"+cidadeCliente+"', '"+estadoCliente+"', '"+logradouroCliente+"', "
@@ -1351,7 +1367,7 @@ public class Vendas extends javax.swing.JFrame {
                 + "'"+nomePessoaAutorizada1+"', '"+nomePessoaAutorizada2+"', '"+telefonePessoaAutorizada1+"', '"+telefonePessoaAutorizada2+"', "
                 + "'"+qtdChipsEnviar+"', '"+boletoDigital+"', '"+email+"', '"+optouPortabilidade+"', '"+portabilidadeDDD+"', '"+dataVencimento+"', "
                 + "'"+vendaAceitaCliente+"', '"+cepAlternativo+"', '"+estadoAlternativo+"', '"+cidadeAlternativa+"', "
-                + "'"+bairroAlternativo+"', '"+logradouroAlternativo+"', '"+numeroAlternativo+"', '"+complementoAlternativo+"', '"+entregaAlternativa+"')";
+                + "'"+bairroAlternativo+"', '"+logradouroAlternativo+"', '"+numeroAlternativo+"', '"+complementoAlternativo+"', '"+entregaAlternativa+"' ,'"+operadoraOrigem+"')";
         //Query do protocolo+dependentes
         
        
@@ -1411,10 +1427,6 @@ public class Vendas extends javax.swing.JFrame {
     private void nPortabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nPortabActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nPortabActionPerformed
-
-    private void estadoVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadoVActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_estadoVActionPerformed
 
     private void jButton5jLabel68VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jButton5jLabel68VetoableChange
         // TODO add your handling code here:
@@ -1776,7 +1788,8 @@ public class Vendas extends javax.swing.JFrame {
     private javax.swing.JTextField pref1;
     private javax.swing.JTextField pref2;
     private javax.swing.JButton print;
-    private javax.swing.JTextField protocolo;
+    private javax.swing.JLabel prot;
+    private javax.swing.JFormattedTextField protocolo;
     private javax.swing.JTextField ptel1;
     private javax.swing.JTextField ptel2;
     private javax.swing.JCheckBox redesSociasA1;
