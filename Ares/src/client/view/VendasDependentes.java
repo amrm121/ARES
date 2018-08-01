@@ -17,7 +17,7 @@ import model.VendaDependente;
 
 /**
  *
- * @author Alexandre
+ * @author Alexandre Magalhães at amrm@cin.ufpe.br
  */
 public class VendasDependentes extends javax.swing.JFrame {
     private DataBaseAcess dba;

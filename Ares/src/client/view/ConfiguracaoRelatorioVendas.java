@@ -7,7 +7,7 @@ package client.view;
 
 /**
  *
- * @author suporteti
+ * @author Alexandre Magalhães at amrm@cin.ufpe.br
  */
 public class ConfiguracaoRelatorioVendas extends javax.swing.JFrame {
 

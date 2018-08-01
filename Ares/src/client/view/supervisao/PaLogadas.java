@@ -8,6 +8,7 @@ package client.view.supervisao;
 import data.DataBaseAcess;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,6 +23,7 @@ private DataBaseAcess dba;
 private ArrayList<String> operador = new ArrayList<>();
 private ArrayList<String> ramal = new ArrayList<>();
 private ArrayList<Integer> status = new ArrayList<>();
+private DefaultTableModel dm;
     /**
      * Creates new form PaLogadas
      */
@@ -32,6 +34,7 @@ private ArrayList<Integer> status = new ArrayList<>();
         Logger.getLogger(PaLogadas.class.getName()).log(Level.SEVERE, null, ex);
     }
         initComponents();
+        dm = (DefaultTableModel) table.getModel();
     }
     
 
@@ -51,6 +54,7 @@ private ArrayList<Integer> status = new ArrayList<>();
         nPas = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("ARES :: Supervisão");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -76,6 +80,7 @@ private ArrayList<Integer> status = new ArrayList<>();
         jScrollPane1.setViewportView(table);
 
         attB.setText("Atualizar");
+        attB.setEnabled(false);
         attB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 attBActionPerformed(evt);
@@ -116,6 +121,7 @@ private ArrayList<Integer> status = new ArrayList<>();
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void showT(){
+        table.setModel(dm);
         try {
         // TODO add your handling code here:
         String qry = "SELECT ramal, nome, status FROM usuario WHERE idtipo_usuario = 6";
@@ -128,23 +134,26 @@ private ArrayList<Integer> status = new ArrayList<>();
     } catch (SQLException ex) {
         Logger.getLogger(PaLogadas.class.getName()).log(Level.SEVERE, null, ex);
     }
-    DefaultTableModel dm = (DefaultTableModel) table.getModel();
-    Object[] row = new Object[3];
-    int ct = 0;
-    for(int i = 0; i < ramal.size(); i++){
-        row[0] = ramal.get(i);
-        row[1] = operador.get(i);
-        if(status.get(i) == 1){
-            row[2] = "DESLOGADO";
-        }else{
-            row[2] = "LOGADO";
-            ct++;
+    
+        DefaultTableModel dm = (DefaultTableModel) table.getModel();
+        Object[] row = new Object[3];
+        int ct = 0;
+        for(int i = 0; i < ramal.size(); i++){
+            row[0] = ramal.get(i);
+            row[1] = operador.get(i);
+            if(status.get(i) == 1){
+                row[2] = "DESLOGADO";
+            }else{
+                row[2] = "LOGADO";
+                ct++;
+            }
+            dm.addRow(row);
         }
-        
-        dm.addRow(row);
-    }
-    nPas.setText(ct+"/"+ramal.size()+" "+(ct/ramal.size())+"(% Logados)");
-    table.setModel(dm);
+        Double p = (double) ct/ramal.size();
+        p = p *100;
+        DecimalFormat df = new DecimalFormat(".##");
+        nPas.setText(ct+"/"+ramal.size()+" "+df.format(p)+"(% Logados)");
+        table.setModel(dm);
     }
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         showT();
@@ -153,6 +162,7 @@ private ArrayList<Integer> status = new ArrayList<>();
 
     private void attBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attBActionPerformed
         // TODO add your handling code here:
+        
         showT();
     }//GEN-LAST:event_attBActionPerformed
 

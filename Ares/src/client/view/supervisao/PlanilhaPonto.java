@@ -9,6 +9,8 @@ import data.DataBaseAcess;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -41,13 +43,18 @@ private DataBaseAcess dba;
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tPonto = new javax.swing.JTable();
         atualizar = new javax.swing.JButton();
         semPonto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tPonto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -63,9 +70,10 @@ private DataBaseAcess dba;
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tPonto);
 
         atualizar.setText("Atualizar");
+        atualizar.setEnabled(false);
         atualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 atualizarActionPerformed(evt);
@@ -117,9 +125,46 @@ private DataBaseAcess dba;
 
     private void atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarActionPerformed
         // TODO add your handling code here:
+        showT();
         
     }//GEN-LAST:event_atualizarActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        showT();
+    }//GEN-LAST:event_formWindowOpened
+    
+    private void showT(){
+        String qry = "SELECT ramal, nome FROM usuario WHERE idtipo_usuario = 6";
+        Map<Integer, String> mp = new HashMap<>();
+    try {
+        ResultSet rs = dba.execQry(qry);
+        while(rs.next()){
+            mp.put(rs.getInt("ramal"), rs.getString("nome"));
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(PlanilhaPonto.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        String qry2 = "SELECT ramal, hora_login, hora_logout FROM controle_ponto";
+    try {
+        ResultSet rs = dba.execQry(qry2);
+        Object[] row = new Object[4];
+        DefaultTableModel dm = (DefaultTableModel) tPonto.getModel();
+        while(rs.next()){
+            if(mp.containsKey(rs.getInt("ramal"))){
+                row[0] = rs.getInt("ramal");
+                row[1] = mp.get(rs.getInt("ramal"));
+                row[2] = rs.getString("hora_login");
+                row[3] = rs.getString("hora_logout");
+                dm.addRow(row);
+            }
+        }
+        tPonto.setModel(dm);
+    } catch (SQLException ex) {
+        Logger.getLogger(PlanilhaPonto.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+    }
     /**
      * @param args the command line arguments
      */
@@ -158,7 +203,7 @@ private DataBaseAcess dba;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton atualizar;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton semPonto;
+    private javax.swing.JTable tPonto;
     // End of variables declaration//GEN-END:variables
 }

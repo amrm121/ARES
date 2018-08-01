@@ -6,17 +6,13 @@
 package client.view.operacao;
 
 import data.DataBaseAcess;
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -28,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  * @author suporteti
  */
 public class Vendas extends javax.swing.JFrame {
-    private int qtChip = 1;
+    private int qtChip = 2;
     static private String ramal;
     static private String nome;
     static private int idUsuario;
@@ -46,7 +42,7 @@ public class Vendas extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String qry = "SELECT descricao, valor FROM plano WHERE status = 1";
+        String qry = "SELECT descricao, valor FROM plano";
         String qry2 = "SELECT descricao FROM operadoras WHERE status = 1";
         String qry3 = "SELECT * FROM regiaoVenda";
         ResultSet rs = null;
@@ -213,7 +209,6 @@ public class Vendas extends javax.swing.JFrame {
         portD = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         dependTable = new javax.swing.JTable();
-        fidelizacaoA1 = new javax.swing.JCheckBox();
         redesSociasA1 = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
         tChips = new javax.swing.JLabel();
@@ -1023,10 +1018,6 @@ public class Vendas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        fidelizacaoA1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        fidelizacaoA1.setText("Optou fidelização anual");
-        fidelizacaoA1.setActionCommand("");
-
         redesSociasA1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         redesSociasA1.setText("Optou redes sociais");
         redesSociasA1.setActionCommand("");
@@ -1054,11 +1045,7 @@ public class Vendas extends javax.swing.JFrame {
         vplano.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         vplano.setToolTipText("");
 
-        try {
-            protocolo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#############")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        protocolo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#"))));
 
         javax.swing.GroupLayout tDadosVLayout = new javax.swing.GroupLayout(tDadosV);
         tDadosV.setLayout(tDadosVLayout);
@@ -1131,7 +1118,9 @@ public class Vendas extends javax.swing.JFrame {
                                     .addComponent(print, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel16))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(opV, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(opV, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(redesSociasA1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(tDadosVLayout.createSequentialGroup()
                         .addComponent(vPlano)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1140,10 +1129,7 @@ public class Vendas extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tDadosVLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(redesSociasA1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fidelizacaoA1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(211, 211, 211)))
                 .addContainerGap())
         );
         tDadosVLayout.setVerticalGroup(
@@ -1188,12 +1174,14 @@ public class Vendas extends javax.swing.JFrame {
                         .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(portabilidadeV)
                             .addComponent(nPortab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(print))
-                        .addGap(0, 24, Short.MAX_VALUE))
+                            .addComponent(print)
+                            .addComponent(redesSociasA1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3))
                     .addGroup(tDadosVLayout.createSequentialGroup()
                         .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(vPlano)
-                            .addComponent(vplano, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(vplano, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
@@ -1202,16 +1190,12 @@ public class Vendas extends javax.swing.JFrame {
                         .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(opV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(fidelizacaoA1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(90, 90, 90)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(redesSociasA1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tChips)
-                        .addComponent(chipN))
-                    .addComponent(jLabel3))
-                .addGap(6, 6, 6)
+                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tChips)
+                    .addComponent(chipN))
+                .addGap(15, 15, 15)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(31, 31, 31))
         );
@@ -1335,12 +1319,17 @@ public class Vendas extends javax.swing.JFrame {
         numeroAlternativo = this.nDif.getText();
         complementoAlternativo = this.compDif.getText();
         qtdChipsEnviar = this.qtChip;
+        String[] aux = new String[4];
+        for(int i = 0; i < 4; i++){
+            aux[i] = null;
+        }
+        aux = planoV.getItemAt(planoV.getSelectedIndex()).split(" ");
         
         if(portabilidadeV.isSelected())
             optouPortabilidade = 1;
         if(endif.isSelected())
             entregaAlternativa = 1;
-        if(fidelizacaoA1.isSelected())
+        if(aux[3] != null)
             fidelizadaAno = 1;
         if(redesSociasA1.isSelected())
             optouAppsDataFree = 1;
@@ -1713,7 +1702,6 @@ public class Vendas extends javax.swing.JFrame {
     private javax.swing.JTextField estado;
     private javax.swing.JTextField estadoDif;
     private javax.swing.JComboBox<String> estadoV;
-    private javax.swing.JCheckBox fidelizacaoA1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

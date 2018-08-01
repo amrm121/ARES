@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author suporteti
+ * @author Alexandre Magalhães at amrm@cin.ufpe.br
  */
 public class RelatorioVendas extends javax.swing.JFrame {
    DataBaseAcess dba;

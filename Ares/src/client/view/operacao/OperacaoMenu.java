@@ -162,8 +162,8 @@ public class OperacaoMenu extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         menuInfo.setText(ramalUsuario+" : "+nomeUsuario + " | Logado às: " + dataLogin);
         try {            
-            boolean ponto = dba.execute("INSERT INTO controle_ponto (ssid, ramal, data, hora_login) "
-                    + "VALUES ('"+idlog+"', '"+ramalUsuario+"', '"+dataDia+"', '"+HoraLogin+"')"
+            boolean ponto = dba.execute("INSERT INTO controle_ponto (ssid, ramal, nome, data, hora_login) "
+                    + "VALUES ('"+idlog+"', '"+ramalUsuario+"', '"+nomeUsuario+"', '"+dataDia+"', '"+HoraLogin+"')"
             );            
             if(ponto){
                JOptionPane.showMessageDialog(this, "Hora de login registrada.\n"+HoraLogin);

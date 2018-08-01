@@ -45,7 +45,7 @@ private DataBaseAcess dba;
         jScrollPane1 = new javax.swing.JScrollPane();
         FaturamentoDia = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -57,11 +57,11 @@ private DataBaseAcess dba;
 
             },
             new String [] {
-                "Plano", "Crivadas", "Brutas", "Faturamento"
+                "Plano", "Crivadas", "Brutas", "Optou Dados", "Faturamento"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -84,7 +84,7 @@ private DataBaseAcess dba;
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
@@ -96,33 +96,50 @@ private DataBaseAcess dba;
     }//GEN-LAST:event_formWindowOpened
     
     private void showFaturamento(){
-        Object[] dR = new Object[4];
-        Map<String, Integer> planos = new HashMap<>();
-        String qry2 = "SELECT descricao FROM plano WHERE status = 1";
+        
+        ArrayList<String> plano = new ArrayList<>();
+        Map<String, Double> valor = new HashMap<>();
+        ArrayList<String> regiao = new ArrayList<>();
+        Map<String, Integer> dados = new HashMap<>();
+        Map<String, Integer> crivo = new HashMap<>();
+        Map<String, Integer> bruto = new HashMap<>();
+        int ct = 0;
+        String qry2 = "SELECT descricao, valor FROM plano";
     try {
         ResultSet rs = dba.execQry(qry2);
-        int ct = 0;
         while(rs.next()){
-            planos.put(rs.getString("descricao"), ct++);
+            bruto.put(rs.getString("descricao"), 0);
+            crivo.put(rs.getString("descricao"), 0);
+            plano.add(rs.getString("descricao"));
+            valor.put(rs.getString("descricao"), rs.getDouble("valor"));
         }
     } catch (SQLException ex) {
         Logger.getLogger(FaturamentoCrivoDia.class.getName()).log(Level.SEVERE, null, ex);
     }
-        DefaultTableModel dm = (DefaultTableModel) FaturamentoDia.getModel();
+        
         String qry = "SELECT ramal, planoEscolhido, statusCrivo, fidelizadaAno, optouAppsDataFree, regiaoVenda FROM vendas";
     try {
         ResultSet rs = dba.execQry(qry);
+        double fat = 0;
         while(rs.next()){
-            String ramal, plano, crivo, fidelizado, dados, regiao;
+            String ramal, planoA, crivoA, fidelizado, dadosA, regiaoA;
             ramal = rs.getString("ramal");
-            plano = rs.getString("planoEscolhido");
-            crivo = rs.getString("statusCrivo");
+            planoA = rs.getString("planoEscolhido");
+            crivoA = rs.getString("statusCrivo");
             fidelizado = rs.getString("fidelizadaAno");
-            dados = rs.getString("optouAppsDataFree");
-            regiao = rs.getString("regiaoVenda");
-            if(crivo.equalsIgnoreCase("sim")){
-                
+            dadosA = rs.getString("optouAppsDataFree");
+            regiaoA = rs.getString("regiaoVenda");
+            if(crivoA.equalsIgnoreCase("sim")){
+                crivo.replace(planoA, crivo.get(planoA)+1);
+                bruto.replace(planoA, bruto.get(planoA)+1);
+            }else{
+                bruto.replace(planoA, bruto.get(planoA)+1);
             }
+        }
+        Object[] row = new Object[6]; //HashMaps por 
+        DefaultTableModel dm = (DefaultTableModel) FaturamentoDia.getModel();
+        for(String z: plano){
+            
         }
     } catch (SQLException ex) {
         Logger.getLogger(FaturamentoCrivoDia.class.getName()).log(Level.SEVERE, null, ex);
@@ -157,10 +174,8 @@ private DataBaseAcess dba;
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FaturamentoCrivoDia().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new FaturamentoCrivoDia().setVisible(true);
         });
     }
 

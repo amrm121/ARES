@@ -5,7 +5,7 @@
  */
 package client.view.supervisao;
 
-import au.com.bytecode.opencsv.CSVWriter;
+
 import auxiliar.RandomString;
 import client.view.RelatorioVendas;
 import client.view.VendasDependentes;
@@ -36,6 +36,8 @@ public class SupervisaoMenu extends javax.swing.JFrame {
     private final RandomString session;
     /**
      * Creates new form SupervisaoMenu
+     * @param nome
+     * @param ramal
      */
     public SupervisaoMenu(String nome, String ramal) {
         this.nome = nome;
@@ -49,6 +51,7 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         session = new RandomString(8, ThreadLocalRandom.current());
         idlog  = session.toString().substring(session.toString().indexOf("@")+1);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -226,8 +229,8 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         menuInfo.setText(ramal+" : "+nome + " | Logado às: " + dataLogin);
         try {            
-            boolean ponto = dba.execute("INSERT INTO controle_ponto (ssid, ramal, data, hora_login) "
-                    + "VALUES ('"+idlog+"', '"+ramal+"', '"+dataDia+"', '"+HoraLogin+"')"
+            boolean ponto = dba.execute("INSERT INTO controle_ponto (ssid, ramal, nome, data, hora_login) "
+                    + "VALUES ('"+idlog+"', '"+ramal+"', '"+nome+"', '"+dataDia+"', '"+HoraLogin+"')"
             );            
             if(ponto){
                JOptionPane.showMessageDialog(this, "Hora de login registrada.\n"+HoraLogin);
