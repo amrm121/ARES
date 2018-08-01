@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  * @author suporteti
  */
 public class Vendas extends javax.swing.JFrame {
-    private int qtChip = 2;
+    private int qtChip = 1;
     static private String ramal;
     static private String nome;
     static private int idUsuario;
@@ -1578,13 +1578,13 @@ public class Vendas extends javax.swing.JFrame {
 
     private void portabilidadeVItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_portabilidadeVItemStateChanged
         // TODO add your handling code here:
-        if(evt.getStateChange() == 1){
+       /* if(evt.getStateChange() == 1){
             this.qtChip--;
             chipN.setText(""+this.qtChip);
         }else{
             this.qtChip++;
             chipN.setText(""+this.qtChip);
-        }
+        }*/
     }//GEN-LAST:event_portabilidadeVItemStateChanged
 
     private void planoVItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_planoVItemStateChanged
