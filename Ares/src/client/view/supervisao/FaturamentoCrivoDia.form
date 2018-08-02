@@ -71,7 +71,7 @@
                 <Column editable="false" title="Crivadas" type="java.lang.Object"/>
                 <Column editable="false" title="Brutas" type="java.lang.Object"/>
                 <Column editable="false" title="Optou Dados" type="java.lang.Object"/>
-                <Column editable="false" title="Faturamento" type="java.lang.Object"/>
+                <Column editable="false" title="% Crivo x Regi&#xe3;o" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="rowMargin" type="int" value="2"/>

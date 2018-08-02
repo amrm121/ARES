@@ -64,6 +64,11 @@ public class SupervisaoMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         menuInfo = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        rLog = new javax.swing.JLabel();
+        vCrivo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         MenuBar1 = new javax.swing.JMenuBar();
         mSetores1 = new javax.swing.JMenu();
@@ -96,6 +101,48 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         menuInfo.setEditable(false);
         menuInfo.setBackground(new java.awt.Color(204, 204, 204));
         getContentPane().add(menuInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 259, 400, -1));
+
+        jPanel1.setBackground(java.awt.SystemColor.controlHighlight);
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel2.setForeground(new java.awt.Color(0, 204, 51));
+        jLabel2.setText("Ramais Logados:");
+        jLabel2.setToolTipText("");
+
+        jLabel3.setForeground(new java.awt.Color(0, 204, 51));
+        jLabel3.setText("Vendas Crivadas:");
+        jLabel3.setToolTipText("");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(3, 3, 3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rLog, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(vCrivo)
+                        .addContainerGap())))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(rLog))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(vCrivo))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 120, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/resources/bg.jpg"))); // NOI18N
         jLabel1.setToolTipText("");
@@ -151,8 +198,8 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         });
         vendasControle.add(supDep);
 
-        supVendas.setText("Vendas x Planos");
-        supVendas.setEnabled(false);
+        supVendas.setText("Vendas x Planos/Aproveitamento por Região");
+        supVendas.setActionCommand("");
         supVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 supVendasActionPerformed(evt);
@@ -278,8 +325,8 @@ public class SupervisaoMenu extends javax.swing.JFrame {
 
     private void supVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supVendasActionPerformed
         // TODO add your handling code here:
-        VendasCrivadas v = new VendasCrivadas();
-        v.setVisible(true);
+        FaturamentoCrivoDia f = new FaturamentoCrivoDia();
+        f.setVisible(true);
     }//GEN-LAST:event_supVendasActionPerformed
 
     private void supPAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supPAActionPerformed
@@ -331,17 +378,22 @@ public class SupervisaoMenu extends javax.swing.JFrame {
     private javax.swing.JMenuBar MenuBar1;
     private javax.swing.JMenuItem gerarPonto;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JMenuItem liberarLogout;
     private javax.swing.JMenu mConfig1;
     private javax.swing.JMenu mSetores1;
     private javax.swing.JTextField menuInfo;
+    private javax.swing.JLabel rLog;
     private javax.swing.JMenuItem rVendas;
     private javax.swing.JMenuItem supDep;
     private javax.swing.JMenuItem supPA;
     private javax.swing.JMenu supPonto;
     private javax.swing.JMenuItem supVendas;
     private javax.swing.JMenu sys1;
+    private javax.swing.JLabel vCrivo;
     private javax.swing.JMenu vendasControle;
     private javax.swing.JMenuItem visualisarVendas;
     // End of variables declaration//GEN-END:variables

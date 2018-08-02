@@ -50,6 +50,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ARES :: Teleconectividade");
+        setAlwaysOnTop(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -156,8 +157,8 @@ public class Login extends javax.swing.JFrame {
                 log.logIn(ramal.getText());
                 String idtipo = user[1];
                 if(idtipo.equals("1")){ //CPD                        
-                        //AdmMenu menu = new AdmMenu(user[0], ramal.getText());
-                        OperacaoMenu menu = new OperacaoMenu(user[0], ramal.getText());
+                        AdmMenu menu = new AdmMenu(user[0], ramal.getText());
+                        //OperacaoMenu menu = new OperacaoMenu(user[0], ramal.getText());
                         menu.setVisible(true);
                         this.setVisible(false);
                         loop = false;

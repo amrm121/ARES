@@ -221,7 +221,8 @@ public class AdmMenu extends javax.swing.JFrame {
 
     private void fatCrivoDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fatCrivoDiaActionPerformed
         // TODO add your handling code here:
-        
+        FaturamentoCrivoDia v = new FaturamentoCrivoDia();
+        v.setVisible(true);
     }//GEN-LAST:event_fatCrivoDiaActionPerformed
 
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed

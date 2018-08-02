@@ -1319,23 +1319,22 @@ public class Vendas extends javax.swing.JFrame {
         numeroAlternativo = this.nDif.getText();
         complementoAlternativo = this.compDif.getText();
         qtdChipsEnviar = this.qtChip;
-        String[] aux = new String[4];
+        String[] aux = new String[5];
         for(int i = 0; i < 4; i++){
-            aux[i] = null;
+            aux[i] = "null";
         }
         aux = planoV.getItemAt(planoV.getSelectedIndex()).split(" ");
-        
         if(portabilidadeV.isSelected())
             optouPortabilidade = 1;
         if(endif.isSelected())
             entregaAlternativa = 1;
-        if(aux[3] != null)
+        if(aux.length > 3)
             fidelizadaAno = 1;
         if(redesSociasA1.isSelected())
             optouAppsDataFree = 1;
         if(tipoV.getItemAt(tipoV.getSelectedIndex()).equals("Digital"))
             boletoDigital = 1;
-        if(statusVenda.getItemAt(statusVenda.getSelectedIndex()).equals("Aceita pelo cliente"));
+        if(statusVenda.getItemAt(statusVenda.getSelectedIndex()).equals("Aceita"));
             vendaAceitaCliente = 1;
             
         String qry = "INSERT INTO `teleconectividade`.`vendas` (`nomeOperador`, `ramal`,"

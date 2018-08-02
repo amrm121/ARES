@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package client.view.adm;
+package client.view.supervisao;
 
+import client.view.adm.*;
 import data.DataBaseAcess;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -59,7 +60,7 @@ private DataBaseAcess dba;
 
             },
             new String [] {
-                "Plano", "Crivadas", "Brutas", "Optou Dados", "Faturamento"
+                "Plano", "Crivadas", "Brutas", "Optou Dados", "% Crivo x Região"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -134,8 +135,13 @@ private DataBaseAcess dba;
     private void showFaturamento(){
         
         ArrayList<String> plano = new ArrayList<>();
+        ArrayList<String> reglist = new ArrayList<>();
+        String[] regf;
         Map<String, Double> valor = new HashMap<>();
-        ArrayList<String> regiao = new ArrayList<>();
+        Map<String, String[][]> regc = new HashMap<>();
+        Map<String, String[]> regb = new HashMap<>();
+        Map<String, Integer> regiao = new HashMap<>();
+        Map<String, Integer> regbruto = new HashMap<>();
         Map<String, Integer> dados = new HashMap<>();
         Map<String, Integer> crivo = new HashMap<>();
         Map<String, Integer> bruto = new HashMap<>();
@@ -149,16 +155,31 @@ private DataBaseAcess dba;
             plano.add(rs.getString("descricao"));
             dados.put(rs.getString("descricao"), 0);
             valor.put(rs.getString("descricao"), rs.getDouble("valor"));
+            regc.put(rs.getString("descricao"), new String[reglist.size()][reglist.size()]);
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(FaturamentoCrivoDia.class.getName()).log(Level.SEVERE, null, ex);
+    }   
+       // regf = new String[plano.size()][reglist.size()];
+        String qry3 = "SELECT regiao FROM regiaoVenda";
+    try {
+        ResultSet rs3 = dba.execQry(qry3);
+        while(rs3.next()){
+            reglist.add(rs3.getString("regiao"));
+            
+            regbruto.put(rs3.getString("regiao"), 0);
         }
     } catch (SQLException ex) {
         Logger.getLogger(FaturamentoCrivoDia.class.getName()).log(Level.SEVERE, null, ex);
     }
-        
         String qry = "SELECT ramal, planoEscolhido, statusCrivo, fidelizadaAno, optouAppsDataFree, regiaoVenda FROM vendas";
     try {
         ResultSet rs = dba.execQry(qry);
+        String regiaoA;
+        int ss = reglist.size();
         while(rs.next()){
-            String ramal, planoA, crivoA, fidelizado, dadosA, regiaoA;
+            int ctreg = 0;
+            String ramal, planoA, crivoA, fidelizado, dadosA;
             ramal = rs.getString("ramal");
             planoA = rs.getString("planoEscolhido");
             crivoA = rs.getString("statusCrivo");
@@ -166,40 +187,82 @@ private DataBaseAcess dba;
             dadosA = rs.getString("optouAppsDataFree");
             regiaoA = rs.getString("regiaoVenda");
             //System.out.println(planoA + "  " + crivoA);
+            
+
             if(crivoA.equalsIgnoreCase("sim")){
                 //System.out.println(planoA + "  " + crivoA);
                 //crivo.replace(planoA, crivo.get(planoA), crivo.get(planoA)+1);
+                String aux[][] = regc.get(planoA);
+                /*System.out.println(aux == null);
+                for(int i = 0; i < reglist.size(); i++){
+                    for(int j = 0; j < reglist.size(); j++){
+                        if(j == 0){
+                            aux[i][j] = reglist.get(i+1);
+                        }else{
+                            aux[i][j] = "0";
+                        }
+                    }
+                }
+                for(int i = 0 ; i < ss; i++){
+                    for(int j = 0; j < ss; j++){
+                        if(j == 0){
+                            if(aux[i][j].equals(regiaoA)){
+                                int q = Integer.parseInt(aux[i][j+1]);
+                                aux[i][j+1] = ""+q++;
+                            }
+                        }
+                        
+                    }
+                }*/
+
+                //regc.replace(planoA, aux);
+                //regiao.replace(regiaoA, regiao.get(regiaoA)+1);
+                //regbruto.replace(regiaoA, regbruto.get(regiaoA)+1);
                 crivo.replace(planoA, crivo.get(planoA)+1);
                 bruto.replace(planoA, bruto.get(planoA)+1);
+                
                 if(dadosA.equalsIgnoreCase("1")){
+                    
                     dados.replace(planoA, dados.get(planoA)+1);
                 }
             }else{
                 bruto.replace(planoA, bruto.get(planoA)+1);
+               // regbruto.replace(planoA, regbruto.get(regiaoA)+1);
             }
+            
         }
          
         DefaultTableModel dm = (DefaultTableModel) FaturamentoDia.getModel();
-        double tfat = 0;
         for(String z: plano){
             Object[] row = new Object[5]; //HashMaps por
-            double fat = 0;
-            int qc = crivo.get(z);
-            fat += qc * valor.get(z);
-            int qd = dados.get(z);
-            fat += qd*20;
             row[0] = z;
             row[1] = crivo.get(z);
             row[2] = bruto.get(z);
             row[3] = dados.get(z);
-            row[4] = fat;
-            tfat += fat;
+            String res = "";
+            /*for(String reg: reglist){
+                if(regbruto.get(reg) > 0){
+                    System.out.println(z + " " + reg + " " +regiao.get(reg) + "  " +  regbruto.get(reg));
+                    res += res + reg + ":" + (((double)regiao.get(reg)/(double)regbruto.get(reg))*100) + "% ";
+                }
+            }*/
+            /*for(int i = 0; i < regc.size(); i++){
+                for(int j = 0; j < ss; j++){
+                    for(int k = 0; k < ss; k++ ){
+                        if(k != 0){
+                            int kk = Integer.parseInt(regc.get(z)[i][j]);
+                            if(kk > 0){
+                                res = regc.get(z)[j][0] + ": " + kk;
+                            }
+                        }
+                    }
+                }
+                
+            }*/
+            row[4] = res;
             dm.addRow(row);
         }
-        Object[] row = new Object[5];
-        row[0] = "Faturamento Total";
-        row[4] = tfat;
-        dm.addRow(row);
+       
         FaturamentoDia.setModel(dm);
     } catch (SQLException ex) {
         Logger.getLogger(FaturamentoCrivoDia.class.getName()).log(Level.SEVERE, null, ex);
@@ -231,6 +294,7 @@ private DataBaseAcess dba;
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FaturamentoCrivoDia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

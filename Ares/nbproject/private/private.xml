@@ -5,7 +5,7 @@
             <url>src/client/view/Login.java</url>
             <bookmark id="1">
                 <name/>
-                <line>216</line>
+                <line>218</line>
                 <key/>
             </bookmark>
         </file>
@@ -14,9 +14,16 @@
         <group>
             <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/supervisao/PlanilhaPonto.java</file>
             <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/operacao/Vendas.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/operacao/OperacaoMenu.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/supervisao/VendasCrivadas.java</file>
             <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/adm/FaturamentoCrivoDia.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/RelatorioVendas.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/data/DataBaseAcess.java</file>
             <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/supervisao/SupervisaoMenu.java</file>
-            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/supervisao/PaLogadas.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/adm/AdmMenu.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/adm/PerfomancePa.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/adm/PlanilhaCrivos.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/Login.java</file>
         </group>
     </open-files>
 </project-private>
