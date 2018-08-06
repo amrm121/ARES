@@ -12,6 +12,8 @@ import client.view.VendasDependentes;
 import controller.SipConnector;
 import javax.swing.JOptionPane;
 import data.*;
+import java.awt.Color;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -32,7 +34,7 @@ public class SupervisaoMenu extends javax.swing.JFrame {
     ZonedDateTime date = ZonedDateTime.now();
     private String dataDia = date.format(DateTimeFormatter.ISO_LOCAL_DATE);
     private String HoraLogin = date.format(DateTimeFormatter.ISO_LOCAL_TIME);
-    private String idlog;
+    private String idlog, c;
     private final RandomString session;
     /**
      * Creates new form SupervisaoMenu
@@ -50,7 +52,26 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         }
         session = new RandomString(8, ThreadLocalRandom.current());
         idlog  = session.toString().substring(session.toString().indexOf("@")+1);
+        this.c = "";
+        try {
+            ResultSet rs = dba.execQry("SELECT autorizar FROM supervisao_controle");
+            while(rs.next()){
+                this.c = rs.getString("autorizar");
+                
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SupervisaoMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(c);
         initComponents();
+        if(c.equalsIgnoreCase("N")){
+            logC.setBackground(Color.red);
+            logC.setText("Não Liberado");
+        }else if(c.equalsIgnoreCase("S")){
+            logC.setBackground(Color.green);
+            logC.setText("Logout Liberado");
+        }
         this.setLocationRelativeTo(null);
     }
 
@@ -63,18 +84,14 @@ public class SupervisaoMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         menuInfo = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        rLog = new javax.swing.JLabel();
-        vCrivo = new javax.swing.JLabel();
+        logC = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
         MenuBar1 = new javax.swing.JMenuBar();
         mSetores1 = new javax.swing.JMenu();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         supPonto = new javax.swing.JMenu();
-        liberarLogout = new javax.swing.JMenuItem();
         supPA = new javax.swing.JMenuItem();
         gerarPonto = new javax.swing.JMenuItem();
         vendasControle = new javax.swing.JMenu();
@@ -98,51 +115,25 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setText("Gráfico Vendas x Crivos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 0, 150, -1));
+
         menuInfo.setEditable(false);
         menuInfo.setBackground(new java.awt.Color(204, 204, 204));
         getContentPane().add(menuInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 259, 400, -1));
 
-        jPanel1.setBackground(java.awt.SystemColor.controlHighlight);
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel2.setForeground(new java.awt.Color(0, 204, 51));
-        jLabel2.setText("Ramais Logados:");
-        jLabel2.setToolTipText("");
-
-        jLabel3.setForeground(new java.awt.Color(0, 204, 51));
-        jLabel3.setText("Vendas Crivadas:");
-        jLabel3.setToolTipText("");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(3, 3, 3)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rLog, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(vCrivo)
-                        .addContainerGap())))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(rLog))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(vCrivo))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 120, 40));
+        logC.setBackground(new java.awt.Color(255, 0, 51));
+        logC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logCActionPerformed(evt);
+            }
+        });
+        getContentPane().add(logC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/resources/bg.jpg"))); // NOI18N
         jLabel1.setToolTipText("");
@@ -152,15 +143,6 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         mSetores1.add(jSeparator2);
 
         supPonto.setText("Controle de Ponto");
-
-        liberarLogout.setText("Liberar Logout");
-        liberarLogout.setMultiClickThreshhold(1L);
-        liberarLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                liberarLogoutActionPerformed(evt);
-            }
-        });
-        supPonto.add(liberarLogout);
 
         supPA.setText("PA's Logadas");
         supPA.addActionListener(new java.awt.event.ActionListener() {
@@ -237,32 +219,6 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void liberarLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_liberarLogoutActionPerformed
-        try {
-            dba = DataBaseAcess.getInstance();
-            //supervisao_controle UPDATE autorizar S
-            //String answ;
-            //answ = JOptionPane.showInputDialog("Deseja liberar o logout dos operadores?");
-            int a = JOptionPane.showConfirmDialog(this, "Deseja liberar LOGOUT parar sua equipe?", "ARES :: Teleconectividade", JOptionPane.YES_NO_OPTION);
-            switch(a){
-                case 0:
-                    dba.execute("UPDATE supervisao_controle SET autorizar = 'S' WHERE id_operador = 1");
-                    break;
-                case 1:
-                    dba.execute("UPDATE supervisao_controle SET autorizar = 'N' WHERE id_operador = 1");
-                    break;
-                default:
-                    break;
-            }
-            //0 OK
-            //2 Cancel
-            //-1 Exit
-        } catch (SQLException ex) {
-            Logger.getLogger(SupervisaoMenu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }//GEN-LAST:event_liberarLogoutActionPerformed
-
     private void rVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rVendasActionPerformed
     
     }//GEN-LAST:event_rVendasActionPerformed
@@ -337,9 +293,43 @@ public class SupervisaoMenu extends javax.swing.JFrame {
 
     private void gerarPontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerarPontoActionPerformed
         // TODO add your handling code here:
-        PlanilhaPonto v = new PlanilhaPonto();
+        PlanilhaPonto v = new PlanilhaPonto();        
         v.setVisible(true);
     }//GEN-LAST:event_gerarPontoActionPerformed
+
+    private void logCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logCActionPerformed
+        try {
+            // TODO add your handling code here:
+           ResultSet rs = dba.execQry("SELECT autorizar FROM supervisao_controle");
+           while(rs.next()){
+               c = rs.getString("autorizar");
+           }
+        } catch (SQLException ex) {
+            Logger.getLogger(SupervisaoMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(c.equalsIgnoreCase("N")){
+            try {
+                dba.execute("UPDATE supervisao_controle SET autorizar = 'S'");
+            } catch (SQLException ex) {
+                Logger.getLogger(SupervisaoMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            logC.setBackground(Color.green);
+            logC.setText("Login Liberado");
+        }else if(c.equalsIgnoreCase("S")){
+            try {
+                dba.execute("UPDATE supervisao_controle SET autorizar = 'N'");
+            } catch (SQLException ex) {
+                Logger.getLogger(SupervisaoMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            logC.setBackground(Color.red);
+            logC.setText("Não Liberado");
+        }
+    }//GEN-LAST:event_logCActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -377,23 +367,19 @@ public class SupervisaoMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar1;
     private javax.swing.JMenuItem gerarPonto;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
-    private javax.swing.JMenuItem liberarLogout;
+    private javax.swing.JToggleButton logC;
     private javax.swing.JMenu mConfig1;
     private javax.swing.JMenu mSetores1;
     private javax.swing.JTextField menuInfo;
-    private javax.swing.JLabel rLog;
     private javax.swing.JMenuItem rVendas;
     private javax.swing.JMenuItem supDep;
     private javax.swing.JMenuItem supPA;
     private javax.swing.JMenu supPonto;
     private javax.swing.JMenuItem supVendas;
     private javax.swing.JMenu sys1;
-    private javax.swing.JLabel vCrivo;
     private javax.swing.JMenu vendasControle;
     private javax.swing.JMenuItem visualisarVendas;
     // End of variables declaration//GEN-END:variables

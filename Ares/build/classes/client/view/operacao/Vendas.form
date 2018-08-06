@@ -1,0 +1,1800 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="title" type="java.lang.String" value="Vendas"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="tVendas" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="tVendas" min="-2" pref="683" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JTabbedPane" name="tVendas">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+            <Property name="autoscrolls" type="boolean" value="true"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="tVendasComponentShown"/>
+          </Events>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="tDadosC1">
+              <Properties>
+                <Property name="autoscrolls" type="boolean" value="true"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Default Cursor"/>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[718, 700]"/>
+                </Property>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Dados do Cliente:">
+                    <Property name="tabTitle" type="java.lang.String" value="Dados do Cliente:"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="endif" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel54" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="-2" pref="271" max="-2" attributes="0"/>
+                                                  <Component id="jLabel53" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="273" max="-2" attributes="0"/>
+                                                  <Component id="jLabel55" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Component id="opField" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="statusVenda" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tel" min="-2" pref="175" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="tel1" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
+                                      <Component id="jLabel79" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel58" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="maenome" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="pEnd2" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="pEnd3" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel73" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel72" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="pref1" alignment="0" min="-2" pref="346" max="-2" attributes="0"/>
+                                              <Component id="pau1" alignment="0" min="-2" pref="346" max="-2" attributes="0"/>
+                                              <Component id="ptel1" alignment="0" min="-2" pref="346" max="-2" attributes="0"/>
+                                              <Component id="jLabel74" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace pref="199" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel75" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel76" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="pref2" alignment="0" min="-2" pref="346" max="-2" attributes="0"/>
+                                              <Component id="pau2" alignment="0" min="-2" pref="346" max="-2" attributes="0"/>
+                                              <Component id="ptel2" alignment="0" min="-2" pref="346" max="-2" attributes="0"/>
+                                              <Component id="jLabel77" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="cliente" min="-2" pref="349" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="cpftit" min="-2" pref="269" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jLabel56" max="32767" attributes="0"/>
+                                              <Component id="datanas" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel53" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="statusVenda" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="opField" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel54" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel55" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel56" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="cliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="datanas" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cpftit" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="tel" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel79" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel58" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="tel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="maenome" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="pEnd2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="endif" min="-2" pref="23" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="pEnd3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel72" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="pref1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel73" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="pau1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel74" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="ptel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel75" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="pref2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel76" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="pau2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel77" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="ptel2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel14">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Operador:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel53">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Status da Venda:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="opField">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="autoscrolls" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel54">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Nome do Cliente:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel55">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="CPF do Titular:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel56">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Data de Nascimento:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="cliente">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel57">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Telefone de Contato 1:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel58">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Nome da M&#xe3;e:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="tel">
+                </Component>
+                <Component class="javax.swing.JTextField" name="maenome">
+                </Component>
+                <Component class="javax.swing.JComboBox" name="statusVenda">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="2">
+                        <StringItem index="0" value="Aceita"/>
+                        <StringItem index="1" value="Rascunho"/>
+                      </StringArray>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Vendas_statusvenda"/>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Container class="javax.swing.JPanel" name="pEnd2">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
+                      </Border>
+                    </Property>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="end" alignment="0" min="-2" pref="349" max="-2" attributes="0"/>
+                                  <Component id="jLabel60" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel63" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
+                                      <Component id="jLabel64" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="bairro" min="-2" pref="183" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="cidade" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel65" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="estado" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel59" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="cep" min="-2" pref="89" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jButton3" min="-2" pref="23" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="num" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                                          <Component id="jLabel61" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="comp" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel62" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace pref="24" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel60" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel61" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel62" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="end" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="num" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comp" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel63" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel64" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel65" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="bairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="estado" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel59" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="cep" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="jLabel60">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Endere&#xe7;o de Cobran&#xe7;a:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="end">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel61">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="num">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="numActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel62">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Complemento:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="comp">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel63">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Bairro:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="bairro">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel64">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Cidade:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="cidade">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel65">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Estado:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="estado">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel59">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="CEP:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="cep">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="jButton3">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="G"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Checar Cep"/>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                            <EtchetBorder/>
+                          </Border>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel2">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Verdana" size="12" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Use o CEP e completar&#xe1; o endere&#xe7;o"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JCheckBox" name="endif">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Dados de Entrega do Chip Diferente da Cobran&#xe7;a"/>
+                  </Properties>
+                </Component>
+                <Container class="javax.swing.JPanel" name="pEnd3">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
+                      </Border>
+                    </Property>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="endDif" alignment="0" min="-2" pref="349" max="-2" attributes="0"/>
+                                  <Component id="jLabel66" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel69" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
+                                      <Component id="jLabel70" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="bairroDif" min="-2" pref="183" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="cidDif" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="nDif" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
+                                          <Component id="jLabel67" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLabel68" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="compDif" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel71" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="cepDif" min="-2" pref="125" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jButton5" min="-2" pref="23" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel78" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="estadoDif" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel66" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel67" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel68" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="endDif" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nDif" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="compDif" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel69" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel70" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel71" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="bairroDif" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cidDif" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cepDif" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel78" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="estadoDif" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="jLabel66">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="ENDERE&#xc7;O DE ENTREGA CHIP:"/>
+                      </Properties>
+                      <BindingProperties>
+                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="jLabel66" targetPath="enabled" updateStrategy="0" immediately="false"/>
+                      </BindingProperties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="endDif">
+                      <BindingProperties>
+                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="endDif" targetPath="enabled" updateStrategy="0" immediately="false"/>
+                      </BindingProperties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel67">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
+                      </Properties>
+                      <BindingProperties>
+                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="jLabel67" targetPath="enabled" updateStrategy="0" immediately="false"/>
+                      </BindingProperties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="nDif">
+                      <BindingProperties>
+                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="nDif" targetPath="enabled" updateStrategy="0" immediately="false"/>
+                      </BindingProperties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nDifActionPerformed"/>
+                        <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="nDifjLabel68VetoableChange"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel68">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Complemento:"/>
+                      </Properties>
+                      <BindingProperties>
+                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="jLabel68" targetPath="enabled" updateStrategy="0" immediately="false"/>
+                      </BindingProperties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="compDif">
+                      <BindingProperties>
+                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="compDif" targetPath="enabled" updateStrategy="0" immediately="false"/>
+                      </BindingProperties>
+                      <Events>
+                        <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="compDifjLabel68VetoableChange"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel69">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Bairro:"/>
+                      </Properties>
+                      <BindingProperties>
+                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="jLabel69" targetPath="enabled" updateStrategy="0" immediately="false"/>
+                      </BindingProperties>
+                      <Events>
+                        <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jLabel69jLabel68VetoableChange"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="bairroDif">
+                      <BindingProperties>
+                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="bairroDif" targetPath="enabled" updateStrategy="0" immediately="false"/>
+                      </BindingProperties>
+                      <Events>
+                        <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="bairroDifjLabel68VetoableChange"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel70">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Cidade:"/>
+                      </Properties>
+                      <BindingProperties>
+                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="jLabel70" targetPath="enabled" updateStrategy="0" immediately="false"/>
+                      </BindingProperties>
+                      <Events>
+                        <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jLabel70jLabel68VetoableChange"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="cidDif">
+                      <BindingProperties>
+                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="cidDif" targetPath="enabled" updateStrategy="0" immediately="false"/>
+                      </BindingProperties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel71">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="CEP:"/>
+                      </Properties>
+                      <BindingProperties>
+                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="jLabel71" targetPath="enabled" updateStrategy="0" immediately="false"/>
+                      </BindingProperties>
+                      <Events>
+                        <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jLabel71jLabel68VetoableChange"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="cepDif">
+                      <BindingProperties>
+                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="cepDif" targetPath="enabled" updateStrategy="0" immediately="false"/>
+                      </BindingProperties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="jButton5">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="G"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Checar Cep"/>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                            <EtchetBorder/>
+                          </Border>
+                        </Property>
+                      </Properties>
+                      <BindingProperties>
+                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="jButton5" targetPath="enabled" updateStrategy="0" immediately="false"/>
+                      </BindingProperties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+                        <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jButton5jLabel68VetoableChange"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="estadoDif">
+                      <BindingProperties>
+                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="estadoDif" targetPath="enabled" updateStrategy="0" immediately="false"/>
+                      </BindingProperties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel78">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Estado:"/>
+                      </Properties>
+                      <BindingProperties>
+                        <BindingProperty name="enabled" source="endif" sourcePath="${selected}" target="jLabel78" targetPath="enabled" updateStrategy="0" immediately="false"/>
+                      </BindingProperties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JLabel" name="jLabel72">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="1&#xba; Ponto de Refer&#xea;ncia:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel73">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="1&#xba; Pessoa Autorizada:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="pref1">
+                </Component>
+                <Component class="javax.swing.JTextField" name="pau1">
+                </Component>
+                <Component class="javax.swing.JTextField" name="ptel1">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel74">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="1&#xba; Telefone da Pessoa Autorizada:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel75">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="2&#xba; Ponto de Refer&#xea;ncia:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel76">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="2&#xba; Pessoa Autorizada:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="pref2">
+                </Component>
+                <Component class="javax.swing.JTextField" name="pau2">
+                </Component>
+                <Component class="javax.swing.JTextField" name="ptel2">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel77">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="2&#xba; Telefone da Pessoa Autorizada:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="tel1">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel79">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Telefone de Contato 2:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JFormattedTextField" name="datanas">
+                  <Properties>
+                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                      <Format format="####-##-##" subtype="-1" type="5"/>
+                    </Property>
+                    <Property name="toolTipText" type="java.lang.String" value="1994-05-11"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="datanasActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JFormattedTextField" name="cpftit">
+                  <Properties>
+                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                      <Format format="###########" subtype="-1" type="5"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel22">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="2"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="ano-mes-dia (1994-11-01)"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="tDadosV">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Dados da Venda:">
+                    <Property name="tabTitle" type="java.lang.String" value="Dados da Venda:"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="portabilidadeV" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="nPortab" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="email" alignment="1" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="dVenda" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="estadoV" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="planoV" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="tChips" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="chipN" min="-2" pref="41" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace pref="185" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="vencV" max="32767" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Component id="protocolo" alignment="0" max="32767" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="prot" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="tipoV" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                                  <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="campV" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="resCrivo" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="print" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
+                                              <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="opV" min="-2" pref="203" max="-2" attributes="0"/>
+                                              <Component id="redesSociasA1" min="-2" pref="193" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="vPlano" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="vplano" min="-2" pref="45" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="211" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="dVenda" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="campV" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="resCrivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="estadoV" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel10" alignment="1" min="-2" pref="14" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="planoV" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="vencV" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tipoV" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                  <Component id="protocolo" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                  <Component id="prot" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="portabilidadeV" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="nPortab" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="print" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="redesSociasA1" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="vPlano" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="vplano" alignment="3" pref="19" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="email" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="opV" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="tChips" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="chipN" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <Component id="jPanel3" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel4">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Regi&#xe3;o da venda:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel5">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Data da Venda:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel6">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Campanha:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel7">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Resultado do Crivo:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel8">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Plano:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="dVenda">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="campV">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="2">
+                        <StringItem index="0" value="Tim 2.0"/>
+                        <StringItem index="1" value="Nova Campanha"/>
+                      </StringArray>
+                    </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="resCrivo">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="2">
+                        <StringItem index="0" value="SIM"/>
+                        <StringItem index="1" value="NAO"/>
+                      </StringArray>
+                    </Property>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="estadoV">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="planoV">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="planoVItemStateChanged"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel9">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Vencimento:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel10">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Tipo do Boleto:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="vencV">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="4">
+                        <StringItem index="0" value="Dia 07"/>
+                        <StringItem index="1" value="Dia 10"/>
+                        <StringItem index="2" value="Dia 15"/>
+                        <StringItem index="3" value="Dia 20"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="tipoV">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="2">
+                        <StringItem index="0" value="F&#xed;sico"/>
+                        <StringItem index="1" value="Digital"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel11">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="E-Mail:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="email">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel12">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Protocolo do Crivo:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel13">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Operadora de Origem:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="opV">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <SerializedValue value="-84,-19,0,5,115,114,0,32,106,97,118,97,120,46,115,119,105,110,103,46,68,101,102,97,117,108,116,67,111,109,98,111,66,111,120,77,111,100,101,108,92,-10,105,-80,-61,-104,-56,48,2,0,2,76,0,7,111,98,106,101,99,116,115,116,0,18,76,106,97,118,97,47,117,116,105,108,47,86,101,99,116,111,114,59,76,0,14,115,101,108,101,99,116,101,100,79,98,106,101,99,116,116,0,18,76,106,97,118,97,47,108,97,110,103,47,79,98,106,101,99,116,59,120,114,0,29,106,97,118,97,120,46,115,119,105,110,103,46,65,98,115,116,114,97,99,116,76,105,115,116,77,111,100,101,108,87,-79,61,-30,108,45,-87,-39,2,0,1,76,0,12,108,105,115,116,101,110,101,114,76,105,115,116,116,0,37,76,106,97,118,97,120,47,115,119,105,110,103,47,101,118,101,110,116,47,69,118,101,110,116,76,105,115,116,101,110,101,114,76,105,115,116,59,120,112,115,114,0,35,106,97,118,97,120,46,115,119,105,110,103,46,101,118,101,110,116,46,69,118,101,110,116,76,105,115,116,101,110,101,114,76,105,115,116,-79,54,-58,125,-124,-22,-42,68,3,0,0,120,112,116,0,34,106,97,118,97,120,46,115,119,105,110,103,46,101,118,101,110,116,46,76,105,115,116,68,97,116,97,76,105,115,116,101,110,101,114,115,114,0,21,106,97,118,97,120,46,115,119,105,110,103,46,74,67,111,109,98,111,66,111,120,115,-25,-16,-68,-83,109,105,-54,3,0,14,90,0,17,102,105,114,105,110,103,65,99,116,105,111,110,69,118,101,110,116,90,0,10,105,115,69,100,105,116,97,98,108,101,90,0,23,108,105,103,104,116,87,101,105,103,104,116,80,111,112,117,112,69,110,97,98,108,101,100,73,0,15,109,97,120,105,109,117,109,82,111,119,67,111,117,110,116,90,0,13,115,101,108,101,99,116,105,110,103,73,116,101,109,76,0,6,97,99,116,105,111,110,116,0,20,76,106,97,118,97,120,47,115,119,105,110,103,47,65,99,116,105,111,110,59,76,0,13,97,99,116,105,111,110,67,111,109,109,97,110,100,116,0,18,76,106,97,118,97,47,108,97,110,103,47,83,116,114,105,110,103,59,76,0,28,97,99,116,105,111,110,80,114,111,112,101,114,116,121,67,104,97,110,103,101,76,105,115,116,101,110,101,114,116,0,35,76,106,97,118,97,47,98,101,97,110,115,47,80,114,111,112,101,114,116,121,67,104,97,110,103,101,76,105,115,116,101,110,101,114,59,76,0,9,100,97,116,97,77,111,100,101,108,116,0,27,76,106,97,118,97,120,47,115,119,105,110,103,47,67,111,109,98,111,66,111,120,77,111,100,101,108,59,76,0,6,101,100,105,116,111,114,116,0,28,76,106,97,118,97,120,47,115,119,105,110,103,47,67,111,109,98,111,66,111,120,69,100,105,116,111,114,59,76,0,19,107,101,121,83,101,108,101,99,116,105,111,110,77,97,110,97,103,101,114,116,0,43,76,106,97,118,97,120,47,115,119,105,110,103,47,74,67,111,109,98,111,66,111,120,36,75,101,121,83,101,108,101,99,116,105,111,110,77,97,110,97,103,101,114,59,76,0,21,112,114,111,116,111,116,121,112,101,68,105,115,112,108,97,121,86,97,108,117,101,113,0,126,0,2,76,0,8,114,101,110,100,101,114,101,114,116,0,30,76,106,97,118,97,120,47,115,119,105,110,103,47,76,105,115,116,67,101,108,108,82,101,110,100,101,114,101,114,59,76,0,20,115,101,108,101,99,116,101,100,73,116,101,109,82,101,109,105,110,100,101,114,113,0,126,0,2,120,114,0,22,106,97,118,97,120,46,115,119,105,110,103,46,74,67,111,109,112,111,110,101,110,116,51,-17,99,38,30,108,-90,-113,3,0,16,70,0,10,97,108,105,103,110,109,101,110,116,88,70,0,10,97,108,105,103,110,109,101,110,116,89,90,0,11,97,117,116,111,115,99,114,111,108,108,115,73,0,5,102,108,97,103,115,90,0,15,105,115,65,108,105,103,110,109,101,110,116,88,83,101,116,90,0,15,105,115,65,108,105,103,110,109,101,110,116,89,83,101,116,90,0,26,118,101,114,105,102,121,73,110,112,117,116,87,104,101,110,70,111,99,117,115,84,97,114,103,101,116,76,0,9,97,99,116,105,111,110,77,97,112,116,0,23,76,106,97,118,97,120,47,115,119,105,110,103,47,65,99,116,105,111,110,77,97,112,59,76,0,16,97,110,99,101,115,116,111,114,73,110,112,117,116,77,97,112,116,0,22,76,106,97,118,97,120,47,115,119,105,110,103,47,73,110,112,117,116,77,97,112,59,76,0,6,98,111,114,100,101,114,116,0,27,76,106,97,118,97,120,47,115,119,105,110,103,47,98,111,114,100,101,114,47,66,111,114,100,101,114,59,76,0,13,102,111,99,117,115,73,110,112,117,116,77,97,112,113,0,126,0,19,76,0,13,105,110,112,117,116,86,101,114,105,102,105,101,114,116,0,27,76,106,97,118,97,120,47,115,119,105,110,103,47,73,110,112,117,116,86,101,114,105,102,105,101,114,59,76,0,12,108,105,115,116,101,110,101,114,76,105,115,116,113,0,126,0,4,76,0,9,112,111,112,117,112,77,101,110,117,116,0,24,76,106,97,118,97,120,47,115,119,105,110,103,47,74,80,111,112,117,112,77,101,110,117,59,76,0,21,118,101,116,111,97,98,108,101,67,104,97,110,103,101,83,117,112,112,111,114,116,116,0,34,76,106,97,118,97,47,98,101,97,110,115,47,86,101,116,111,97,98,108,101,67,104,97,110,103,101,83,117,112,112,111,114,116,59,76,0,14,119,105,110,100,111,119,73,110,112,117,116,77,97,112,116,0,31,76,106,97,118,97,120,47,115,119,105,110,103,47,67,111,109,112,111,110,101,110,116,73,110,112,117,116,77,97,112,59,120,114,0,18,106,97,118,97,46,97,119,116,46,67,111,110,116,97,105,110,101,114,64,7,-128,115,-3,20,12,39,3,0,8,73,0,30,99,111,110,116,97,105,110,101,114,83,101,114,105,97,108,105,122,101,100,68,97,116,97,86,101,114,115,105,111,110,90,0,14,102,111,99,117,115,67,121,99,108,101,82,111,111,116,90,0,28,102,111,99,117,115,84,114,97,118,101,114,115,97,108,80,111,108,105,99,121,80,114,111,118,105,100,101,114,73,0,11,110,99,111,109,112,111,110,101,110,116,115,91,0,9,99,111,109,112,111,110,101,110,116,116,0,21,91,76,106,97,118,97,47,97,119,116,47,67,111,109,112,111,110,101,110,116,59,76,0,10,100,105,115,112,97,116,99,104,101,114,116,0,32,76,106,97,118,97,47,97,119,116,47,76,105,103,104,116,119,101,105,103,104,116,68,105,115,112,97,116,99,104,101,114,59,76,0,9,108,97,121,111,117,116,77,103,114,116,0,24,76,106,97,118,97,47,97,119,116,47,76,97,121,111,117,116,77,97,110,97,103,101,114,59,76,0,7,109,97,120,83,105,122,101,116,0,20,76,106,97,118,97,47,97,119,116,47,68,105,109,101,110,115,105,111,110,59,120,114,0,18,106,97,118,97,46,97,119,116,46,67,111,109,112,111,110,101,110,116,-107,-22,-90,89,-41,60,-92,-102,3,0,36,90,0,27,97,117,116,111,70,111,99,117,115,84,114,97,110,115,102,101,114,79,110,68,105,115,112,111,115,97,108,73,0,8,98,111,117,110,100,115,79,112,73,0,30,99,111,109,112,111,110,101,110,116,83,101,114,105,97,108,105,122,101,100,68,97,116,97,86,101,114,115,105,111,110,90,0,7,101,110,97,98,108,101,100,74,0,9,101,118,101,110,116,77,97,115,107,90,0,25,102,111,99,117,115,84,114,97,118,101,114,115,97,108,75,101,121,115,69,110,97,98,108,101,100,90,0,9,102,111,99,117,115,97,98,108,101,73,0,6,104,101,105,103,104,116,90,0,13,105,103,110,111,114,101,82,101,112,97,105,110,116,73,0,28,105,115,70,111,99,117,115,84,114,97,118,101,114,115,97,98,108,101,79,118,101,114,114,105,100,100,101,110,90,0,8,105,115,80,97,99,107,101,100,90,0,10,109,97,120,83,105,122,101,83,101,116,90,0,10,109,105,110,83,105,122,101,83,101,116,90,0,17,110,97,109,101,69,120,112,108,105,99,105,116,108,121,83,101,116,90,0,13,110,101,119,69,118,101,110,116,115,79,110,108,121,90,0,11,112,114,101,102,83,105,122,101,83,101,116,90,0,5,118,97,108,105,100,90,0,7,118,105,115,105,98,108,101,73,0,5,119,105,100,116,104,73,0,1,120,73,0,1,121,76,0,17,97,99,99,101,115,115,105,98,108,101,67,111,110,116,101,120,116,116,0,39,76,106,97,118,97,120,47,97,99,99,101,115,115,105,98,105,108,105,116,121,47,65,99,99,101,115,115,105,98,108,101,67,111,110,116,101,120,116,59,76,0,10,98,97,99,107,103,114,111,117,110,100,116,0,16,76,106,97,118,97,47,97,119,116,47,67,111,108,111,114,59,76,0,13,99,104,97,110,103,101,83,117,112,112,111,114,116,116,0,34,76,106,97,118,97,47,98,101,97,110,115,47,80,114,111,112,101,114,116,121,67,104,97,110,103,101,83,117,112,112,111,114,116,59,76,0,6,99,117,114,115,111,114,116,0,17,76,106,97,118,97,47,97,119,116,47,67,117,114,115,111,114,59,76,0,10,100,114,111,112,84,97,114,103,101,116,116,0,25,76,106,97,118,97,47,97,119,116,47,100,110,100,47,68,114,111,112,84,97,114,103,101,116,59,91,0,18,102,111,99,117,115,84,114,97,118,101,114,115,97,108,75,101,121,115,116,0,16,91,76,106,97,118,97,47,117,116,105,108,47,83,101,116,59,76,0,4,102,111,110,116,116,0,15,76,106,97,118,97,47,97,119,116,47,70,111,110,116,59,76,0,10,102,111,114,101,103,114,111,117,110,100,113,0,126,0,32,76,0,6,108,111,99,97,108,101,116,0,18,76,106,97,118,97,47,117,116,105,108,47,76,111,99,97,108,101,59,76,0,7,109,97,120,83,105,122,101,113,0,126,0,29,76,0,7,109,105,110,83,105,122,101,113,0,126,0,29,76,0,4,110,97,109,101,113,0,126,0,11,76,0,8,112,101,101,114,70,111,110,116,113,0,126,0,37,76,0,6,112,111,112,117,112,115,113,0,126,0,1,76,0,8,112,114,101,102,83,105,122,101,113,0,126,0,29,120,112,1,0,0,0,3,0,0,0,4,0,0,0,0,0,0,0,16,8,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,115,114,0,41,106,97,118,97,120,46,115,119,105,110,103,46,74,67,111,109,98,111,66,111,120,36,65,99,99,101,115,115,105,98,108,101,74,67,111,109,98,111,66,111,120,67,-119,103,-71,-73,46,87,-35,2,0,4,76,0,23,101,100,105,116,111,114,65,99,99,101,115,115,105,98,108,101,67,111,110,116,101,120,116,116,0,67,76,106,97,118,97,120,47,115,119,105,110,103,47,74,67,111,109,98,111,66,111,120,36,65,99,99,101,115,115,105,98,108,101,74,67,111,109,98,111,66,111,120,36,69,100,105,116,111,114,65,99,99,101,115,115,105,98,108,101,67,111,110,116,101,120,116,59,76,0,9,112,111,112,117,112,76,105,115,116,116,0,19,76,106,97,118,97,120,47,115,119,105,110,103,47,74,76,105,115,116,59,76,0,26,112,114,101,118,105,111,117,115,83,101,108,101,99,116,101,100,65,99,99,101,115,115,105,98,108,101,116,0,32,76,106,97,118,97,120,47,97,99,99,101,115,115,105,98,105,108,105,116,121,47,65,99,99,101,115,115,105,98,108,101,59,76,0,6,116,104,105,115,36,48,116,0,23,76,106,97,118,97,120,47,115,119,105,110,103,47,74,67,111,109,98,111,66,111,120,59,120,114,0,43,106,97,118,97,120,46,115,119,105,110,103,46,74,67,111,109,112,111,110,101,110,116,36,65,99,99,101,115,115,105,98,108,101,74,67,111,109,112,111,110,101,110,116,83,-2,55,-51,118,70,56,101,2,0,2,76,0,22,97,99,99,101,115,115,105,98,108,101,70,111,99,117,115,72,97,110,100,108,101,114,116,0,30,76,106,97,118,97,47,97,119,116,47,101,118,101,110,116,47,70,111,99,117,115,76,105,115,116,101,110,101,114,59,76,0,6,116,104,105,115,36,48,116,0,24,76,106,97,118,97,120,47,115,119,105,110,103,47,74,67,111,109,112,111,110,101,110,116,59,120,114,0,41,106,97,118,97,46,97,119,116,46,67,111,110,116,97,105,110,101,114,36,65,99,99,101,115,115,105,98,108,101,65,87,84,67,111,110,116,97,105,110,101,114,70,-124,121,-4,120,-107,-47,-47,2,0,2,76,0,26,97,99,99,101,115,115,105,98,108,101,67,111,110,116,97,105,110,101,114,72,97,110,100,108,101,114,116,0,34,76,106,97,118,97,47,97,119,116,47,101,118,101,110,116,47,67,111,110,116,97,105,110,101,114,76,105,115,116,101,110,101,114,59,76,0,6,116,104,105,115,36,48,116,0,20,76,106,97,118,97,47,97,119,116,47,67,111,110,116,97,105,110,101,114,59,120,114,0,41,106,97,118,97,46,97,119,116,46,67,111,109,112,111,110,101,110,116,36,65,99,99,101,115,115,105,98,108,101,65,87,84,67,111,109,112,111,110,101,110,116,8,-23,-4,36,-118,-4,2,-1,2,0,3,76,0,29,97,99,99,101,115,115,105,98,108,101,65,87,84,67,111,109,112,111,110,101,110,116,72,97,110,100,108,101,114,116,0,34,76,106,97,118,97,47,97,119,116,47,101,118,101,110,116,47,67,111,109,112,111,110,101,110,116,76,105,115,116,101,110,101,114,59,76,0,25,97,99,99,101,115,115,105,98,108,101,65,87,84,70,111,99,117,115,72,97,110,100,108,101,114,113,0,126,0,46,76,0,6,116,104,105,115,36,48,116,0,20,76,106,97,118,97,47,97,119,116,47,67,111,109,112,111,110,101,110,116,59,120,112,112,112,113,0,126,0,39,112,113,0,126,0,39,112,113,0,126,0,39,112,115,114,0,40,106,97,118,97,120,46,115,119,105,110,103,46,112,108,97,102,46,98,97,115,105,99,46,66,97,115,105,99,67,111,109,98,111,80,111,112,117,112,36,49,-57,8,-122,-26,-33,18,-14,37,2,0,1,76,0,6,116,104,105,115,36,48,116,0,40,76,106,97,118,97,120,47,115,119,105,110,103,47,112,108,97,102,47,98,97,115,105,99,47,66,97,115,105,99,67,111,109,98,111,80,111,112,117,112,59,120,114,0,17,106,97,118,97,120,46,115,119,105,110,103,46,74,76,105,115,116,-13,-95,100,50,118,-106,55,-58,3,0,14,90,0,11,100,114,97,103,69,110,97,98,108,101,100,73,0,15,102,105,120,101,100,67,101,108,108,72,101,105,103,104,116,73,0,14,102,105,120,101,100,67,101,108,108,87,105,100,116,104,73,0,25,104,111,114,105,122,111,110,116,97,108,83,99,114,111,108,108,73,110,99,114,101,109,101,110,116,73,0,17,108,97,121,111,117,116,79,114,105,101,110,116,97,116,105,111,110,73,0,15,118,105,115,105,98,108,101,82,111,119,67,111,117,110,116,76,0,12,99,101,108,108,82,101,110,100,101,114,101,114,113,0,126,0,16,76,0,9,100,97,116,97,77,111,100,101,108,116,0,23,76,106,97,118,97,120,47,115,119,105,110,103,47,76,105,115,116,77,111,100,101,108,59,76,0,8,100,114,111,112,77,111,100,101,116,0,22,76,106,97,118,97,120,47,115,119,105,110,103,47,68,114,111,112,77,111,100,101,59,76,0,18,112,114,111,116,111,116,121,112,101,67,101,108,108,86,97,108,117,101,113,0,126,0,2,76,0,19,115,101,108,101,99,116,105,111,110,66,97,99,107,103,114,111,117,110,100,113,0,126,0,32,76,0,19,115,101,108,101,99,116,105,111,110,70,111,114,101,103,114,111,117,110,100,113,0,126,0,32,76,0,17,115,101,108,101,99,116,105,111,110,76,105,115,116,101,110,101,114,116,0,41,76,106,97,118,97,120,47,115,119,105,110,103,47,101,118,101,110,116,47,76,105,115,116,83,101,108,101,99,116,105,111,110,76,105,115,116,101,110,101,114,59,76,0,14,115,101,108,101,99,116,105,111,110,77,111,100,101,108,116,0,32,76,106,97,118,97,120,47,115,119,105,110,103,47,76,105,115,116,83,101,108,101,99,116,105,111,110,77,111,100,101,108,59,120,113,0,126,0,17,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,56,1,0,0,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,112,115,114,0,32,106,97,118,97,46,98,101,97,110,115,46,80,114,111,112,101,114,116,121,67,104,97,110,103,101,83,117,112,112,111,114,116,88,-43,-46,100,87,72,96,-69,3,0,3,73,0,42,112,114,111,112,101,114,116,121,67,104,97,110,103,101,83,117,112,112,111,114,116,83,101,114,105,97,108,105,122,101,100,68,97,116,97,86,101,114,115,105,111,110,76,0,8,99,104,105,108,100,114,101,110,116,0,21,76,106,97,118,97,47,117,116,105,108,47,72,97,115,104,116,97,98,108,101,59,76,0,6,115,111,117,114,99,101,113,0,126,0,2,120,112,0,0,0,2,112,113,0,126,0,62,112,120,112,112,112,112,112,115,114,0,16,106,97,118,97,46,117,116,105,108,46,76,111,99,97,108,101,126,-8,17,96,-100,48,-7,-20,3,0,6,73,0,8,104,97,115,104,99,111,100,101,76,0,7,99,111,117,110,116,114,121,113,0,126,0,11,76,0,10,101,120,116,101,110,115,105,111,110,115,113,0,126,0,11,76,0,8,108,97,110,103,117,97,103,101,113,0,126,0,11,76,0,6,115,99,114,105,112,116,113,0,126,0,11,76,0,7,118,97,114,105,97,110,116,113,0,126,0,11,120,112,-1,-1,-1,-1,116,0,2,85,83,116,0,0,116,0,2,101,110,113,0,126,0,69,113,0,126,0,69,120,112,112,116,0,13,67,111,109,98,111,66,111,120,46,108,105,115,116,112,112,112,116,0,10,99,111,109,112,111,110,101,110,116,76,115,114,0,34,106,97,118,97,120,46,115,119,105,110,103,46,74,86,105,101,119,112,111,114,116,36,86,105,101,119,76,105,115,116,101,110,101,114,96,105,-16,13,-52,-95,-21,16,2,0,1,76,0,6,116,104,105,115,36,48,116,0,23,76,106,97,118,97,120,47,115,119,105,110,103,47,74,86,105,101,119,112,111,114,116,59,120,112,115,114,0,21,106,97,118,97,120,46,115,119,105,110,103,46,74,86,105,101,119,112,111,114,116,1,34,103,84,-114,57,-62,-90,2,0,8,90,0,12,98,97,99,107,105,110,103,83,116,111,114,101,90,0,15,104,97,115,72,97,100,86,97,108,105,100,86,105,101,119,90,0,13,105,115,86,105,101,119,83,105,122,101,83,101,116,73,0,10,115,99,114,111,108,108,77,111,100,101,90,0,14,115,99,114,111,108,108,85,110,100,101,114,119,97,121,90,0,11,118,105,101,119,67,104,97,110,103,101,100,76,0,17,108,97,115,116,80,97,105,110,116,80,111,115,105,116,105,111,110,116,0,16,76,106,97,118,97,47,97,119,116,47,80,111,105,110,116,59,76,0,12,118,105,101,119,76,105,115,116,101,110,101,114,113,0,126,0,52,120,113,0,126,0,17,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,8,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,115,114,0,32,106,97,118,97,120,46,115,119,105,110,103,46,112,108,97,102,46,67,111,108,111,114,85,73,82,101,115,111,117,114,99,101,107,83,-7,-97,-14,-22,-26,-110,2,0,0,120,114,0,14,106,97,118,97,46,97,119,116,46,67,111,108,111,114,1,-91,23,-125,16,-113,51,117,2,0,5,70,0,6,102,97,108,112,104,97,73,0,5,118,97,108,117,101,76,0,2,99,115,116,0,27,76,106,97,118,97,47,97,119,116,47,99,111,108,111,114,47,67,111,108,111,114,83,112,97,99,101,59,91,0,9,102,114,103,98,118,97,108,117,101,116,0,2,91,70,91,0,6,102,118,97,108,117,101,113,0,126,0,82,120,112,0,0,0,0,-1,-16,-16,-16,112,112,112,112,112,112,112,115,114,0,31,106,97,118,97,120,46,115,119,105,110,103,46,112,108,97,102,46,70,111,110,116,85,73,82,101,115,111,117,114,99,101,1,66,-60,-121,-63,34,-117,71,2,0,0,120,114,0,13,106,97,118,97,46,97,119,116,46,70,111,110,116,-59,-95,53,-26,-52,-34,86,115,3,0,6,73,0,25,102,111,110,116,83,101,114,105,97,108,105,122,101,100,68,97,116,97,86,101,114,115,105,111,110,70,0,9,112,111,105,110,116,83,105,122,101,73,0,4,115,105,122,101,73,0,5,115,116,121,108,101,76,0,20,102,82,101,113,117,101,115,116,101,100,65,116,116,114,105,98,117,116,101,115,113,0,126,0,64,76,0,4,110,97,109,101,113,0,126,0,11,120,112,0,0,0,1,65,48,0,0,0,0,0,11,0,0,0,0,112,116,0,6,84,97,104,111,109,97,120,115,113,0,126,0,79,0,0,0,0,-1,0,0,0,112,112,112,113,0,126,0,67,112,112,112,112,112,112,112,115,114,0,29,106,97,118,97,46,97,119,116,46,67,111,109,112,111,110,101,110,116,79,114,105,101,110,116,97,116,105,111,110,-58,-22,-89,69,-95,-100,99,-52,2,0,1,73,0,11,111,114,105,101,110,116,97,116,105,111,110,120,112,0,0,0,7,112,112,120,0,0,0,1,0,0,0,0,0,1,117,114,0,21,91,76,106,97,118,97,46,97,119,116,46,67,111,109,112,111,110,101,110,116,59,21,15,-119,13,22,-26,-86,117,2,0,0,120,112,0,0,0,1,113,0,126,0,62,112,115,114,0,26,106,97,118,97,120,46,115,119,105,110,103,46,86,105,101,119,112,111,114,116,76,97,121,111,117,116,67,-85,-1,121,-112,89,-48,29,2,0,0,120,112,112,112,112,120,0,0,0,0,0,0,0,0,0,1,-127,-64,8,0,0,1,112,112,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,1,0,0,0,0,1,0,1,112,113,0,126,0,75,112,113,0,126,0,90,112,112,120,0,0,0,1,0,0,0,0,0,0,117,113,0,126,0,91,0,0,0,0,112,112,112,112,112,120,0,0,0,0,0,0,0,0,1,3,0,65,40,0,0,1,115,114,0,21,106,97,118,97,120,46,115,119,105,110,103,46,65,99,116,105,111,110,77,97,112,-88,-31,-59,-1,122,-110,-48,-42,3,0,1,76,0,6,112,97,114,101,110,116,113,0,126,0,18,120,112,112,119,4,0,0,0,0,120,112,112,115,114,0,20,106,97,118,97,120,46,115,119,105,110,103,46,73,110,112,117,116,77,97,112,-76,-88,27,28,102,33,-39,-97,3,0,1,76,0,6,112,97,114,101,110,116,113,0,126,0,19,120,112,112,119,4,0,0,0,0,120,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,8,112,115,114,0,58,106,97,118,97,120,46,115,119,105,110,103,46,112,108,97,102,46,98,97,115,105,99,46,66,97,115,105,99,67,111,109,98,111,80,111,112,117,112,36,69,109,112,116,121,76,105,115,116,77,111,100,101,108,67,108,97,115,115,-124,98,-18,99,-40,-45,97,79,2,0,0,120,112,126,114,0,20,106,97,118,97,120,46,115,119,105,110,103,46,68,114,111,112,77,111,100,101,0,0,0,0,0,0,0,0,18,0,0,120,114,0,14,106,97,118,97,46,108,97,110,103,46,69,110,117,109,0,0,0,0,0,0,0,0,18,0,0,120,112,116,0,13,85,83,69,95,83,69,76,69,67,84,73,79,78,112,112,112,115,114,0,38,106,97,118,97,120,46,115,119,105,110,103,46,74,76,105,115,116,36,76,105,115,116,83,101,108,101,99,116,105,111,110,72,97,110,100,108,101,114,-67,73,124,-61,-4,-73,1,46,2,0,1,76,0,6,116,104,105,115,36,48,113,0,126,0,42,120,112,113,0,126,0,62,115,114,0,37,106,97,118,97,120,46,115,119,105,110,103,46,68,101,102,97,117,108,116,76,105,115,116,83,101,108,101,99,116,105,111,110,77,111,100,101,108,15,-113,10,-1,-117,37,-74,54,2,0,13,73,0,11,97,110,99,104,111,114,73,110,100,101,120,73,0,18,102,105,114,115,116,65,100,106,117,115,116,101,100,73,110,100,101,120,73,0,17,102,105,114,115,116,67,104,97,110,103,101,100,73,110,100,101,120,90,0,11,105,115,65,100,106,117,115,116,105,110,103,73,0,17,108,97,115,116,65,100,106,117,115,116,101,100,73,110,100,101,120,73,0,16,108,97,115,116,67,104,97,110,103,101,100,73,110,100,101,120,90,0,29,108,101,97,100,65,110,99,104,111,114,78,111,116,105,102,105,99,97,116,105,111,110,69,110,97,98,108,101,100,73,0,9,108,101,97,100,73,110,100,101,120,73,0,8,109,97,120,73,110,100,101,120,73,0,8,109,105,110,73,110,100,101,120,73,0,13,115,101,108,101,99,116,105,111,110,77,111,100,101,76,0,12,108,105,115,116,101,110,101,114,76,105,115,116,113,0,126,0,4,76,0,5,118,97,108,117,101,116,0,18,76,106,97,118,97,47,117,116,105,108,47,66,105,116,83,101,116,59,120,112,-1,-1,-1,-1,127,-1,-1,-1,127,-1,-1,-1,0,-1,-1,-1,-1,-1,-1,-1,-1,1,-1,-1,-1,-1,-1,-1,-1,-1,127,-1,-1,-1,0,0,0,0,115,113,0,126,0,6,116,0,39,106,97,118,97,120,46,115,119,105,110,103,46,101,118,101,110,116,46,76,105,115,116,83,101,108,101,99,116,105,111,110,76,105,115,116,101,110,101,114,113,0,126,0,109,112,120,115,114,0,16,106,97,118,97,46,117,116,105,108,46,66,105,116,83,101,116,110,-3,-120,126,57,52,-85,33,3,0,1,91,0,4,98,105,116,115,116,0,2,91,74,120,112,117,114,0,2,91,74,120,32,4,-75,18,-79,117,-109,2,0,0,120,112,0,0,0,1,0,0,0,0,0,0,0,0,120,120,115,114,0,38,106,97,118,97,120,46,115,119,105,110,103,46,112,108,97,102,46,98,97,115,105,99,46,66,97,115,105,99,67,111,109,98,111,80,111,112,117,112,-103,-17,27,-36,122,31,-57,-2,2,0,19,90,0,10,104,97,115,69,110,116,101,114,101,100,90,0,15,105,115,65,117,116,111,83,99,114,111,108,108,105,110,103,73,0,15,115,99,114,111,108,108,68,105,114,101,99,116,105,111,110,90,0,16,118,97,108,117,101,73,115,65,100,106,117,115,116,105,110,103,76,0,15,97,117,116,111,115,99,114,111,108,108,84,105,109,101,114,116,0,19,76,106,97,118,97,120,47,115,119,105,110,103,47,84,105,109,101,114,59,76,0,8,99,111,109,98,111,66,111,120,113,0,126,0,44,76,0,7,104,97,110,100,108,101,114,116,0,48,76,106,97,118,97,120,47,115,119,105,110,103,47,112,108,97,102,47,98,97,115,105,99,47,66,97,115,105,99,67,111,109,98,111,80,111,112,117,112,36,72,97,110,100,108,101,114,59,76,0,12,105,116,101,109,76,105,115,116,101,110,101,114,116,0,29,76,106,97,118,97,47,97,119,116,47,101,118,101,110,116,47,73,116,101,109,76,105,115,116,101,110,101,114,59,76,0,11,107,101,121,76,105,115,116,101,110,101,114,116,0,28,76,106,97,118,97,47,97,119,116,47,101,118,101,110,116,47,75,101,121,76,105,115,116,101,110,101,114,59,76,0,4,108,105,115,116,113,0,126,0,42,76,0,16,108,105,115,116,68,97,116,97,76,105,115,116,101,110,101,114,116,0,36,76,106,97,118,97,120,47,115,119,105,110,103,47,101,118,101,110,116,47,76,105,115,116,68,97,116,97,76,105,115,116,101,110,101,114,59,76,0,17,108,105,115,116,77,111,117,115,101,76,105,115,116,101,110,101,114,116,0,30,76,106,97,118,97,47,97,119,116,47,101,118,101,110,116,47,77,111,117,115,101,76,105,115,116,101,110,101,114,59,76,0,23,108,105,115,116,77,111,117,115,101,77,111,116,105,111,110,76,105,115,116,101,110,101,114,116,0,36,76,106,97,118,97,47,97,119,116,47,101,118,101,110,116,47,77,111,117,115,101,77,111,116,105,111,110,76,105,115,116,101,110,101,114,59,76,0,21,108,105,115,116,83,101,108,101,99,116,105,111,110,76,105,115,116,101,110,101,114,113,0,126,0,60,76,0,13,109,111,117,115,101,76,105,115,116,101,110,101,114,113,0,126,0,126,76,0,19,109,111,117,115,101,77,111,116,105,111,110,76,105,115,116,101,110,101,114,113,0,126,0,127,76,0,22,112,114,111,112,101,114,116,121,67,104,97,110,103,101,76,105,115,116,101,110,101,114,113,0,126,0,12,76,0,8,115,99,114,111,108,108,101,114,116,0,25,76,106,97,118,97,120,47,115,119,105,110,103,47,74,83,99,114,111,108,108,80,97,110,101,59,76,0,26,115,99,114,111,108,108,101,114,77,111,117,115,101,87,104,101,101,108,76,105,115,116,101,110,101,114,116,0,35,76,106,97,118,97,47,97,119,116,47,101,118,101,110,116,47,77,111,117,115,101,87,104,101,101,108,76,105,115,116,101,110,101,114,59,120,114,0,22,106,97,118,97,120,46,115,119,105,110,103,46,74,80,111,112,117,112,77,101,110,117,-40,110,55,-66,41,123,88,125,3,0,7,73,0,16,100,101,115,105,114,101,100,76,111,99,97,116,105,111,110,88,73,0,16,100,101,115,105,114,101,100,76,111,99,97,116,105,111,110,89,90,0,16,108,105,103,104,116,87,101,105,103,104,116,80,111,112,117,112,90,0,11,112,97,105,110,116,66,111,114,100,101,114,76,0,5,108,97,98,101,108,113,0,126,0,11,76,0,6,109,97,114,103,105,110,116,0,17,76,106,97,118,97,47,97,119,116,47,73,110,115,101,116,115,59,76,0,14,115,101,108,101,99,116,105,111,110,77,111,100,101,108,116,0,34,76,106,97,118,97,120,47,115,119,105,110,103,47,83,105,110,103,108,101,83,101,108,101,99,116,105,111,110,77,111,100,101,108,59,120,113,0,126,0,17,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,24,0,0,0,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,115,114,0,43,106,97,118,97,120,46,115,119,105,110,103,46,74,80,111,112,117,112,77,101,110,117,36,65,99,99,101,115,115,105,98,108,101,74,80,111,112,117,112,77,101,110,117,53,0,-49,61,-45,-42,-102,-117,2,0,1,76,0,6,116,104,105,115,36,48,113,0,126,0,22,120,113,0,126,0,45,112,112,113,0,126,0,-123,112,113,0,126,0,-123,112,113,0,126,0,-123,113,0,126,0,-123,115,113,0,126,0,79,0,0,0,0,-1,-16,-16,-16,112,112,112,115,113,0,126,0,63,0,0,0,2,112,113,0,126,0,-123,113,0,126,0,-121,112,120,112,112,112,115,113,0,126,0,84,0,0,0,1,65,64,0,0,0,0,0,12,0,0,0,0,112,116,0,8,83,101,103,111,101,32,85,73,120,115,113,0,126,0,79,0,0,0,0,-1,0,0,0,112,112,112,113,0,126,0,67,112,112,116,0,16,67,111,109,98,111,80,111,112,117,112,46,112,111,112,117,112,112,112,112,112,113,0,126,0,90,112,112,120,0,0,0,1,0,0,0,0,0,1,117,113,0,126,0,91,0,0,0,1,115,114,0,23,106,97,118,97,120,46,115,119,105,110,103,46,74,83,99,114,111,108,108,80,97,110,101,72,54,-94,-47,119,-92,-53,46,3,0,13,73,0,25,104,111,114,105,122,111,110,116,97,108,83,99,114,111,108,108,66,97,114,80,111,108,105,99,121,73,0,23,118,101,114,116,105,99,97,108,83,99,114,111,108,108,66,97,114,80,111,108,105,99,121,90,0,16,119,104,101,101,108,83,99,114,111,108,108,83,116,97,116,101,76,0,12,99,111,108,117,109,110,72,101,97,100,101,114,113,0,126,0,74,76,0,19,104,111,114,105,122,111,110,116,97,108,83,99,114,111,108,108,66,97,114,116,0,24,76,106,97,118,97,120,47,115,119,105,110,103,47,74,83,99,114,111,108,108,66,97,114,59,76,0,9,108,111,119,101,114,76,101,102,116,113,0,126,0,53,76,0,10,108,111,119,101,114,82,105,103,104,116,113,0,126,0,53,76,0,9,114,111,119,72,101,97,100,101,114,113,0,126,0,74,76,0,9,117,112,112,101,114,76,101,102,116,113,0,126,0,53,76,0,10,117,112,112,101,114,82,105,103,104,116,113,0,126,0,53,76,0,17,118,101,114,116,105,99,97,108,83,99,114,111,108,108,66,97,114,113,0,126,0,-112,76,0,8,118,105,101,119,112,111,114,116,113,0,126,0,74,76,0,14,118,105,101,119,112,111,114,116,66,111,114,100,101,114,113,0,126,0,20,120,113,0,126,0,17,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,8,1,0,0,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,115,113,0,126,0,79,0,0,0,0,-1,-16,-16,-16,112,112,112,115,113,0,126,0,63,0,0,0,2,112,113,0,126,0,-111,112,120,112,112,112,115,113,0,126,0,84,0,0,0,1,65,48,0,0,0,0,0,11,0,0,0,0,112,116,0,6,84,97,104,111,109,97,120,115,113,0,126,0,79,0,0,0,0,-1,0,0,0,112,112,112,113,0,126,0,67,112,112,116,0,19,67,111,109,98,111,66,111,120,46,115,99,114,111,108,108,80,97,110,101,112,112,112,112,113,0,126,0,90,112,112,120,0,0,0,1,0,0,0,0,0,2,117,113,0,126,0,91,0,0,0,2,113,0,126,0,78,115,114,0,33,106,97,118,97,120,46,115,119,105,110,103,46,74,83,99,114,111,108,108,80,97,110,101,36,83,99,114,111,108,108,66,97,114,-123,-52,74,-127,-89,77,106,17,2,0,3,90,0,17,98,108,111,99,107,73,110,99,114,101,109,101,110,116,83,101,116,90,0,16,117,110,105,116,73,110,99,114,101,109,101,110,116,83,101,116,76,0,6,116,104,105,115,36,48,113,0,126,0,-128,120,114,0,22,106,97,118,97,120,46,115,119,105,110,103,46,74,83,99,114,111,108,108,66,97,114,120,-29,-113,30,-65,-43,92,116,3,0,5,73,0,14,98,108,111,99,107,73,110,99,114,101,109,101,110,116,73,0,11,111,114,105,101,110,116,97,116,105,111,110,73,0,13,117,110,105,116,73,110,99,114,101,109,101,110,116,76,0,19,102,119,100,65,100,106,117,115,116,109,101,110,116,69,118,101,110,116,115,116,0,34,76,106,97,118,97,120,47,115,119,105,110,103,47,101,118,101,110,116,47,67,104,97,110,103,101,76,105,115,116,101,110,101,114,59,76,0,5,109,111,100,101,108,116,0,31,76,106,97,118,97,120,47,115,119,105,110,103,47,66,111,117,110,100,101,100,82,97,110,103,101,77,111,100,101,108,59,120,113,0,126,0,17,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,8,1,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,115,113,0,126,0,79,0,0,0,0,-1,-56,-56,-56,112,112,112,115,113,0,126,0,63,0,0,0,2,112,113,0,126,0,-99,112,120,112,112,112,112,113,0,126,0,-110,113,0,126,0,67,112,112,112,112,112,112,112,113,0,126,0,90,112,112,120,0,0,0,1,0,0,0,0,0,0,113,0,126,0,96,112,112,112,112,112,120,0,0,0,0,0,0,0,0,0,0,64,65,72,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,115,113,0,126,0,99,115,114,0,35,106,97,118,97,120,46,115,119,105,110,103,46,112,108,97,102,46,73,110,112,117,116,77,97,112,85,73,82,101,115,111,117,114,99,101,-77,72,-94,77,-41,-101,-14,-74,2,0,0,120,113,0,126,0,99,112,119,4,0,0,0,14,115,114,0,21,106,97,118,97,120,46,115,119,105,110,103,46,75,101,121,83,116,114,111,107,101,-126,67,-59,-105,117,118,9,62,2,0,0,120,114,0,21,106,97,118,97,46,97,119,116,46,65,87,84,75,101,121,83,116,114,111,107,101,-90,-62,34,56,-86,-91,124,-15,2,0,4,67,0,7,107,101,121,67,104,97,114,73,0,7,107,101,121,67,111,100,101,73,0,9,109,111,100,105,102,105,101,114,115,90,0,12,111,110,75,101,121,82,101,108,101,97,115,101,120,112,-1,-1,0,0,0,34,0,0,0,-126,0,116,0,22,112,111,115,105,116,105,118,101,66,108,111,99,107,73,110,99,114,101,109,101,110,116,115,113,0,126,0,-92,-1,-1,0,0,0,34,0,0,0,0,0,113,0,126,0,-89,115,113,0,126,0,-92,-1,-1,0,0,0,33,0,0,0,0,0,116,0,22,110,101,103,97,116,105,118,101,66,108,111,99,107,73,110,99,114,101,109,101,110,116,115,113,0,126,0,-92,-1,-1,0,0,0,33,0,0,0,-126,0,113,0,126,0,-86,115,113,0,126,0,-92,-1,-1,0,0,0,-29,0,0,0,0,0,116,0,21,112,111,115,105,116,105,118,101,85,110,105,116,73,110,99,114,101,109,101,110,116,115,113,0,126,0,-92,-1,-1,0,0,0,40,0,0,0,0,0,113,0,126,0,-83,115,113,0,126,0,-92,-1,-1,0,0,0,-30,0,0,0,0,0,116,0,21,110,101,103,97,116,105,118,101,85,110,105,116,73,110,99,114,101,109,101,110,116,115,113,0,126,0,-92,-1,-1,0,0,0,39,0,0,0,0,0,113,0,126,0,-83,115,113,0,126,0,-92,-1,-1,0,0,0,-31,0,0,0,0,0,113,0,126,0,-83,115,113,0,126,0,-92,-1,-1,0,0,0,38,0,0,0,0,0,113,0,126,0,-80,115,113,0,126,0,-92,-1,-1,0,0,0,-32,0,0,0,0,0,113,0,126,0,-80,115,113,0,126,0,-92,-1,-1,0,0,0,37,0,0,0,0,0,113,0,126,0,-80,115,113,0,126,0,-92,-1,-1,0,0,0,36,0,0,0,0,0,116,0,9,109,105,110,83,99,114,111,108,108,115,113,0,126,0,-92,-1,-1,0,0,0,35,0,0,0,0,0,116,0,9,109,97,120,83,99,114,111,108,108,120,119,4,0,0,0,0,120,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,1,116,0,29,74,83,99,114,111,108,108,66,97,114,46,102,97,115,116,87,104,101,101,108,83,99,114,111,108,108,105,110,103,115,114,0,17,106,97,118,97,46,108,97,110,103,46,66,111,111,108,101,97,110,-51,32,114,-128,-43,-100,-6,-18,2,0,1,90,0,5,118,97,108,117,101,120,112,1,120,0,0,0,10,0,0,0,1,0,0,0,1,115,114,0,36,106,97,118,97,120,46,115,119,105,110,103,46,74,83,99,114,111,108,108,66,97,114,36,77,111,100,101,108,76,105,115,116,101,110,101,114,-128,-114,-127,96,121,-107,-18,77,2,0,1,76,0,6,116,104,105,115,36,48,113,0,126,0,-112,120,112,113,0,126,0,-99,115,114,0,36,106,97,118,97,120,46,115,119,105,110,103,46,68,101,102,97,117,108,116,66,111,117,110,100,101,100,82,97,110,103,101,77,111,100,101,108,66,104,-19,-23,70,106,60,-12,2,0,6,73,0,6,101,120,116,101,110,116,90,0,11,105,115,65,100,106,117,115,116,105,110,103,73,0,3,109,97,120,73,0,3,109,105,110,73,0,5,118,97,108,117,101,76,0,12,108,105,115,116,101,110,101,114,76,105,115,116,113,0,126,0,4,120,112,0,0,0,10,0,0,0,0,100,0,0,0,0,0,0,0,0,115,113,0,126,0,6,116,0,32,106,97,118,97,120,46,115,119,105,110,103,46,101,118,101,110,116,46,67,104,97,110,103,101,76,105,115,116,101,110,101,114,113,0,126,0,-65,112,120,120,0,0,113,0,126,0,-111,112,115,114,0,39,106,97,118,97,120,46,115,119,105,110,103,46,83,99,114,111,108,108,80,97,110,101,76,97,121,111,117,116,36,85,73,82,101,115,111,117,114,99,101,-22,2,-20,-96,51,-40,88,25,2,0,0,120,114,0,28,106,97,118,97,120,46,115,119,105,110,103,46,83,99,114,111,108,108,80,97,110,101,76,97,121,111,117,116,-63,-45,-62,-20,54,95,-54,113,2,0,11,73,0,9,104,115,98,80,111,108,105,99,121,73,0,9,118,115,98,80,111,108,105,99,121,76,0,7,99,111,108,72,101,97,100,113,0,126,0,74,76,0,3,104,115,98,113,0,126,0,-112,76,0,9,108,111,119,101,114,76,101,102,116,113,0,126,0,53,76,0,10,108,111,119,101,114,82,105,103,104,116,113,0,126,0,53,76,0,7,114,111,119,72,101,97,100,113,0,126,0,74,76,0,9,117,112,112,101,114,76,101,102,116,113,0,126,0,53,76,0,10,117,112,112,101,114,82,105,103,104,116,113,0,126,0,53,76,0,8,118,105,101,119,112,111,114,116,113,0,126,0,74,76,0,3,118,115,98,113,0,126,0,-112,120,112,0,0,0,30,0,0,0,20,112,112,112,112,112,112,112,113,0,126,0,78,113,0,126,0,-99,112,112,112,120,0,0,0,0,0,0,0,0,0,0,0,65,72,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,115,113,0,126,0,99,112,119,4,0,0,0,0,120,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,0,0,31,0,0,0,20,1,112,112,112,112,112,112,112,113,0,126,0,-99,113,0,126,0,78,112,120,112,115,114,0,21,106,97,118,97,120,46,115,119,105,110,103,46,66,111,120,76,97,121,111,117,116,38,20,-19,25,51,-123,36,-124,2,0,2,73,0,4,97,120,105,115,76,0,6,116,97,114,103,101,116,113,0,126,0,50,120,112,0,0,0,1,113,0,126,0,-123,112,112,112,120,0,0,0,0,0,0,0,0,0,1,0,64,1,0,0,1,112,112,115,114,0,29,106,97,118,97,120,46,115,119,105,110,103,46,98,111,114,100,101,114,46,76,105,110,101,66,111,114,100,101,114,89,124,-59,-127,-72,1,25,-127,2,0,3,90,0,14,114,111,117,110,100,101,100,67,111,114,110,101,114,115,73,0,9,116,104,105,99,107,110,101,115,115,76,0,9,108,105,110,101,67,111,108,111,114,113,0,126,0,32,120,114,0,33,106,97,118,97,120,46,115,119,105,110,103,46,98,111,114,100,101,114,46,65,98,115,116,114,97,99,116,66,111,114,100,101,114,-99,92,-94,-101,106,-10,-127,51,2,0,0,120,112,0,0,0,0,1,115,113,0,126,0,80,0,0,0,0,-1,0,0,0,112,112,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,0,0,0,0,0,0,0,1,1,112,112,115,114,0,39,106,97,118,97,120,46,115,119,105,110,103,46,68,101,102,97,117,108,116,83,105,110,103,108,101,83,101,108,101,99,116,105,111,110,77,111,100,101,108,84,-17,66,14,-28,-74,35,20,2,0,2,73,0,5,105,110,100,101,120,76,0,12,108,105,115,116,101,110,101,114,76,105,115,116,113,0,126,0,4,120,112,-1,-1,-1,-1,115,113,0,126,0,6,112,120,115,114,0,16,106,97,118,97,46,117,116,105,108,46,86,101,99,116,111,114,-39,-105,125,91,-128,59,-81,1,3,0,3,73,0,17,99,97,112,97,99,105,116,121,73,110,99,114,101,109,101,110,116,73,0,12,101,108,101,109,101,110,116,67,111,117,110,116,91,0,11,101,108,101,109,101,110,116,68,97,116,97,116,0,19,91,76,106,97,118,97,47,108,97,110,103,47,79,98,106,101,99,116,59,120,112,0,0,0,0,0,0,0,0,117,114,0,19,91,76,106,97,118,97,46,108,97,110,103,46,79,98,106,101,99,116,59,-112,-50,88,-97,16,115,41,108,2,0,0,120,112,0,0,0,10,112,112,112,112,112,112,112,112,112,112,120,120,0,0,0,0,0,0,0,112,113,0,126,0,39,112,115,114,0,46,106,97,118,97,120,46,115,119,105,110,103,46,112,108,97,102,46,98,97,115,105,99,46,66,97,115,105,99,67,111,109,98,111,80,111,112,117,112,36,72,97,110,100,108,101,114,67,-80,-47,118,5,91,-126,114,2,0,1,76,0,6,116,104,105,115,36,48,113,0,126,0,56,120,112,113,0,126,0,-123,112,113,0,126,0,62,112,112,112,112,113,0,126,0,-38,113,0,126,0,-38,113,0,126,0,-38,113,0,126,0,-111,112,112,113,0,126,0,39,115,113,0,126,0,79,0,0,0,0,-1,-1,-1,-1,112,112,112,115,113,0,126,0,63,0,0,0,2,112,113,0,126,0,39,115,114,0,28,106,97,118,97,120,46,115,119,105,110,103,46,65,110,99,101,115,116,111,114,78,111,116,105,102,105,101,114,62,-23,-117,-65,-112,-112,90,105,2,0,2,76,0,12,108,105,115,116,101,110,101,114,76,105,115,116,113,0,126,0,4,76,0,4,114,111,111,116,113,0,126,0,47,120,112,115,113,0,126,0,6,112,120,113,0,126,0,39,112,120,112,112,112,113,0,126,0,-108,115,113,0,126,0,79,0,0,0,0,-1,0,0,0,112,112,112,113,0,126,0,67,112,112,112,112,112,112,113,0,126,0,72,113,0,126,0,-34,112,113,0,126,0,90,112,112,120,0,0,0,1,0,0,0,0,0,0,113,0,126,0,96,112,112,112,112,112,120,0,0,0,0,0,0,0,0,0,0,0,65,72,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,115,113,0,126,0,99,112,119,4,0,0,0,0,120,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,3,126,114,0,29,106,97,118,97,120,46,115,119,105,110,103,46,67,108,105,101,110,116,80,114,111,112,101,114,116,121,75,101,121,0,0,0,0,0,0,0,0,18,0,0,120,113,0,126,0,105,116,0,28,74,67,111,109,112,111,110,101,110,116,95,65,78,67,69,83,84,79,82,95,78,79,84,73,70,73,69,82,113,0,126,0,-34,116,0,16,100,111,78,111,116,67,97,110,99,101,108,80,111,112,117,112,115,114,0,22,106,97,118,97,46,108,97,110,103,46,83,116,114,105,110,103,66,117,102,102,101,114,47,7,7,-39,-22,-56,-22,-45,3,0,3,73,0,5,99,111,117,110,116,90,0,6,115,104,97,114,101,100,91,0,5,118,97,108,117,101,116,0,2,91,67,120,112,0,0,0,12,0,117,114,0,2,91,67,-80,38,102,-80,-30,93,-124,-84,2,0,0,120,112,0,0,0,28,0,72,0,105,0,100,0,101,0,80,0,111,0,112,0,117,0,112,0,75,0,101,0,121,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,120,116,0,11,84,111,111,108,84,105,112,84,101,120,116,116,0,0,120,0,0,1,0,0,0,8,0,112,116,0,15,99,111,109,98,111,66,111,120,67,104,97,110,103,101,100,112,113,0,126,0,5,112,112,112,112,112,120,113,0,126,0,8,115,113,0,126,0,9,1,0,0,0,3,0,0,0,4,0,0,0,0,0,0,0,16,8,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,115,113,0,126,0,40,112,112,113,0,126,0,-16,112,113,0,126,0,-16,112,113,0,126,0,-16,112,115,113,0,126,0,55,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,56,1,0,0,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,112,115,113,0,126,0,63,0,0,0,2,112,113,0,126,0,-14,112,120,112,112,112,112,112,113,0,126,0,67,112,112,116,0,13,67,111,109,98,111,66,111,120,46,108,105,115,116,112,112,112,113,0,126,0,72,115,113,0,126,0,73,115,113,0,126,0,76,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,8,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,113,0,126,0,83,112,112,112,112,113,0,126,0,86,113,0,126,0,88,113,0,126,0,67,112,112,112,112,112,112,112,115,113,0,126,0,89,0,0,0,7,112,112,120,0,0,0,1,0,0,0,0,0,1,117,113,0,126,0,91,0,0,0,1,113,0,126,0,-14,112,115,113,0,126,0,93,112,112,112,120,0,0,0,0,0,0,0,0,0,1,-127,-64,8,0,0,1,112,112,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,1,0,0,0,0,1,0,1,112,113,0,126,0,-11,112,113,0,126,0,-9,112,112,120,0,0,0,1,0,0,0,0,0,0,113,0,126,0,96,112,112,112,112,112,120,0,0,0,0,0,0,0,0,1,3,0,65,40,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,112,112,115,113,0,126,0,99,112,119,4,0,0,0,0,120,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,8,112,115,113,0,126,0,102,113,0,126,0,106,112,112,112,115,113,0,126,0,108,113,0,126,0,-14,115,113,0,126,0,110,-1,-1,-1,-1,127,-1,-1,-1,127,-1,-1,-1,0,-1,-1,-1,-1,-1,-1,-1,-1,1,-1,-1,-1,-1,-1,-1,-1,-1,127,-1,-1,-1,0,0,0,0,115,113,0,126,0,6,113,0,126,0,114,113,0,126,0,-1,112,120,115,113,0,126,0,115,117,113,0,126,0,118,0,0,0,1,0,0,0,0,0,0,0,0,120,120,115,113,0,126,0,120,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,24,0,0,0,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,115,113,0,126,0,-122,112,112,113,0,126,1,4,112,113,0,126,1,4,112,113,0,126,1,4,113,0,126,1,4,113,0,126,0,-120,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,4,113,0,126,1,5,112,120,112,112,112,113,0,126,0,-118,113,0,126,0,-116,113,0,126,0,67,112,112,116,0,16,67,111,109,98,111,80,111,112,117,112,46,112,111,112,117,112,112,112,112,112,113,0,126,0,-9,112,112,120,0,0,0,1,0,0,0,0,0,1,117,113,0,126,0,91,0,0,0,1,115,113,0,126,0,-113,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,8,1,0,0,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,113,0,126,0,-110,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,9,112,120,112,112,112,113,0,126,0,-108,113,0,126,0,-106,113,0,126,0,67,112,112,116,0,19,67,111,109,98,111,66,111,120,46,115,99,114,111,108,108,80,97,110,101,112,112,112,112,113,0,126,0,-9,112,112,120,0,0,0,1,0,0,0,0,0,2,117,113,0,126,0,91,0,0,0,2,113,0,126,0,-10,115,113,0,126,0,-103,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,8,1,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,113,0,126,0,-98,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,13,112,120,112,112,112,112,113,0,126,0,-110,113,0,126,0,67,112,112,112,112,112,112,112,113,0,126,0,-9,112,112,120,0,0,0,1,0,0,0,0,0,0,113,0,126,0,96,112,112,112,112,112,120,0,0,0,0,0,0,0,0,0,0,64,65,72,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,115,113,0,126,0,99,113,0,126,0,-93,119,4,0,0,0,0,120,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,1,116,0,29,74,83,99,114,111,108,108,66,97,114,46,102,97,115,116,87,104,101,101,108,83,99,114,111,108,108,105,110,103,115,113,0,126,0,-68,1,120,0,0,0,10,0,0,0,1,0,0,0,1,115,113,0,126,0,-66,113,0,126,1,13,115,113,0,126,0,-64,0,0,0,10,0,0,0,0,100,0,0,0,0,0,0,0,0,115,113,0,126,0,6,113,0,126,0,-61,113,0,126,1,20,112,120,120,0,0,113,0,126,1,9,112,115,113,0,126,0,-60,0,0,0,30,0,0,0,20,112,112,112,112,112,112,112,113,0,126,0,-10,113,0,126,1,13,112,112,112,120,0,0,0,0,0,0,0,0,0,0,0,65,72,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,115,113,0,126,0,99,112,119,4,0,0,0,0,120,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,0,0,31,0,0,0,20,1,112,112,112,112,112,112,112,113,0,126,1,13,113,0,126,0,-10,112,120,112,115,113,0,126,0,-54,0,0,0,1,113,0,126,1,4,112,112,112,120,0,0,0,0,0,0,0,0,0,1,0,64,1,0,0,1,112,112,115,113,0,126,0,-52,0,0,0,0,1,115,113,0,126,0,80,0,0,0,0,-1,0,0,0,112,112,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,0,0,0,0,0,0,0,1,1,112,112,115,113,0,126,0,-47,-1,-1,-1,-1,115,113,0,126,0,6,112,120,115,113,0,126,0,-44,0,0,0,0,0,0,0,0,117,113,0,126,0,-41,0,0,0,10,112,112,112,112,112,112,112,112,112,112,120,120,0,0,0,0,0,0,0,112,113,0,126,0,-16,112,115,113,0,126,0,-39,113,0,126,1,4,112,113,0,126,0,-14,112,112,112,112,113,0,126,1,35,113,0,126,1,35,113,0,126,1,35,113,0,126,1,9,112,112,113,0,126,0,-16,113,0,126,0,-37,115,113,0,126,0,63,0,0,0,2,112,113,0,126,0,-16,115,113,0,126,0,-35,115,113,0,126,0,6,112,120,113,0,126,0,-16,112,120,112,112,112,113,0,126,0,-108,113,0,126,0,-32,113,0,126,0,67,112,112,112,112,112,112,113,0,126,0,72,113,0,126,1,37,112,113,0,126,0,-9,112,112,120,0,0,0,1,0,0,0,0,0,0,113,0,126,0,96,112,112,112,112,112,120,0,0,0,0,0,0,0,0,0,0,0,65,72,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,115,113,0,126,0,99,112,119,4,0,0,0,0,120,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,3,113,0,126,0,-27,113,0,126,1,37,116,0,16,100,111,78,111,116,67,97,110,99,101,108,80,111,112,117,112,113,0,126,0,-22,116,0,11,84,111,111,108,84,105,112,84,101,120,116,116,0,0,120,0,0,1,0,0,0,8,0,112,116,0,15,99,111,109,98,111,66,111,120,67,104,97,110,103,101,100,112,113,0,126,0,5,112,112,112,112,112,120,113,0,126,0,8,115,113,0,126,0,9,1,0,0,0,3,0,0,0,4,0,0,0,0,0,0,0,16,8,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,115,113,0,126,0,40,112,112,113,0,126,1,46,112,113,0,126,1,46,112,113,0,126,1,46,112,115,113,0,126,0,55,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,56,1,0,0,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,112,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,48,112,120,112,112,112,112,112,113,0,126,0,67,112,112,116,0,13,67,111,109,98,111,66,111,120,46,108,105,115,116,112,112,112,113,0,126,0,72,115,113,0,126,0,73,115,113,0,126,0,76,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,8,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,113,0,126,0,83,112,112,112,112,113,0,126,0,86,113,0,126,0,88,113,0,126,0,67,112,112,112,112,112,112,112,115,113,0,126,0,89,0,0,0,7,112,112,120,0,0,0,1,0,0,0,0,0,1,117,113,0,126,0,91,0,0,0,1,113,0,126,1,48,112,115,113,0,126,0,93,112,112,112,120,0,0,0,0,0,0,0,0,0,1,-127,-64,8,0,0,1,112,112,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,1,0,0,0,0,1,0,1,112,113,0,126,1,51,112,113,0,126,1,53,112,112,120,0,0,0,1,0,0,0,0,0,0,113,0,126,0,96,112,112,112,112,112,120,0,0,0,0,0,0,0,0,1,3,0,65,40,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,112,112,115,113,0,126,0,99,112,119,4,0,0,0,0,120,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,8,112,115,113,0,126,0,102,113,0,126,0,106,112,112,112,115,113,0,126,0,108,113,0,126,1,48,115,113,0,126,0,110,-1,-1,-1,-1,127,-1,-1,-1,127,-1,-1,-1,0,-1,-1,-1,-1,-1,-1,-1,-1,1,-1,-1,-1,-1,-1,-1,-1,-1,127,-1,-1,-1,0,0,0,0,115,113,0,126,0,6,113,0,126,0,114,113,0,126,1,61,112,120,115,113,0,126,0,115,117,113,0,126,0,118,0,0,0,1,0,0,0,0,0,0,0,0,120,120,115,113,0,126,0,120,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,24,0,0,0,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,115,113,0,126,0,-122,112,112,113,0,126,1,66,112,113,0,126,1,66,112,113,0,126,1,66,113,0,126,1,66,113,0,126,0,-120,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,66,113,0,126,1,67,112,120,112,112,112,113,0,126,0,-118,113,0,126,0,-116,113,0,126,0,67,112,112,116,0,16,67,111,109,98,111,80,111,112,117,112,46,112,111,112,117,112,112,112,112,112,113,0,126,1,53,112,112,120,0,0,0,1,0,0,0,0,0,1,117,113,0,126,0,91,0,0,0,1,115,113,0,126,0,-113,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,8,1,0,0,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,113,0,126,0,-110,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,71,112,120,112,112,112,113,0,126,0,-108,113,0,126,0,-106,113,0,126,0,67,112,112,116,0,19,67,111,109,98,111,66,111,120,46,115,99,114,111,108,108,80,97,110,101,112,112,112,112,113,0,126,1,53,112,112,120,0,0,0,1,0,0,0,0,0,2,117,113,0,126,0,91,0,0,0,2,113,0,126,1,52,115,113,0,126,0,-103,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,8,1,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,113,0,126,0,-98,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,75,112,120,112,112,112,112,113,0,126,0,-110,113,0,126,0,67,112,112,112,112,112,112,112,113,0,126,1,53,112,112,120,0,0,0,1,0,0,0,0,0,0,113,0,126,0,96,112,112,112,112,112,120,0,0,0,0,0,0,0,0,0,0,64,65,72,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,115,113,0,126,0,99,113,0,126,0,-93,119,4,0,0,0,0,120,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,1,116,0,29,74,83,99,114,111,108,108,66,97,114,46,102,97,115,116,87,104,101,101,108,83,99,114,111,108,108,105,110,103,115,113,0,126,0,-68,1,120,0,0,0,10,0,0,0,1,0,0,0,1,115,113,0,126,0,-66,113,0,126,1,75,115,113,0,126,0,-64,0,0,0,10,0,0,0,0,100,0,0,0,0,0,0,0,0,115,113,0,126,0,6,113,0,126,0,-61,113,0,126,1,82,112,120,120,0,0,113,0,126,1,71,112,115,113,0,126,0,-60,0,0,0,30,0,0,0,20,112,112,112,112,112,112,112,113,0,126,1,52,113,0,126,1,75,112,112,112,120,0,0,0,0,0,0,0,0,0,0,0,65,72,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,115,113,0,126,0,99,112,119,4,0,0,0,0,120,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,0,0,31,0,0,0,20,1,112,112,112,112,112,112,112,113,0,126,1,75,113,0,126,1,52,112,120,112,115,113,0,126,0,-54,0,0,0,1,113,0,126,1,66,112,112,112,120,0,0,0,0,0,0,0,0,0,1,0,64,1,0,0,1,112,112,115,113,0,126,0,-52,0,0,0,0,1,115,113,0,126,0,80,0,0,0,0,-1,0,0,0,112,112,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,0,0,0,0,0,0,0,1,1,112,112,115,113,0,126,0,-47,-1,-1,-1,-1,115,113,0,126,0,6,112,120,115,113,0,126,0,-44,0,0,0,0,0,0,0,0,117,113,0,126,0,-41,0,0,0,10,112,112,112,112,112,112,112,112,112,112,120,120,0,0,0,0,0,0,0,112,113,0,126,1,46,112,115,113,0,126,0,-39,113,0,126,1,66,112,113,0,126,1,48,112,112,112,112,113,0,126,1,97,113,0,126,1,97,113,0,126,1,97,113,0,126,1,71,112,112,113,0,126,1,46,113,0,126,0,-37,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,46,115,113,0,126,0,-35,115,113,0,126,0,6,112,120,113,0,126,1,46,112,120,112,112,112,113,0,126,0,-108,113,0,126,0,-32,113,0,126,0,67,112,112,112,112,112,112,113,0,126,0,72,113,0,126,1,99,112,113,0,126,1,53,112,112,120,0,0,0,1,0,0,0,0,0,0,113,0,126,0,96,112,112,112,112,112,120,0,0,0,0,0,0,0,0,0,0,0,65,72,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,115,113,0,126,0,99,112,119,4,0,0,0,0,120,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,3,113,0,126,0,-27,113,0,126,1,99,116,0,16,100,111,78,111,116,67,97,110,99,101,108,80,111,112,117,112,113,0,126,0,-22,116,0,11,84,111,111,108,84,105,112,84,101,120,116,116,0,0,120,0,0,1,0,0,0,8,0,112,116,0,15,99,111,109,98,111,66,111,120,67,104,97,110,103,101,100,112,113,0,126,0,5,112,112,112,112,112,120,113,0,126,0,8,115,113,0,126,0,9,1,0,0,0,3,0,0,0,4,0,0,0,0,0,0,0,16,8,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,115,113,0,126,0,40,112,112,113,0,126,1,108,112,113,0,126,1,108,112,113,0,126,1,108,112,115,113,0,126,0,55,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,56,1,0,0,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,112,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,110,112,120,112,112,112,112,112,113,0,126,0,67,112,112,116,0,13,67,111,109,98,111,66,111,120,46,108,105,115,116,112,112,112,113,0,126,0,72,115,113,0,126,0,73,115,113,0,126,0,76,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,8,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,113,0,126,0,83,112,112,112,112,113,0,126,0,86,113,0,126,0,88,113,0,126,0,67,112,112,112,112,112,112,112,115,113,0,126,0,89,0,0,0,7,112,112,120,0,0,0,1,0,0,0,0,0,1,117,113,0,126,0,91,0,0,0,1,113,0,126,1,110,112,115,113,0,126,0,93,112,112,112,120,0,0,0,0,0,0,0,0,0,1,-127,-64,8,0,0,1,112,112,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,1,0,0,0,0,1,0,1,112,113,0,126,1,113,112,113,0,126,1,115,112,112,120,0,0,0,1,0,0,0,0,0,0,113,0,126,0,96,112,112,112,112,112,120,0,0,0,0,0,0,0,0,1,3,0,65,40,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,112,112,115,113,0,126,0,99,112,119,4,0,0,0,0,120,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,8,112,115,113,0,126,0,102,113,0,126,0,106,112,112,112,115,113,0,126,0,108,113,0,126,1,110,115,113,0,126,0,110,-1,-1,-1,-1,127,-1,-1,-1,127,-1,-1,-1,0,-1,-1,-1,-1,-1,-1,-1,-1,1,-1,-1,-1,-1,-1,-1,-1,-1,127,-1,-1,-1,0,0,0,0,115,113,0,126,0,6,113,0,126,0,114,113,0,126,1,123,112,120,115,113,0,126,0,115,117,113,0,126,0,118,0,0,0,1,0,0,0,0,0,0,0,0,120,120,115,113,0,126,0,120,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,24,0,0,0,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,115,113,0,126,0,-122,112,112,113,0,126,1,-128,112,113,0,126,1,-128,112,113,0,126,1,-128,113,0,126,1,-128,113,0,126,0,-120,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,-128,113,0,126,1,-127,112,120,112,112,112,113,0,126,0,-118,113,0,126,0,-116,113,0,126,0,67,112,112,116,0,16,67,111,109,98,111,80,111,112,117,112,46,112,111,112,117,112,112,112,112,112,113,0,126,1,115,112,112,120,0,0,0,1,0,0,0,0,0,1,117,113,0,126,0,91,0,0,0,1,115,113,0,126,0,-113,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,8,1,0,0,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,113,0,126,0,-110,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,-123,112,120,112,112,112,113,0,126,0,-108,113,0,126,0,-106,113,0,126,0,67,112,112,116,0,19,67,111,109,98,111,66,111,120,46,115,99,114,111,108,108,80,97,110,101,112,112,112,112,113,0,126,1,115,112,112,120,0,0,0,1,0,0,0,0,0,2,117,113,0,126,0,91,0,0,0,2,113,0,126,1,114,115,113,0,126,0,-103,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,8,1,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,113,0,126,0,-98,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,-119,112,120,112,112,112,112,113,0,126,0,-110,113,0,126,0,67,112,112,112,112,112,112,112,113,0,126,1,115,112,112,120,0,0,0,1,0,0,0,0,0,0,113,0,126,0,96,112,112,112,112,112,120,0,0,0,0,0,0,0,0,0,0,64,65,72,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,115,113,0,126,0,99,113,0,126,0,-93,119,4,0,0,0,0,120,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,1,116,0,29,74,83,99,114,111,108,108,66,97,114,46,102,97,115,116,87,104,101,101,108,83,99,114,111,108,108,105,110,103,115,113,0,126,0,-68,1,120,0,0,0,10,0,0,0,1,0,0,0,1,115,113,0,126,0,-66,113,0,126,1,-119,115,113,0,126,0,-64,0,0,0,10,0,0,0,0,100,0,0,0,0,0,0,0,0,115,113,0,126,0,6,113,0,126,0,-61,113,0,126,1,-112,112,120,120,0,0,113,0,126,1,-123,112,115,113,0,126,0,-60,0,0,0,30,0,0,0,20,112,112,112,112,112,112,112,113,0,126,1,114,113,0,126,1,-119,112,112,112,120,0,0,0,0,0,0,0,0,0,0,0,65,72,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,115,113,0,126,0,99,112,119,4,0,0,0,0,120,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,0,0,31,0,0,0,20,1,112,112,112,112,112,112,112,113,0,126,1,-119,113,0,126,1,114,112,120,112,115,113,0,126,0,-54,0,0,0,1,113,0,126,1,-128,112,112,112,120,0,0,0,0,0,0,0,0,0,1,0,64,1,0,0,1,112,112,115,113,0,126,0,-52,0,0,0,0,1,115,113,0,126,0,80,0,0,0,0,-1,0,0,0,112,112,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,0,0,0,0,0,0,0,1,1,112,112,115,113,0,126,0,-47,-1,-1,-1,-1,115,113,0,126,0,6,112,120,115,113,0,126,0,-44,0,0,0,0,0,0,0,0,117,113,0,126,0,-41,0,0,0,10,112,112,112,112,112,112,112,112,112,112,120,120,0,0,0,0,0,0,0,112,113,0,126,1,108,112,115,113,0,126,0,-39,113,0,126,1,-128,112,113,0,126,1,110,112,112,112,112,113,0,126,1,-97,113,0,126,1,-97,113,0,126,1,-97,113,0,126,1,-123,112,112,113,0,126,1,108,113,0,126,0,-37,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,108,115,113,0,126,0,-35,115,113,0,126,0,6,112,120,113,0,126,1,108,112,120,112,112,112,113,0,126,0,-108,113,0,126,0,-32,113,0,126,0,67,112,112,112,112,112,112,113,0,126,0,72,113,0,126,1,-95,112,113,0,126,1,115,112,112,120,0,0,0,1,0,0,0,0,0,0,113,0,126,0,96,112,112,112,112,112,120,0,0,0,0,0,0,0,0,0,0,0,65,72,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,115,113,0,126,0,99,112,119,4,0,0,0,0,120,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,3,113,0,126,0,-27,113,0,126,1,-95,116,0,16,100,111,78,111,116,67,97,110,99,101,108,80,111,112,117,112,113,0,126,0,-22,116,0,11,84,111,111,108,84,105,112,84,101,120,116,116,0,0,120,0,0,1,0,0,0,8,0,112,116,0,15,99,111,109,98,111,66,111,120,67,104,97,110,103,101,100,112,113,0,126,0,5,112,112,112,112,112,120,113,0,126,0,8,115,113,0,126,0,9,1,0,0,0,3,0,0,0,4,0,0,0,0,0,0,0,16,8,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,115,113,0,126,0,40,112,112,113,0,126,1,-86,112,113,0,126,1,-86,112,113,0,126,1,-86,112,115,113,0,126,0,55,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,56,1,0,0,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,112,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,-84,112,120,112,112,112,112,112,113,0,126,0,67,112,112,116,0,13,67,111,109,98,111,66,111,120,46,108,105,115,116,112,112,112,113,0,126,0,72,115,113,0,126,0,73,115,113,0,126,0,76,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,8,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,113,0,126,0,83,112,112,112,112,113,0,126,0,86,113,0,126,0,88,113,0,126,0,67,112,112,112,112,112,112,112,115,113,0,126,0,89,0,0,0,7,112,112,120,0,0,0,1,0,0,0,0,0,1,117,113,0,126,0,91,0,0,0,1,113,0,126,1,-84,112,115,113,0,126,0,93,112,112,112,120,0,0,0,0,0,0,0,0,0,1,-127,-64,8,0,0,1,112,112,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,1,0,0,0,0,1,0,1,112,113,0,126,1,-81,112,113,0,126,1,-79,112,112,120,0,0,0,1,0,0,0,0,0,0,113,0,126,0,96,112,112,112,112,112,120,0,0,0,0,0,0,0,0,1,3,0,65,40,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,112,112,115,113,0,126,0,99,112,119,4,0,0,0,0,120,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,8,112,115,113,0,126,0,102,113,0,126,0,106,112,112,112,115,113,0,126,0,108,113,0,126,1,-84,115,113,0,126,0,110,-1,-1,-1,-1,127,-1,-1,-1,127,-1,-1,-1,0,-1,-1,-1,-1,-1,-1,-1,-1,1,-1,-1,-1,-1,-1,-1,-1,-1,127,-1,-1,-1,0,0,0,0,115,113,0,126,0,6,113,0,126,0,114,113,0,126,1,-71,112,120,115,113,0,126,0,115,117,113,0,126,0,118,0,0,0,1,0,0,0,0,0,0,0,0,120,120,115,113,0,126,0,120,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,24,0,0,0,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,115,113,0,126,0,-122,112,112,113,0,126,1,-66,112,113,0,126,1,-66,112,113,0,126,1,-66,113,0,126,1,-66,113,0,126,0,-120,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,-66,113,0,126,1,-65,112,120,112,112,112,113,0,126,0,-118,113,0,126,0,-116,113,0,126,0,67,112,112,116,0,16,67,111,109,98,111,80,111,112,117,112,46,112,111,112,117,112,112,112,112,112,113,0,126,1,-79,112,112,120,0,0,0,1,0,0,0,0,0,1,117,113,0,126,0,91,0,0,0,1,115,113,0,126,0,-113,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,8,1,0,0,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,113,0,126,0,-110,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,-61,112,120,112,112,112,113,0,126,0,-108,113,0,126,0,-106,113,0,126,0,67,112,112,116,0,19,67,111,109,98,111,66,111,120,46,115,99,114,111,108,108,80,97,110,101,112,112,112,112,113,0,126,1,-79,112,112,120,0,0,0,1,0,0,0,0,0,2,117,113,0,126,0,91,0,0,0,2,113,0,126,1,-80,115,113,0,126,0,-103,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,8,1,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,113,0,126,0,-98,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,-57,112,120,112,112,112,112,113,0,126,0,-110,113,0,126,0,67,112,112,112,112,112,112,112,113,0,126,1,-79,112,112,120,0,0,0,1,0,0,0,0,0,0,113,0,126,0,96,112,112,112,112,112,120,0,0,0,0,0,0,0,0,0,0,64,65,72,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,115,113,0,126,0,99,113,0,126,0,-93,119,4,0,0,0,0,120,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,1,116,0,29,74,83,99,114,111,108,108,66,97,114,46,102,97,115,116,87,104,101,101,108,83,99,114,111,108,108,105,110,103,115,113,0,126,0,-68,1,120,0,0,0,10,0,0,0,1,0,0,0,1,115,113,0,126,0,-66,113,0,126,1,-57,115,113,0,126,0,-64,0,0,0,10,0,0,0,0,100,0,0,0,0,0,0,0,0,115,113,0,126,0,6,113,0,126,0,-61,113,0,126,1,-50,112,120,120,0,0,113,0,126,1,-61,112,115,113,0,126,0,-60,0,0,0,30,0,0,0,20,112,112,112,112,112,112,112,113,0,126,1,-80,113,0,126,1,-57,112,112,112,120,0,0,0,0,0,0,0,0,0,0,0,65,72,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,115,113,0,126,0,99,112,119,4,0,0,0,0,120,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,0,0,31,0,0,0,20,1,112,112,112,112,112,112,112,113,0,126,1,-57,113,0,126,1,-80,112,120,112,115,113,0,126,0,-54,0,0,0,1,113,0,126,1,-66,112,112,112,120,0,0,0,0,0,0,0,0,0,1,0,64,1,0,0,1,112,112,115,113,0,126,0,-52,0,0,0,0,1,115,113,0,126,0,80,0,0,0,0,-1,0,0,0,112,112,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,0,0,0,0,0,0,0,1,1,112,112,115,113,0,126,0,-47,-1,-1,-1,-1,115,113,0,126,0,6,112,120,115,113,0,126,0,-44,0,0,0,0,0,0,0,0,117,113,0,126,0,-41,0,0,0,10,112,112,112,112,112,112,112,112,112,112,120,120,0,0,0,0,0,0,0,112,113,0,126,1,-86,112,115,113,0,126,0,-39,113,0,126,1,-66,112,113,0,126,1,-84,112,112,112,112,113,0,126,1,-35,113,0,126,1,-35,113,0,126,1,-35,113,0,126,1,-61,112,112,113,0,126,1,-86,113,0,126,0,-37,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,-86,115,113,0,126,0,-35,115,113,0,126,0,6,112,120,113,0,126,1,-86,112,120,112,112,112,113,0,126,0,-108,113,0,126,0,-32,113,0,126,0,67,112,112,112,112,112,112,113,0,126,0,72,113,0,126,1,-33,112,113,0,126,1,-79,112,112,120,0,0,0,1,0,0,0,0,0,0,113,0,126,0,96,112,112,112,112,112,120,0,0,0,0,0,0,0,0,0,0,0,65,72,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,115,113,0,126,0,99,112,119,4,0,0,0,0,120,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,3,113,0,126,0,-27,113,0,126,1,-33,116,0,16,100,111,78,111,116,67,97,110,99,101,108,80,111,112,117,112,113,0,126,0,-22,116,0,11,84,111,111,108,84,105,112,84,101,120,116,116,0,0,120,0,0,1,0,0,0,8,0,112,116,0,15,99,111,109,98,111,66,111,120,67,104,97,110,103,101,100,112,113,0,126,0,5,112,112,112,112,112,120,113,0,126,0,8,115,113,0,126,0,9,1,0,0,0,3,0,0,0,4,0,0,0,0,0,0,0,16,8,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,115,113,0,126,0,40,112,112,113,0,126,1,-24,112,113,0,126,1,-24,112,113,0,126,1,-24,112,115,113,0,126,0,55,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,56,1,0,0,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,112,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,-22,112,120,112,112,112,112,112,113,0,126,0,67,112,112,116,0,13,67,111,109,98,111,66,111,120,46,108,105,115,116,112,112,112,113,0,126,0,72,115,113,0,126,0,73,115,113,0,126,0,76,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,8,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,113,0,126,0,83,112,112,112,112,113,0,126,0,86,113,0,126,0,88,113,0,126,0,67,112,112,112,112,112,112,112,115,113,0,126,0,89,0,0,0,7,112,112,120,0,0,0,1,0,0,0,0,0,1,117,113,0,126,0,91,0,0,0,1,113,0,126,1,-22,112,115,113,0,126,0,93,112,112,112,120,0,0,0,0,0,0,0,0,0,1,-127,-64,8,0,0,1,112,112,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,1,0,0,0,0,1,0,1,112,113,0,126,1,-19,112,113,0,126,1,-17,112,112,120,0,0,0,1,0,0,0,0,0,0,113,0,126,0,96,112,112,112,112,112,120,0,0,0,0,0,0,0,0,1,3,0,65,40,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,112,112,115,113,0,126,0,99,112,119,4,0,0,0,0,120,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,8,112,115,113,0,126,0,102,113,0,126,0,106,112,112,112,115,113,0,126,0,108,113,0,126,1,-22,115,113,0,126,0,110,-1,-1,-1,-1,127,-1,-1,-1,127,-1,-1,-1,0,-1,-1,-1,-1,-1,-1,-1,-1,1,-1,-1,-1,-1,-1,-1,-1,-1,127,-1,-1,-1,0,0,0,0,115,113,0,126,0,6,113,0,126,0,114,113,0,126,1,-9,112,120,115,113,0,126,0,115,117,113,0,126,0,118,0,0,0,1,0,0,0,0,0,0,0,0,120,120,115,113,0,126,0,120,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,24,0,0,0,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,115,113,0,126,0,-122,112,112,113,0,126,1,-4,112,113,0,126,1,-4,112,113,0,126,1,-4,113,0,126,1,-4,113,0,126,0,-120,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,-4,113,0,126,1,-3,112,120,112,112,112,113,0,126,0,-118,113,0,126,0,-116,113,0,126,0,67,112,112,116,0,16,67,111,109,98,111,80,111,112,117,112,46,112,111,112,117,112,112,112,112,112,113,0,126,1,-17,112,112,120,0,0,0,1,0,0,0,0,0,1,117,113,0,126,0,91,0,0,0,1,115,113,0,126,0,-113,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,8,1,0,0,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,113,0,126,0,-110,115,113,0,126,0,63,0,0,0,2,112,113,0,126,2,1,112,120,112,112,112,113,0,126,0,-108,113,0,126,0,-106,113,0,126,0,67,112,112,116,0,19,67,111,109,98,111,66,111,120,46,115,99,114,111,108,108,80,97,110,101,112,112,112,112,113,0,126,1,-17,112,112,120,0,0,0,1,0,0,0,0,0,2,117,113,0,126,0,91,0,0,0,2,113,0,126,1,-18,115,113,0,126,0,-103,1,0,0,0,3,0,0,0,4,1,0,0,0,0,0,0,16,8,1,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,112,113,0,126,0,-98,115,113,0,126,0,63,0,0,0,2,112,113,0,126,2,5,112,120,112,112,112,112,113,0,126,0,-110,113,0,126,0,67,112,112,112,112,112,112,112,113,0,126,1,-17,112,112,120,0,0,0,1,0,0,0,0,0,0,113,0,126,0,96,112,112,112,112,112,120,0,0,0,0,0,0,0,0,0,0,64,65,72,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,115,113,0,126,0,99,113,0,126,0,-93,119,4,0,0,0,0,120,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,1,116,0,29,74,83,99,114,111,108,108,66,97,114,46,102,97,115,116,87,104,101,101,108,83,99,114,111,108,108,105,110,103,115,113,0,126,0,-68,1,120,0,0,0,10,0,0,0,1,0,0,0,1,115,113,0,126,0,-66,113,0,126,2,5,115,113,0,126,0,-64,0,0,0,10,0,0,0,0,100,0,0,0,0,0,0,0,0,115,113,0,126,0,6,113,0,126,0,-61,113,0,126,2,12,112,120,120,0,0,113,0,126,2,1,112,115,113,0,126,0,-60,0,0,0,30,0,0,0,20,112,112,112,112,112,112,112,113,0,126,1,-18,113,0,126,2,5,112,112,112,120,0,0,0,0,0,0,0,0,0,0,0,65,72,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,115,113,0,126,0,99,112,119,4,0,0,0,0,120,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,0,0,31,0,0,0,20,1,112,112,112,112,112,112,112,113,0,126,2,5,113,0,126,1,-18,112,120,112,115,113,0,126,0,-54,0,0,0,1,113,0,126,1,-4,112,112,112,120,0,0,0,0,0,0,0,0,0,1,0,64,1,0,0,1,112,112,115,113,0,126,0,-52,0,0,0,0,1,115,113,0,126,0,80,0,0,0,0,-1,0,0,0,112,112,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,0,120,0,0,0,0,0,0,0,0,1,1,112,112,115,113,0,126,0,-47,-1,-1,-1,-1,115,113,0,126,0,6,112,120,115,113,0,126,0,-44,0,0,0,0,0,0,0,0,117,113,0,126,0,-41,0,0,0,10,112,112,112,112,112,112,112,112,112,112,120,120,0,0,0,0,0,0,0,112,113,0,126,1,-24,112,115,113,0,126,0,-39,113,0,126,1,-4,112,113,0,126,1,-22,112,112,112,112,113,0,126,2,27,113,0,126,2,27,113,0,126,2,27,113,0,126,2,1,112,112,113,0,126,1,-24,113,0,126,0,-37,115,113,0,126,0,63,0,0,0,2,112,113,0,126,1,-24,115,113,0,126,0,-35,115,113,0,126,0,6,112,120,113,0,126,1,-24,112,120,112,112,112,113,0,126,0,-108,113,0,126,0,-32,113,0,126,0,67,112,112,112,112,112,112,113,0,126,0,72,113,0,126,2,29,112,113,0,126,1,-17,112,112,120,0,0,0,1,0,0,0,0,0,0,113,0,126,0,96,112,112,112,112,112,120,0,0,0,0,0,0,0,0,0,0,0,65,72,0,0,1,115,113,0,126,0,97,112,119,4,0,0,0,0,120,115,113,0,126,0,99,112,119,4,0,0,0,0,120,112,112,112,115,113,0,126,0,6,112,120,112,112,112,119,4,0,0,0,3,113,0,126,0,-27,113,0,126,2,29,116,0,16,100,111,78,111,116,67,97,110,99,101,108,80,111,112,117,112,113,0,126,0,-22,116,0,11,84,111,111,108,84,105,112,84,101,120,116,113,0,126,0,69,120,0,0,1,0,0,0,8,0,112,116,0,15,99,111,109,98,111,66,111,120,67,104,97,110,103,101,100,112,113,0,126,0,5,112,112,112,112,112,120,112,120,115,113,0,126,0,-44,0,0,0,0,0,0,0,1,117,113,0,126,0,-41,0,0,0,1,116,0,1,32,120,112"/>
+                    </Property>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+                  <BindingProperties>
+                    <BindingProperty name="enabled" source="portabilidadeV" sourcePath="${selected}" target="opV" targetPath="enabled" updateStrategy="0" immediately="false"/>
+                  </BindingProperties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="portabilidadeV">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Optou portabilidade"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="portabilidadeVItemStateChanged"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="nPortab">
+                  <BindingProperties>
+                    <BindingProperty name="enabled" source="portabilidadeV" sourcePath="${selected}" target="nPortab" targetPath="enabled" updateStrategy="0" immediately="false"/>
+                  </BindingProperties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nPortabActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel15">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="N&#xfa;mero da Portabilidade:"/>
+                  </Properties>
+                  <BindingProperties>
+                    <BindingProperty name="enabled" source="portabilidadeV" sourcePath="${selected}" target="jLabel15" targetPath="enabled" updateStrategy="0" immediately="false"/>
+                  </BindingProperties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel16">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Print do score:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="print">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Carregar Imagem"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="printActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="prot">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="2"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="13 d&#xed;gitos sem espa&#xe7;o"/>
+                  </Properties>
+                </Component>
+                <Container class="javax.swing.JPanel" name="jPanel3">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="da" green="da" red="da" type="rgb"/>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder position="2" title="Vincular Dependentes">
+                          <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                            <LineBorder/>
+                          </Border>
+                          <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+                        </TitledBorder>
+                      </Border>
+                    </Property>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="tipoD" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
+                                          <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="celD" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                          <Component id="portD" min="-2" pref="126" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="planoV1" max="32767" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jSeparator4" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="adcD" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                              <Component id="remD" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="emailD" alignment="0" min="-2" pref="383" max="-2" attributes="0"/>
+                                          <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="478" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="jScrollPane2" alignment="1" pref="855" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="adcD" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="remD" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="tipoD" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="celD" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="planoV1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="portD" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Component id="emailD" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" pref="135" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JButton" name="adcD">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Adicionar"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="adcDActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="remD">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Remover"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="remDActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel17">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Tipo:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="tipoD">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="3">
+                            <StringItem index="0" value="FILHOS"/>
+                            <StringItem index="1" value="CONJUGE"/>
+                            <StringItem index="2" value="FAMILIA"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel18">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="N&#xfa;mero Celular:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="celD">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="celDActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JSeparator" name="jSeparator4">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel19">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Portabilidade:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel20">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Tipo do Plano:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel21">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="E-Mail:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="emailD">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emailDActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="planoV1">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="0"/>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="portD">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="2">
+                            <StringItem index="0" value="SIM"/>
+                            <StringItem index="1" value="NAO"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JTable" name="dependTable">
+                          <Properties>
+                            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                              <Table columnCount="5" rowCount="0">
+                                <Column editable="true" title="Tipo" type="java.lang.Object"/>
+                                <Column editable="true" title="Num Celular" type="java.lang.Object"/>
+                                <Column editable="true" title="Tipo Plano" type="java.lang.Object"/>
+                                <Column editable="true" title="Portabilidade" type="java.lang.Object"/>
+                                <Column editable="true" title="E-Mail" type="java.lang.Object"/>
+                              </Table>
+                            </Property>
+                            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                              <TableColumnModel selectionModel="0">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                              </TableColumnModel>
+                            </Property>
+                            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                            </Property>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JCheckBox" name="redesSociasA1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Optou redes sociais"/>
+                    <Property name="actionCommand" type="java.lang.String" value=""/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="redesSociasA1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel3">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Ao escolher a imagem, n&#xe3;o precisa definir um nome"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="tChips">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Quantidade TOTAL de Chips &#xe0; enviar: "/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="chipN">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="3"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="vPlano">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="2"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Valor do plano escolhido (s/ descontos)"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="vplano">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="2"/>
+                    </Property>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JFormattedTextField" name="protocolo">
+                  <Properties>
+                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                      <Format format="#" subtype="-1" type="0"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Enviar"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Voltar"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="APENAS APERTAR ENVIAR AP&#xd3;S PREENCHER TODOS OS DADOS - 1&#xaa; PESSOA AUTORIZADA OBRIGAT&#xd3;RIO 2&#xaa; OPCIONAL!"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>

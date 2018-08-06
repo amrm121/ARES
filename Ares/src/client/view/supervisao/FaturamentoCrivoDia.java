@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import model.Plano;
 
 /**
  *
@@ -139,7 +140,7 @@ private DataBaseAcess dba;
         String[] regf;
         Map<String, Double> valor = new HashMap<>();
         Map<String, String[][]> regc = new HashMap<>();
-        Map<String, String[]> regb = new HashMap<>();
+        Map<String, Plano> regb = new HashMap<>();
         Map<String, Integer> regiao = new HashMap<>();
         Map<String, Integer> regbruto = new HashMap<>();
         Map<String, Integer> dados = new HashMap<>();
@@ -191,8 +192,8 @@ private DataBaseAcess dba;
 
             if(crivoA.equalsIgnoreCase("sim")){
                 //System.out.println(planoA + "  " + crivoA);
-                //crivo.replace(planoA, crivo.get(planoA), crivo.get(planoA)+1);
-                String aux[][] = regc.get(planoA);
+                crivo.replace(planoA, crivo.get(planoA), crivo.get(planoA)+1);
+                //String aux[][] = regc.get(planoA);
                 /*System.out.println(aux == null);
                 for(int i = 0; i < reglist.size(); i++){
                     for(int j = 0; j < reglist.size(); j++){
@@ -246,19 +247,7 @@ private DataBaseAcess dba;
                     res += res + reg + ":" + (((double)regiao.get(reg)/(double)regbruto.get(reg))*100) + "% ";
                 }
             }*/
-            /*for(int i = 0; i < regc.size(); i++){
-                for(int j = 0; j < ss; j++){
-                    for(int k = 0; k < ss; k++ ){
-                        if(k != 0){
-                            int kk = Integer.parseInt(regc.get(z)[i][j]);
-                            if(kk > 0){
-                                res = regc.get(z)[j][0] + ": " + kk;
-                            }
-                        }
-                    }
-                }
-                
-            }*/
+            
             row[4] = res;
             dm.addRow(row);
         }
