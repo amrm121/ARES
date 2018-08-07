@@ -5,16 +5,32 @@
  */
 package client.view.operacao;
 
+import data.DataBaseAcess;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Alexandre
  */
 public class RankingVendas extends javax.swing.JFrame {
-
+    private DataBaseAcess dba;
+    private HashMap<String, String> user = new HashMap<>(); 
     /**
      * Creates new form RankingVendas
      */
     public RankingVendas() {
+        try {
+            dba = DataBaseAcess.getInstance();
+        } catch (SQLException ex) {
+            Logger.getLogger(RankingVendas.class.getName()).log(Level.SEVERE, null, ex);
+        }
         initComponents();
     }
 
@@ -27,22 +43,109 @@ public class RankingVendas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("ARES :: TELECONECTIVIDADE");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Ramal", "Nome", "Equipe", "Crivos/Bruto %"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        rank();
+    }//GEN-LAST:event_formWindowOpened
+    private void rank(){
+        String qry = "SELECT nome, ramal FROM usuario WHERE idtipo_usuario = 6";
+        String qry1 = "SELECT ramal, statusCrivo, planoEscolhido FROM vendas";
+        HashMap<String, Integer> crivo = new HashMap<>();
+        HashMap<String, Integer> bruto = new HashMap<>();
+        ArrayList<String> ramais = new ArrayList<>();
+        try {
+            ResultSet rs = dba.execQry(qry);
+            while(rs.next()){
+                ramais.add(rs.getString("ramal"));
+                user.put(rs.getString("ramal"), rs.getString("nome"));
+                crivo.put(rs.getString("ramal"), 0);
+                bruto.put(rs.getString("ramal"), 0);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RankingVendas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            ResultSet rs = dba.execQry(qry1);
+            while(rs.next()){
+                if(rs.getString("statusCrivo").equalsIgnoreCase("sim")){
+                    crivo.replace(rs.getString("ramal"), crivo.get(rs.getString("ramal"))+1);
+                    bruto.replace(rs.getString("ramal"), crivo.get(rs.getString("ramal"))+1);
+                }else{
+                    bruto.replace(rs.getString("ramal"), crivo.get(rs.getString("ramal"))+1);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RankingVendas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();
+        Object[] row = new Object[4];
+        for(String z: ramais){
+            double p = 0;
+           if(bruto.get(z) > 0){
+               p = (double) crivo.get(z)/bruto.get(z);
+           }
+           
+           p = p * 100;
+           DecimalFormat df = new DecimalFormat(".##");
+           row[0] = z;
+           row[1] = user.get(z);
+           row[3] = crivo.get(z) + "/" + bruto.get(z) + " ("+ df.format(p) +"%)";
+           dm.addRow(row);
+        }
+        
+        jTable1.setModel(dm);
+        jTable1.setAutoCreateRowSorter(true);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -79,5 +182,7 @@ public class RankingVendas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

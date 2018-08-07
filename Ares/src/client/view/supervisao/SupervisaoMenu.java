@@ -22,6 +22,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import client.view.adm.GraficoVendaCrivo;
+import client.view.operacao.RankingVendas;
 import java.io.IOException;
 import org.jfree.ui.RefineryUtilities;
 /**
@@ -60,13 +61,11 @@ public class SupervisaoMenu extends javax.swing.JFrame {
             ResultSet rs = dba.execQry("SELECT autorizar FROM supervisao_controle");
             while(rs.next()){
                 this.c = rs.getString("autorizar");
-                
-                
             }
         } catch (SQLException ex) {
             Logger.getLogger(SupervisaoMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(c);
+        //System.out.println(c);
         initComponents();
         if(c.equalsIgnoreCase("N")){
             logC.setBackground(Color.red);
@@ -102,6 +101,7 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         visualisarVendas = new javax.swing.JMenuItem();
         supDep = new javax.swing.JMenuItem();
         supVendas = new javax.swing.JMenuItem();
+        perfRamal = new javax.swing.JMenuItem();
         rVendas = new javax.swing.JMenuItem();
         mConfig1 = new javax.swing.JMenu();
         sys1 = new javax.swing.JMenu();
@@ -198,6 +198,14 @@ public class SupervisaoMenu extends javax.swing.JFrame {
             }
         });
         vendasControle.add(supVendas);
+
+        perfRamal.setText("Perfomance por Ramal");
+        perfRamal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                perfRamalActionPerformed(evt);
+            }
+        });
+        vendasControle.add(perfRamal);
 
         mSetores1.add(vendasControle);
 
@@ -343,13 +351,18 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         ZonedDateTime times = ZonedDateTime.now();
         String hora = times.format(DateTimeFormatter.ISO_LOCAL_DATE);
         v = new GraficoVendaCrivo("ARES :: Teleconectividade", "Vendas x Crivo " + hora);
-        v.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        //v.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         v.setUndecorated(true);
         v.pack();
-        RefineryUtilities.centerFrameOnScreen( v ); 
-        
+        RefineryUtilities.centerFrameOnScreen( v );
         v.setVisible(true);
     }//GEN-LAST:event_graficoActionPerformed
+
+    private void perfRamalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perfRamalActionPerformed
+        // TODO add your handling code here:
+        RankingVendas v = new RankingVendas();
+        v.setVisible(true);
+    }//GEN-LAST:event_perfRamalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -395,6 +408,7 @@ public class SupervisaoMenu extends javax.swing.JFrame {
     private javax.swing.JMenu mConfig1;
     private javax.swing.JMenu mSetores1;
     private javax.swing.JTextField menuInfo;
+    private javax.swing.JMenuItem perfRamal;
     private javax.swing.JMenuItem rVendas;
     private javax.swing.JMenuItem supDep;
     private javax.swing.JMenuItem supPA;

@@ -57,7 +57,7 @@ public class GraficoVendaCrivo extends ApplicationFrame{
         
         chartPanel.add(a);
         //setContentPane(setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE));
-        chartPanel.validate();
+        //chartPanel.validate();
         setContentPane( chartPanel ); 
        }
         private void a(java.awt.event.ActionEvent evt, ChartPanel az) {
@@ -70,9 +70,10 @@ public class GraficoVendaCrivo extends ApplicationFrame{
             } catch (SQLException ex) {
                 Logger.getLogger(GraficoVendaCrivo.class.getName()).log(Level.SEVERE, null, ex);
             }
-            ZonedDateTime logout = ZonedDateTime.now();
-            logout.format(DateTimeFormatter.ISO_LOCAL_DATE);
-            String qry = "SELECT planoEscolhido, optouAppsDataFree, quantidadeChipsAEnviar, statusCrivo FROM vendas WHERE dataVenda = '"+logout+"'";
+            ZonedDateTime times = ZonedDateTime.now();
+            String hora = times.format(DateTimeFormatter.ISO_LOCAL_DATE);
+            System.out.println(hora);
+            String qry = "SELECT planoEscolhido, optouAppsDataFree, quantidadeChipsAEnviar, statusCrivo FROM vendas WHERE dataVenda = '"+hora+"'";
             String qry1 = "SELECT descricao FROM plano";
             ResultSet rs, rs1;
             ArrayList<String> pl = new ArrayList<>();
@@ -106,7 +107,7 @@ public class GraficoVendaCrivo extends ApplicationFrame{
             } catch (SQLException ex) {
                 Logger.getLogger(GraficoVendaCrivo.class.getName()).log(Level.SEVERE, null, ex);
             }            
-                final DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
+                final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
                 //final XYSeriesCollection data = new XYSeriesCollection(null);
                 int tt = 0;
                 int t1 = 0;
@@ -122,7 +123,7 @@ public class GraficoVendaCrivo extends ApplicationFrame{
                     //for(int i = 0; i < hmc.size(); i++){
                         if(hmc.get(z) > 0){
                             dataset.addValue( hmc.get(z) , z , "Crivos" ); 
-                            t1+= (Integer)hmc.get(z);
+                            t1+= hmc.get(z);
                         }
                     //}
                 }

@@ -150,7 +150,7 @@ private DataBaseAcess dba;
     }
         ZonedDateTime logout = ZonedDateTime.now();
         String HoraLogout = logout.format(DateTimeFormatter.ISO_LOCAL_DATE);
-        System.out.println(HoraLogout);
+        //System.out.println(HoraLogout);
         String qry2 = "SELECT ramal, hora_login, hora_logout FROM controle_ponto WHERE data = '"+HoraLogout+"'";
     try {
         ResultSet rs = dba.execQry(qry2);
