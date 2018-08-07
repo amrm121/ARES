@@ -192,7 +192,7 @@ private DataBaseAcess dba;
 
             if(crivoA.equalsIgnoreCase("sim")){
                 //System.out.println(planoA + "  " + crivoA);
-                crivo.replace(planoA, crivo.get(planoA), crivo.get(planoA)+1);
+                //crivo.replace(planoA, crivo.get(planoA), crivo.get(planoA)+1);
                 //String aux[][] = regc.get(planoA);
                 /*System.out.println(aux == null);
                 for(int i = 0; i < reglist.size(); i++){
@@ -223,7 +223,6 @@ private DataBaseAcess dba;
                 bruto.replace(planoA, bruto.get(planoA)+1);
                 
                 if(dadosA.equalsIgnoreCase("1")){
-                    
                     dados.replace(planoA, dados.get(planoA)+1);
                 }
             }else{

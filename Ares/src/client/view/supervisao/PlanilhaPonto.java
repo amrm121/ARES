@@ -8,6 +8,8 @@ package client.view.supervisao;
 import data.DataBaseAcess;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -135,6 +137,7 @@ private DataBaseAcess dba;
     }//GEN-LAST:event_formWindowOpened
     
     private void showT(){
+       
         String qry = "SELECT ramal, nome FROM usuario WHERE idtipo_usuario = 6";
         Map<Integer, String> mp = new HashMap<>();
     try {
@@ -145,7 +148,10 @@ private DataBaseAcess dba;
     } catch (SQLException ex) {
         Logger.getLogger(PlanilhaPonto.class.getName()).log(Level.SEVERE, null, ex);
     }
-        String qry2 = "SELECT ramal, hora_login, hora_logout FROM controle_ponto";
+        ZonedDateTime logout = ZonedDateTime.now();
+        String HoraLogout = logout.format(DateTimeFormatter.ISO_LOCAL_DATE);
+        System.out.println(HoraLogout);
+        String qry2 = "SELECT ramal, hora_login, hora_logout FROM controle_ponto WHERE data = '"+HoraLogout+"'";
     try {
         ResultSet rs = dba.execQry(qry2);
         Object[] row = new Object[4];

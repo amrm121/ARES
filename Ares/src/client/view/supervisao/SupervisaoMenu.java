@@ -21,6 +21,9 @@ import java.time.format.FormatStyle;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import client.view.adm.GraficoVendaCrivo;
+import java.io.IOException;
+import org.jfree.ui.RefineryUtilities;
 /**
  *
  * @author Alexandre Magalhães
@@ -84,9 +87,10 @@ public class SupervisaoMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        grafico = new javax.swing.JButton();
         menuInfo = new javax.swing.JTextField();
         logC = new javax.swing.JToggleButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         MenuBar1 = new javax.swing.JMenuBar();
         mSetores1 = new javax.swing.JMenu();
@@ -115,13 +119,15 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Gráfico Vendas x Crivos");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        grafico.setText("Gráfico Vendas x Crivos");
+        grafico.setBorderPainted(false);
+        grafico.setDoubleBuffered(true);
+        grafico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                graficoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 0, 150, -1));
+        getContentPane().add(grafico, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 0, 160, 30));
 
         menuInfo.setEditable(false);
         menuInfo.setBackground(new java.awt.Color(204, 204, 204));
@@ -134,6 +140,10 @@ public class SupervisaoMenu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(logC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
+        jLabel2.setText("Clique para alterar o status de Logoff:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/resources/bg.jpg"))); // NOI18N
         jLabel1.setToolTipText("");
@@ -246,7 +256,7 @@ public class SupervisaoMenu extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         
         try {
-           dba.execute("UPDATE usuario SET status = 1 WHERE (ramal = " + ramal + ")");
+           dba.execute("UPDATE usuario SET status = 1 WHERE ramal = '" + ramal + "'");
            ZonedDateTime logout = ZonedDateTime.now();
            String HoraLogout = logout.format(DateTimeFormatter.ISO_LOCAL_TIME);
            boolean ponto = dba.execute("UPDATE controle_ponto SET hora_logout = '"+HoraLogout+"' WHERE (ssid = '" + idlog + "')");         
@@ -327,9 +337,19 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_logCActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void graficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        GraficoVendaCrivo v;
+        ZonedDateTime times = ZonedDateTime.now();
+        String hora = times.format(DateTimeFormatter.ISO_LOCAL_DATE);
+        v = new GraficoVendaCrivo("ARES :: Teleconectividade", "Vendas x Crivo " + hora);
+        v.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        v.setUndecorated(true);
+        v.pack();
+        RefineryUtilities.centerFrameOnScreen( v ); 
+        
+        v.setVisible(true);
+    }//GEN-LAST:event_graficoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -342,7 +362,7 @@ public class SupervisaoMenu extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Metal".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -367,8 +387,9 @@ public class SupervisaoMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar1;
     private javax.swing.JMenuItem gerarPonto;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton grafico;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JToggleButton logC;
     private javax.swing.JMenu mConfig1;
