@@ -57,7 +57,7 @@ public class GraficoVendaCrivo extends ApplicationFrame{
         
         chartPanel.add(a);
         //setContentPane(setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE));
-        //chartPanel.validate();
+        chartPanel.validate();
         setContentPane( chartPanel ); 
        }
         private void a(java.awt.event.ActionEvent evt, ChartPanel az) {
@@ -71,8 +71,8 @@ public class GraficoVendaCrivo extends ApplicationFrame{
                 Logger.getLogger(GraficoVendaCrivo.class.getName()).log(Level.SEVERE, null, ex);
             }
             ZonedDateTime logout = ZonedDateTime.now();
-            logout.format(DateTimeFormatter.ISO_LOCAL_TIME);
-            String qry = "SELECT planoEscolhido, optouAppsDataFree, quantidadeChipsAEnviar, statusCrivo FROM vendas";
+            logout.format(DateTimeFormatter.ISO_LOCAL_DATE);
+            String qry = "SELECT planoEscolhido, optouAppsDataFree, quantidadeChipsAEnviar, statusCrivo FROM vendas WHERE dataVenda = '"+logout+"'";
             String qry1 = "SELECT descricao FROM plano";
             ResultSet rs, rs1;
             ArrayList<String> pl = new ArrayList<>();
