@@ -5,24 +5,22 @@
             <url>src/client/view/Login.java</url>
             <bookmark id="1">
                 <name/>
-                <line>218</line>
+                <line>219</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/operacao/OperacaoMenu.java</file>
-            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/supervisao/VendasCrivadas.java</file>
             <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/data/DataBaseAcess.java</file>
             <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/supervisao/SupervisaoMenu.java</file>
-            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/adm/AdmMenu.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/operacao/RankingVendas.java</file>
             <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/supervisao/FaturamentoCrivoDia.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/supervisao/GraficoVendaRegiao.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/controller/ControladorLogin.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/adm/GraficoVendaCrivo.java</file>
             <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/supervisao/PlanilhaPonto.java</file>
-            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/operacao/Vendas.java</file>
             <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/adm/FaturamentoCrivoDia.java</file>
-            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/RelatorioVendas.java</file>
-            <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/model/Plano.java</file>
             <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/adm/PerfomancePa.java</file>
             <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/supervisao/PaLogadas.java</file>
             <file>file:/C:/Users/Alexandre/Documents/GitKraken/ARES/Ares/src/client/view/adm/PlanilhaCrivos.java</file>
