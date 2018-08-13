@@ -146,7 +146,7 @@ public class RelatorioVendas extends javax.swing.JFrame {
     private void showVendas(){
         ZonedDateTime times = ZonedDateTime.now();
         String hora = times.format(DateTimeFormatter.ISO_LOCAL_DATE);
-        String qry = "SELECT * FROM vendas WHERE dataVenda = "+hora;
+        String qry = "SELECT * FROM vendas WHERE dataVenda = '"+hora+"'";
        
        HashMap<String, Double> planos = new HashMap<>();
        String qry2 = "SELECT * FROM protocolo";
@@ -162,6 +162,7 @@ public class RelatorioVendas extends javax.swing.JFrame {
                }
                
            }
+           rs.close();
        } catch (SQLException ex) {
            Logger.getLogger(RelatorioVendas.class.getName()).log(Level.SEVERE, null, ex);
        }
@@ -170,11 +171,13 @@ public class RelatorioVendas extends javax.swing.JFrame {
            while(rs.next()){
                planos.put(rs.getString("descricao"), rs.getDouble("valor"));
            }
+           rs.close();
        } catch (SQLException ex) {
            Logger.getLogger(RelatorioVendas.class.getName()).log(Level.SEVERE, null, ex);
        }
        try {
-           ResultSet rs = dba.execQry(qry);           
+           ResultSet rs = dba.execQry(qry);
+           System.out.println(rs.first());
            while(rs.next()) {
             /*private int pedido, score, qtdChips;
             private double valorPlano;
@@ -184,9 +187,8 @@ public class RelatorioVendas extends javax.swing.JFrame {
             pAutorizadas, tipoBoleto, email, portabilidade, nPortabilidade, dataVenc, aceite;*/
             double prz =  planos.get(rs.getString("planoEscolhido"));
             DecimalFormat df = new DecimalFormat(".##");
-            prz = Double.parseDouble(df.format(prz));
                Venda v = new Venda(rs.getInt("idVendas"), rs.getInt("score"), 
-                rs.getInt("quantidadeChipsAEnviar"), prz , rs.getString("nomeOperador"),
+                rs.getInt("quantidadeChipsAEnviar"), Double.parseDouble(df.format(prz)) , rs.getString("nomeOperador"),
                 rs.getString("dataVenda"), pTable.get(rs.getInt("idVendas")), rs.getString("regiaoVenda"), rs.getString("planoEscolhido"), 
                 rs.getString("nomeCliente"), rs.getString("cpfCliente"), rs.getString("telefone1Cliente")+", "+rs.getString("telefone2Cliente"), 
                 rs.getString("dataNascCliente"), rs.getString("nomeMaeCliente"), rs.getString("cepCliente"), rs.getString("statusCrivo"), rs.getString("fidelizadaAno"),
@@ -248,7 +250,7 @@ public class RelatorioVendas extends javax.swing.JFrame {
            
            Object[][] rows = new Object[vendas.size()][columns.length];
            
-            for(int i = 0 ; rs.next() ; i++) {
+            for(int i = 0 ; i < vendas.size() ; i++) {
                    for(int j = 1 ; j <= columns.length ; j++) {
                        switch (j) {
                            case 1:
@@ -398,6 +400,7 @@ public class RelatorioVendas extends javax.swing.JFrame {
                 String fn = ff.getCanonicalPath();
                 CSVWriter writer = new CSVWriter(new OutputStreamWriter(new FileOutputStream(fn+".csv"), "UTF-16"));
                 String[] headers = new String[33];
+                String[] rows = new String[33];
                 List<String[]> ss = new ArrayList<>();
                 
                 for(int i = 0; i < 33; i++){
@@ -414,8 +417,119 @@ public class RelatorioVendas extends javax.swing.JFrame {
                     //writer.flush();
                 }
                 ss.add(headers);
-                writer.writeAll(ss);
+                for(int i = 0 ; i < vendas.size() ; i++) {
+                   for(int j = 1 ; j <= columns.length ; j++) {
+                       switch (j) {
+                           case 1:
+                               rows[j-1] = vendas.get(i).getPedido()+"";
+                               break;
+                           case 2:
+                               rows[j-1] = vendas.get(i).getNomeOperador()+"";
+                               break;
+                           case 3:
+                               rows[j-1] = vendas.get(i).getDataVenda();
+                               break;
+                           case 4:
+                               rows[j-1] = vendas.get(i).getProtocolo();
+                               break;
+                           case 5:
+                               rows[j-1] = vendas.get(i).getRegiaoVenda();
+                               break;
+                           case 6:
+                               rows[j-1] = vendas.get(i).getPlano();
+                               break;
+                           case 7:
+                               rows[j-1] = vendas.get(i).getNomeCliente();
+                               break;
+                           case 8:
+                               rows[j-1] = vendas.get(i).getCpf();
+                               break;
+                           case 9:
+                               rows[j-1] = vendas.get(i).getContato();
+                               break;
+                           case 10:
+                               rows[j-1] = vendas.get(i).getDataNasc();
+                               break;
+                           case 11:
+                               rows[j-1] = vendas.get(i).getNomeMae();
+                               break;
+                           case 12:
+                               rows[j-1] = vendas.get(i).getCepEnd();
+                               break;
+                           case 13:
+                               rows[j-1] = vendas.get(i).getScore()+"";
+                               break;
+                           case 14:
+                               rows[j-1] = vendas.get(i).getCrivo();
+                               break;
+                           case 15:
+                               rows[j-1] = vendas.get(i).getFidelizado();
+                               break;
+                           case 16:
+                               rows[j-1] = vendas.get(i).getValorPlano()+"";
+                               break;
+                           case 17:
+                               rows[j-1] = vendas.get(i).getRedeSociais();
+                               break;
+                           case 18:
+                               rows[j-1] = vendas.get(i).getCidade();
+                               break;
+                           case 19:
+                               rows[j-1] = vendas.get(i).getEstado();
+                               break;
+                           case 20:
+                               rows[j-1] = vendas.get(i).getNomeRua();
+                               break;
+                           case 21:
+                               rows[j-1] = vendas.get(i).getnRua();
+                               break;
+                           case 22:
+                               rows[j-1] = vendas.get(i).getComplemento();
+                               break;
+                           case 23:
+                               rows[j-1] = vendas.get(i).getBairro();
+                               break;
+                           case 24:
+                               rows[j-1] = vendas.get(i).getCepEnd();
+                               break;
+                           case 25:
+                               rows[j-1] = vendas.get(i).getPontosRef();
+                               break;
+                           case 26:
+                               rows[j-1] = vendas.get(i).getpAutorizadas();
+                               break;
+                           case 27:
+                               rows[j-1] = vendas.get(i).getQtdChips()+"";
+                               break;
+                           case 28:
+                               rows[j-1] = vendas.get(i).getTipoBoleto();
+                               break;
+                           case 29:
+                               rows[j-1] = vendas.get(i).getEmail();
+                               break;
+                           case 30:
+                               rows[j-1] = vendas.get(i).getPortabilidade();
+                               break;
+                           case 31:
+                               rows[j-1] = vendas.get(i).getnPortabilidade();
+                               break;
+                           case 32:
+                               rows[j-1] = vendas.get(i).getDataVenc();
+                               break;
+                           case 33:
+                              rows[j-1] = vendas.get(i).getAceite();
+                              break;
+                       }
+                       
+                    }
+                   ss.add(rows);
+                   rows = new String[33];
+           }
                 
+                
+                
+                
+                writer.writeAll(ss);
                 ff = new File(fn+".csv");
                 writer.close();
                 //e.toExcel(jTable1, ff);

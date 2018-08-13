@@ -103,7 +103,7 @@ public class GraficoVendaCrivo extends ApplicationFrame{
                          hmc.replace(plano, (hmc.get(plano))+chip);
                          //hmb.replace(plano, (hmb.get(plano))+chip);
                     }else{
-                        hmb.replace(plano, (hmb.get(plano))+chip);
+                        hmb.replace(plano, (hmb.get(plano))+1);
                     }
                 }
                 

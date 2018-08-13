@@ -127,7 +127,7 @@ public class RankingVendas extends javax.swing.JFrame {
                     crivo.replace(rs.getString("ramal"), (crivo.get(rs.getString("ramal")) + rs.getInt("quantidadeChipsAEnviar")));
                     //bruto.replace(rs.getString("ramal"), crivo.get(rs.getString("ramal"))+1);
                 }else{
-                    bruto.replace(rs.getString("ramal"), crivo.get(rs.getString("ramal"))+1);
+                    bruto.replace(rs.getString("ramal"), bruto.get(rs.getString("ramal"))+1);
                 }
             }
         } catch (SQLException ex) {
@@ -137,8 +137,8 @@ public class RankingVendas extends javax.swing.JFrame {
         Object[] row = new Object[4];
         for(String z: ramais){
             double p = 0;
-           if(bruto.get(z) > 0){
-               p = (double) crivo.get(z)/bruto.get(z);
+           if(crivo.get(z) > 0){
+               p = (double) crivo.get(z) / (bruto.get(z)+crivo.get(z));
            }
            
            p = p * 100;

@@ -157,9 +157,9 @@ public class Login extends javax.swing.JFrame {
                 log.logIn(ramal.getText());
                 String idtipo = user[1];
                 if(idtipo.equals("1")){ //CPD                        
-                        //SupervisaoMenu menu = new SupervisaoMenu(user[0], ramal.getText());
+                        SupervisaoMenu menu = new SupervisaoMenu(user[0], ramal.getText());
                         //AdmMenu menu = new AdmMenu(user[0], ramal.getText());
-                        OperacaoMenu menu = new OperacaoMenu(user[0], ramal.getText());
+                        //OperacaoMenu menu = new OperacaoMenu(user[0], ramal.getText());
                         menu.setVisible(true);
                         //menu1.setVisible(true);
                         this.setVisible(false);

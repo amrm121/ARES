@@ -88,6 +88,7 @@ public class SupervisaoMenu extends javax.swing.JFrame {
 
         grafico = new javax.swing.JButton();
         menuInfo = new javax.swing.JTextField();
+        rankBut = new javax.swing.JButton();
         logC = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -101,7 +102,6 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         visualisarVendas = new javax.swing.JMenuItem();
         supDep = new javax.swing.JMenuItem();
         supVendas = new javax.swing.JMenuItem();
-        perfRamal = new javax.swing.JMenuItem();
         rVendas = new javax.swing.JMenuItem();
         mConfig1 = new javax.swing.JMenu();
         sys1 = new javax.swing.JMenu();
@@ -127,11 +127,21 @@ public class SupervisaoMenu extends javax.swing.JFrame {
                 graficoActionPerformed(evt);
             }
         });
-        getContentPane().add(grafico, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 0, 160, 30));
+        getContentPane().add(grafico, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 160, 30));
 
         menuInfo.setEditable(false);
         menuInfo.setBackground(new java.awt.Color(204, 204, 204));
         getContentPane().add(menuInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 259, 400, -1));
+
+        rankBut.setText("Ranking PA's");
+        rankBut.setBorderPainted(false);
+        rankBut.setDoubleBuffered(true);
+        rankBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rankButActionPerformed(evt);
+            }
+        });
+        getContentPane().add(rankBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 160, 30));
 
         logC.setBackground(new java.awt.Color(255, 0, 51));
         logC.addActionListener(new java.awt.event.ActionListener() {
@@ -198,14 +208,6 @@ public class SupervisaoMenu extends javax.swing.JFrame {
             }
         });
         vendasControle.add(supVendas);
-
-        perfRamal.setText("Perfomance por Ramal");
-        perfRamal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                perfRamalActionPerformed(evt);
-            }
-        });
-        vendasControle.add(perfRamal);
 
         mSetores1.add(vendasControle);
 
@@ -358,11 +360,11 @@ public class SupervisaoMenu extends javax.swing.JFrame {
         v.setVisible(true);
     }//GEN-LAST:event_graficoActionPerformed
 
-    private void perfRamalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perfRamalActionPerformed
+    private void rankButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rankButActionPerformed
         // TODO add your handling code here:
         RankingVendas v = new RankingVendas();
         v.setVisible(true);
-    }//GEN-LAST:event_perfRamalActionPerformed
+    }//GEN-LAST:event_rankButActionPerformed
 
     /**
      * @param args the command line arguments
@@ -408,8 +410,8 @@ public class SupervisaoMenu extends javax.swing.JFrame {
     private javax.swing.JMenu mConfig1;
     private javax.swing.JMenu mSetores1;
     private javax.swing.JTextField menuInfo;
-    private javax.swing.JMenuItem perfRamal;
     private javax.swing.JMenuItem rVendas;
+    private javax.swing.JButton rankBut;
     private javax.swing.JMenuItem supDep;
     private javax.swing.JMenuItem supPA;
     private javax.swing.JMenu supPonto;
