@@ -15,6 +15,7 @@ import java.io.OutputStreamWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -134,20 +135,43 @@ public class OpVendas extends javax.swing.JFrame {
     private void showVendas(){
         String qry = "SELECT * FROM vendas WHERE ramal ='"+ ramal+"'";
        List<Venda> vendas = new ArrayList<>();
+       HashMap<Integer, String> pTable = new HashMap<>();
+       HashMap<String, Double> planos = new HashMap<>();
+       String qry1 = "SELECT descricao, valor FROM plano";
+       String qry2 = "SELECT * FROM protocolo";
+       try {
+           ResultSet rs = dba.execQry(qry2);
+           while(rs.next()){
+               if(rs.getString("protocolo") != null){
+                   pTable.put(rs.getInt("idvendas"), rs.getString("protocolo"));
+               }else{
+                   pTable.put(rs.getInt("idvendas"), "");
+               }
+               
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(OpVendas.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       try {
+           ResultSet rs = dba.execQry(qry1);
+           while(rs.next()){
+               planos.put(rs.getString("descricao"), rs.getDouble("valor"));
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(OpVendas.class.getName()).log(Level.SEVERE, null, ex);
+       }
        try {
            ResultSet rs = dba.execQry(qry);           
            while(rs.next()) {
-               Venda v = new Venda(rs.getString("nomeOperador"), rs.getString("dataVenda"), rs.getString("regiaoVenda"), 
-                      rs.getString("statusCrivo"), rs.getInt("fidelizadaAno"), rs.getInt("optouAppsDataFree"),
-                     rs.getString("planoEscolhido"), rs.getString("nomeCliente"), rs.getString("cpfCliente"), rs.getString("telefone1Cliente"), 
-                     rs.getString("telefone2Cliente"), rs.getString("dataNascCliente"), rs.getString("nomeMaeCliente"), rs.getString("cepCliente"), rs.getString("cidadeCliente"), 
-                     rs.getString("estadoCliente"), rs.getString("logradouroCliente"), rs.getString("numeroCliente"), rs.getString("complementoCliente"), 
-                     rs.getString("bairroCliente"), rs.getString("pontoReferencia1"), rs.getString("pontoReferencia2"), rs.getString("nomePessoaAutorizada1"), 
-                     rs.getString("nomePessoaAutorizada2"), rs.getString("telefonePessoaAutorizada1"), rs.getString("telefonePessoaAutorizada2"), 
-                     rs.getInt("quantidadeChipsAEnviar"), rs.getInt("boletoDigital"), rs.getString("email"), rs.getInt("optouPortabilidade"), 
-                     rs.getString("portabilidadeDDD"), rs.getString("dataVencimento"), rs.getInt("aceite"), rs.getString("cepAlternativo"), 
-                     rs.getString("estadoAlternativo"), rs.getString("cidadeAlternativa"), rs.getString("bairroAlternativo"), 
-                     rs.getString("logradouroAlternativo"), rs.getString("numeroAlternativo"), rs.getString("complementoAlternativo"), rs.getInt("enderecoAlternativo"));
+               Venda v = new Venda(rs.getInt("idVendas"), rs.getInt("score"), 
+                rs.getInt("quantidadeChipsAEnviar"), (double) planos.get(rs.getString("planoEscolhido")), rs.getString("nomeOperador"),
+                rs.getString("dataVenda"), pTable.get(rs.getInt("idVendas")), rs.getString("regiaoVenda"), rs.getString("planoEscolhido"), 
+                rs.getString("nomeCliente"), rs.getString("cpfCliente"), rs.getString("telefone1Cliente")+", "+rs.getString("telefone2Cliente"), 
+                rs.getString("dataNascCliente"), rs.getString("nomeMaeCliente"), rs.getString("cepCliente"), rs.getString("statusCrivos"), rs.getString("fidelizadaAno"),
+                rs.getString("optouAppsDataFree"), rs.getString("cidadeCliente"), rs.getString("estadoCliente"), rs.getString("logradouroCliente"),
+                rs.getString("numeroCliente"), rs.getString("complementoCliente"), rs.getString("bairroCliente"), rs.getString("cepCliente"),
+                rs.getString("pontoReferencia1") + ", "+rs.getString("pontoReferencia2"), rs.getString("nomePessoaAutorizada1") +", "+rs.getString("nomePessoaAutorizada2"),
+                rs.getString("boletoDigital"), rs.getString("email"), rs.getString("optouPortabilidade"), rs.getString("nPortabilidade"), rs.getString("dataVenc"), rs.getString("aceite"));
                vendas.add(v); 
            }
        } catch (SQLException ex) {

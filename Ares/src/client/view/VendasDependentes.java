@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.VendaDependente;
 
@@ -45,7 +46,7 @@ public class VendasDependentes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tDep = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        v = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -72,14 +73,19 @@ public class VendasDependentes extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tDep);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Voltar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("jButton2");
+        v.setText("Visualizar venda relacionada");
+        v.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,7 +98,7 @@ public class VendasDependentes extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
+                        .addComponent(v)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -102,7 +108,7 @@ public class VendasDependentes extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(v)
                     .addComponent(jButton1))
                 .addGap(0, 11, Short.MAX_VALUE))
         );
@@ -113,6 +119,7 @@ public class VendasDependentes extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         List<VendaDependente> vdep = new ArrayList<>();
         String qry = "SELECT * FROM vendas_dependentes";
+        String qry1 = "";
         try {
             // TODO add your handling code here:
             
@@ -153,6 +160,32 @@ public class VendasDependentes extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void vActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vActionPerformed
+        // TODO add your handling code here:
+        int row = tDep.getSelectedRow();
+        int id = (Integer) tDep.getValueAt(row, 3);
+        String qry = "SELECT nomeOperador, dataVenda, regiaoVenda, planoEscolhido, cpfCliente, operadoraOrigem FROM vendas WHERE idVendas = "+id;
+        ResultSet rs;
+        try {
+            rs = dba.execQry(qry);
+            while(rs.next()){
+                String operador, data, regiao, plano, cpf, opOrigem;
+                operador = rs.getString("nomeOperador");
+                data = rs.getDate("dataVenda").toString();
+                regiao = rs.getString("regiaoVenda");
+                plano = rs.getString("planoEscolhido");
+                cpf = rs.getString("cpfCliente");
+                opOrigem = rs.getString("operadoraOrigem");
+                String fin = "Operador: " + operador + ", Data Venda: " + data + ", Região: " + regiao  + ", Plano: " + plano + ", CPF: " + cpf + ", Op. Origem: " + opOrigem;
+                JOptionPane.showMessageDialog(this, fin);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(VendasDependentes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }//GEN-LAST:event_vActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -181,17 +214,15 @@ public class VendasDependentes extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VendasDependentes().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new VendasDependentes().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tDep;
+    private javax.swing.JButton v;
     // End of variables declaration//GEN-END:variables
 }

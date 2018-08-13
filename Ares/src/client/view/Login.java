@@ -135,7 +135,7 @@ public class Login extends javax.swing.JFrame {
                 sip.Login();
                 JOptionPane.showMessageDialog(this, "AGUARDE O TOTALIP ABRIR! \nCONTINUE APENAS QUANDO O TOTALIP ABRIR.\nCASO APAREÇA MENSAGEM DE ERRO DO TOTALIP IGNORAR!", "ARES :: Teleconectividade", JOptionPane.ERROR_MESSAGE);
             }else{
-                 JOptionPane.showMessageDialog(this, "ESPERE a campanha ser ativada para logar!", "ARES :: Teleconectividade", JOptionPane.ERROR_MESSAGE);
+                 JOptionPane.showMessageDialog(this, "ESPERE a campanha ser ativada para logar!", "ARES :: Teleconectividade", JOptionPane.INFORMATION_MESSAGE);
                  System.exit(0);
             } 
                        
@@ -157,10 +157,11 @@ public class Login extends javax.swing.JFrame {
                 log.logIn(ramal.getText());
                 String idtipo = user[1];
                 if(idtipo.equals("1")){ //CPD                        
-                        SupervisaoMenu menu = new SupervisaoMenu(user[0], ramal.getText());
+                        //SupervisaoMenu menu = new SupervisaoMenu(user[0], ramal.getText());
                         //AdmMenu menu = new AdmMenu(user[0], ramal.getText());
-                        //OperacaoMenu menu = new OperacaoMenu(user[0], ramal.getText());
+                        OperacaoMenu menu = new OperacaoMenu(user[0], ramal.getText());
                         menu.setVisible(true);
+                        //menu1.setVisible(true);
                         this.setVisible(false);
                         loop = false;
                         break;

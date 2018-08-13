@@ -13,7 +13,11 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,7 +31,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class RelatorioVendas extends javax.swing.JFrame {
    DataBaseAcess dba;
-   
+   private List<Venda> vendas = new ArrayList<>();
     public RelatorioVendas() {
         initComponents();
        try {
@@ -46,11 +50,12 @@ public class RelatorioVendas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        voltarB = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         attVendas = new javax.swing.JButton();
         exportar = new javax.swing.JButton();
+        vDia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ARES :: TELECONECTIVIDADE");
@@ -60,10 +65,10 @@ public class RelatorioVendas extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Voltar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        voltarB.setText("Voltar");
+        voltarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                voltarBActionPerformed(evt);
             }
         });
 
@@ -96,6 +101,13 @@ public class RelatorioVendas extends javax.swing.JFrame {
             }
         });
 
+        vDia.setText("Visualizar Vendas Dia");
+        vDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vDiaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,23 +117,26 @@ public class RelatorioVendas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(attVendas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+                        .addComponent(vDia)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(exportar)
-                        .addGap(211, 211, 211)
-                        .addComponent(jButton1))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+                        .addComponent(voltarB))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(voltarB)
                     .addComponent(attVendas)
-                    .addComponent(exportar))
+                    .addComponent(exportar)
+                    .addComponent(vDia))
                 .addGap(6, 6, 6))
         );
 
@@ -129,37 +144,70 @@ public class RelatorioVendas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void showVendas(){
-        String qry = "SELECT * FROM vendas";
-       List<Venda> vendas = new ArrayList<>();
+        ZonedDateTime times = ZonedDateTime.now();
+        String hora = times.format(DateTimeFormatter.ISO_LOCAL_DATE);
+        String qry = "SELECT * FROM vendas WHERE dataVenda = "+hora;
+       
+       HashMap<String, Double> planos = new HashMap<>();
+       String qry2 = "SELECT * FROM protocolo";
+       HashMap<Integer, String> pTable = new HashMap<>();
+       String qry1 = "SELECT descricao, valor FROM plano";
+       try {
+           ResultSet rs = dba.execQry(qry2);
+           while(rs.next()){
+               if(rs.getString("protocolo") != null){
+                   pTable.put(rs.getInt("idvendas"), rs.getString("protocolo"));
+               }else{
+                   pTable.put(rs.getInt("idvendas"), "");
+               }
+               
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(RelatorioVendas.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       try {
+           ResultSet rs = dba.execQry(qry1);
+           while(rs.next()){
+               planos.put(rs.getString("descricao"), rs.getDouble("valor"));
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(RelatorioVendas.class.getName()).log(Level.SEVERE, null, ex);
+       }
        try {
            ResultSet rs = dba.execQry(qry);           
            while(rs.next()) {
-               Venda v = new Venda(rs.getString("nomeOperador"), rs.getString("dataVenda"), rs.getString("regiaoVenda"), 
-                      rs.getString("statusCrivo"), rs.getInt("fidelizadaAno"), rs.getInt("optouAppsDataFree"),
-                     rs.getString("planoEscolhido"), rs.getString("nomeCliente"), rs.getString("cpfCliente"), rs.getString("telefone1Cliente"), 
-                     rs.getString("telefone2Cliente"), rs.getString("dataNascCliente"), rs.getString("nomeMaeCliente"), rs.getString("cepCliente"), rs.getString("cidadeCliente"), 
-                     rs.getString("estadoCliente"), rs.getString("logradouroCliente"), rs.getString("numeroCliente"), rs.getString("complementoCliente"), 
-                     rs.getString("bairroCliente"), rs.getString("pontoReferencia1"), rs.getString("pontoReferencia2"), rs.getString("nomePessoaAutorizada1"), 
-                     rs.getString("nomePessoaAutorizada2"), rs.getString("telefonePessoaAutorizada1"), rs.getString("telefonePessoaAutorizada2"), 
-                     rs.getInt("quantidadeChipsAEnviar"), rs.getInt("boletoDigital"), rs.getString("email"), rs.getInt("optouPortabilidade"), 
-                     rs.getString("portabilidadeDDD"), rs.getString("dataVencimento"), rs.getInt("aceite"), rs.getString("cepAlternativo"), 
-                     rs.getString("estadoAlternativo"), rs.getString("cidadeAlternativa"), rs.getString("bairroAlternativo"), 
-                     rs.getString("logradouroAlternativo"), rs.getString("numeroAlternativo"), rs.getString("complementoAlternativo"), rs.getInt("enderecoAlternativo"));
-               vendas.add(v); 
+            /*private int pedido, score, qtdChips;
+            private double valorPlano;
+            private String nomeOperador, dataVenda, protocolo, regiaoVenda, plano, nomeCliente, 
+            cpf, contato, dataNasc, nomeMae, cepEnd,  crivo, fidelizado,
+            redeSociais, cidade, estado, nomeRua, nRua, complemento, bairro, cep, pontosRef,
+            pAutorizadas, tipoBoleto, email, portabilidade, nPortabilidade, dataVenc, aceite;*/
+            double prz =  planos.get(rs.getString("planoEscolhido"));
+            DecimalFormat df = new DecimalFormat(".##");
+            prz = Double.parseDouble(df.format(prz));
+               Venda v = new Venda(rs.getInt("idVendas"), rs.getInt("score"), 
+                rs.getInt("quantidadeChipsAEnviar"), prz , rs.getString("nomeOperador"),
+                rs.getString("dataVenda"), pTable.get(rs.getInt("idVendas")), rs.getString("regiaoVenda"), rs.getString("planoEscolhido"), 
+                rs.getString("nomeCliente"), rs.getString("cpfCliente"), rs.getString("telefone1Cliente")+", "+rs.getString("telefone2Cliente"), 
+                rs.getString("dataNascCliente"), rs.getString("nomeMaeCliente"), rs.getString("cepCliente"), rs.getString("statusCrivo"), rs.getString("fidelizadaAno"),
+                rs.getString("optouAppsDataFree"), rs.getString("cidadeCliente"), rs.getString("estadoCliente"), rs.getString("logradouroCliente"),
+                rs.getString("numeroCliente"), rs.getString("complementoCliente"), rs.getString("bairroCliente"), rs.getString("cepCliente"),
+                rs.getString("pontoReferencia1") + ", "+rs.getString("pontoReferencia2"), rs.getString("nomePessoaAutorizada1") +", "+rs.getString("nomePessoaAutorizada2"),
+                rs.getString("boletoDigital"), rs.getString("email"), rs.getString("optouPortabilidade"), rs.getString("PortabilidadeDDD"), rs.getString("dataVencimento"), rs.getString("aceite"));
+               vendas.add(v);
            }
        } catch (SQLException ex) {
            Logger.getLogger(RelatorioVendas.class.getName()).log(Level.SEVERE, null, ex);  
        }
        String[] columns = new String [] {
-                "idVenda", "Nome do operador", "Ramal" ,"Data da venda", "Região da venda", "Status do Crivo", 
-           "Fidelização Ano", "Optou redes sociais", "Plano escolhido", 
-            "Nome", "CPF", "Telefone 1", "Telefone 2", "Data de nascimento", "Nome da mãe", "CEP", "Cidade", "Estado", "Logradouro", "Numero", "Complemento", 
-           "Bairro", "Ponto de referência 1", "Ponto de referência 2", "Nome pessoa autorizada 1", 
-           "Nome pessoa autorizada 2", "Telefone pessoa autorizada 1", "Telefone pessoa autorizada 2", 
-           "Quantidade chips", "Boleto Digital", "Email", "Optou portabilidade", "DDD da portabilidadel", 
-           "Data de vencimento", "Estado da venda", "CEP (Alternativo)", "Estado (Alternativo)", 
-           "Cidade (Alternativa)", "Bairro (Alternativo)", "Logradouro (Alternativo)", "Numero (Alternativo)", 
-           "Complemento (Alternativo)", "Endereco de entrega alternativo"
+                "PEDIDO", "NOME OPERADOR", "DATA DA VENDA" ,"PROTOCOLO", "REGIÃO VENDA", "PLANO", 
+           "NOME DO CLIENTE", "CPF", "CONTATO", 
+            "DATA NASCIMENTO", "NOME DA MÃE", "CEP DO ENDEREÇO", "SCORE", "CRIVO APROVADO?", "FIDELIZADO 12 MESES?", "VALOR DO PLANO", 
+            "REDE SOCIAIS", "CIDADE", "ESTADO",
+            "NOME DA RUA / AV", "Nº", 
+           "COMPLEMENTO", "BAIRRO", "CEP", "2 PONTOS DE REFERÊNCIA", 
+           "NOME DE 2 PESSOAS AUTORIZADAS PARA RECEBER O CHIP", "CHIPS", "TIPO DE CONTA (IMPRESSA OU ON LINE?)", 
+           "E-MAIL", "PORTABILIDADE?", "Nº DA PORTABILIDADE COM DDD", "DATA DE VENCIMENTO", "ACEITE"
             };
        
         String[] columnsDBNames = new String[] { //Array de apoio de nomes das colunas no banco
@@ -177,32 +225,133 @@ public class RelatorioVendas extends javax.swing.JFrame {
            };
         
         
-        //System.out.println(columns.length + "   " + columnsDBNames.length);
-       
+        System.out.println(columns.length + "   " + columnsDBNames.length + " " + vendas.size());
+        /*if(j == 29){//35 aceite 32 portabilidade 30 boleto/email fatura 29 qtdchips
+                       rows[i][j-1] = (Integer) rs.getInt(j);
+                       }
+                       else if(j == 30){
+                       int a = (Integer) rs.getInt(j);
+                       if(a == 1) rows[i][j-1] = "DIGITAL";
+                       else rows[i][j-1] = "BOLETO";
+                       }
+                       else if(j == 32 || j == 35 || j == 43){
+                       int a = (Integer) rs.getInt(j);
+                       if(a == 1) rows[i][j-1] = "SIM";
+                       else rows[i][j-1] = "NAO";
+                       }
+                       else{
+                       rows[i][j-1] = rs.getString(j);
+                       }*/  
        
        try {
            ResultSet rs = dba.execQry(qry);
            
-           Object[][] rows = new Object[vendas.size()][44];
+           Object[][] rows = new Object[vendas.size()][columns.length];
            
             for(int i = 0 ; rs.next() ; i++) {
-                   for(int j = 1 ; j <= 43 ; j++) {
-                       if(j == 29){//35 aceite 32 portabilidade 30 boleto/email fatura 29 qtdchips
-                           rows[i][j-1] = (Integer) rs.getInt(j);
+                   for(int j = 1 ; j <= columns.length ; j++) {
+                       switch (j) {
+                           case 1:
+                               rows[i][j-1] = vendas.get(i).getPedido();
+                               break;
+                           case 2:
+                               rows[i][j-1] = vendas.get(i).getNomeOperador();
+                               break;
+                           case 3:
+                               rows[i][j-1] = vendas.get(i).getDataVenda();
+                               break;
+                           case 4:
+                               rows[i][j-1] = vendas.get(i).getProtocolo();
+                               break;
+                           case 5:
+                               rows[i][j-1] = vendas.get(i).getRegiaoVenda();
+                               break;
+                           case 6:
+                               rows[i][j-1] = vendas.get(i).getPlano();
+                               break;
+                           case 7:
+                               rows[i][j-1] = vendas.get(i).getNomeCliente();
+                               break;
+                           case 8:
+                               rows[i][j-1] = vendas.get(i).getCpf();
+                               break;
+                           case 9:
+                               rows[i][j-1] = vendas.get(i).getContato();
+                               break;
+                           case 10:
+                               rows[i][j-1] = vendas.get(i).getDataNasc();
+                               break;
+                           case 11:
+                               rows[i][j-1] = vendas.get(i).getNomeMae();
+                               break;
+                           case 12:
+                               rows[i][j-1] = vendas.get(i).getCepEnd();
+                               break;
+                           case 13:
+                               rows[i][j-1] = vendas.get(i).getScore();
+                               break;
+                           case 14:
+                               rows[i][j-1] = vendas.get(i).getCrivo();
+                               break;
+                           case 15:
+                               rows[i][j-1] = vendas.get(i).getFidelizado();
+                               break;
+                           case 16:
+                               rows[i][j-1] = vendas.get(i).getValorPlano();
+                               break;
+                           case 17:
+                               rows[i][j-1] = vendas.get(i).getRedeSociais();
+                               break;
+                           case 18:
+                               rows[i][j-1] = vendas.get(i).getCidade();
+                               break;
+                           case 19:
+                               rows[i][j-1] = vendas.get(i).getEstado();
+                               break;
+                           case 20:
+                               rows[i][j-1] = vendas.get(i).getNomeRua();
+                               break;
+                           case 21:
+                               rows[i][j-1] = vendas.get(i).getnRua();
+                               break;
+                           case 22:
+                               rows[i][j-1] = vendas.get(i).getComplemento();
+                               break;
+                           case 23:
+                               rows[i][j-1] = vendas.get(i).getBairro();
+                               break;
+                           case 24:
+                               rows[i][j-1] = vendas.get(i).getCepEnd();
+                               break;
+                           case 25:
+                               rows[i][j-1] = vendas.get(i).getPontosRef();
+                               break;
+                           case 26:
+                               rows[i][j-1] = vendas.get(i).getpAutorizadas();
+                               break;
+                           case 27:
+                               rows[i][j-1] = vendas.get(i).getQtdChips();
+                               break;
+                           case 28:
+                               rows[i][j-1] = vendas.get(i).getTipoBoleto();
+                               break;
+                           case 29:
+                               rows[i][j-1] = vendas.get(i).getEmail();
+                               break;
+                           case 30:
+                               rows[i][j-1] = vendas.get(i).getPortabilidade();
+                               break;
+                           case 31:
+                               rows[i][j-1] = vendas.get(i).getnPortabilidade();
+                               break;
+                           case 32:
+                               rows[i][j-1] = vendas.get(i).getDataVenc();
+                               break;
+                           case 33:
+                              rows[i][j-1] = vendas.get(i).getAceite();
+                              break;
                        }
-                       else if(j == 30){
-                           int a = (Integer) rs.getInt(j);
-                           if(a == 1) rows[i][j-1] = "DIGITAL";
-                           else rows[i][j-1] = "BOLETO";
-                       }
-                       else if(j == 32 || j == 35 || j == 43){
-                          int a = (Integer) rs.getInt(j);
-                           if(a == 1) rows[i][j-1] = "SIM";
-                           else rows[i][j-1] = "NAO";
-                       }
-                       else{
-                           rows[i][j-1] = rs.getString(j);      
-                       }    
+                       
                     }
            }
             
@@ -217,9 +366,9 @@ public class RelatorioVendas extends javax.swing.JFrame {
        showVendas();
     }//GEN-LAST:event_formWindowOpened
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void voltarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarBActionPerformed
        this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_voltarBActionPerformed
 
     private void attVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attVendasActionPerformed
         // TODO add your handling code here:
@@ -232,24 +381,56 @@ public class RelatorioVendas extends javax.swing.JFrame {
         File ff;
         if(status == JFileChooser.APPROVE_OPTION){
             try {
+            String[] columns = new String [] {
+            "PEDIDO", "NOME OPERADOR", "DATA DA VENDA" ,"PROTOCOLO", "REGIÃO VENDA", "PLANO", 
+           "NOME DO CLIENTE", "CPF", "CONTATO", 
+            "DATA NASCIMENTO", "NOME DA MÃE", "CEP DO ENDEREÇO", "SCORE", "CRIVO APROVADO?", "FIDELIZADO 12 MESES?", "VALOR DO PLANO", 
+            "REDE SOCIAIS", "CIDADE", "ESTADO",
+            "NOME DA RUA / AV", "Nº", 
+           "COMPLEMENTO", "BAIRRO", "CEP", "2 PONTOS DE REFERÊNCIA", 
+           "NOME DE 2 PESSOAS AUTORIZADAS PARA RECEBER O CHIP", "CHIPS", "TIPO DE CONTA (IMPRESSA OU ON LINE?)", 
+           "E-MAIL", "PORTABILIDADE?", "Nº DA PORTABILIDADE COM DDD", "DATA DE VENCIMENTO", "ACEITE"
+            };
                 String qry = "SELECT * FROM vendas";
                 ResultSet rs = dba.execQry(qry);
                 ff = fileC.getSelectedFile();
+                
                 String fn = ff.getCanonicalPath();
                 CSVWriter writer = new CSVWriter(new OutputStreamWriter(new FileOutputStream(fn+".csv"), "UTF-16"));
-                writer.writeAll(rs, true);
+                String[] headers = new String[33];
+                List<String[]> ss = new ArrayList<>();
+                
+                for(int i = 0; i < 33; i++){
+                    headers[i] = jTable1.getColumnName(i);
+                    //System.out.println(jTable1.getColumnName(i-1));
+                    
+                   // writer.writeNext("\""+jTable1.getColumnName(i-1)+"\"");
+                    /*for(int j = 1; j <= 33; j++){
+                        //System.out.println(jTable1.getValueAt(j, i-1).toString());
+                        if(jTable1.getValueAt(j, i-1) != null)
+                            writer.writeNext(jTable1.getValueAt(j, i-1).toString()+",");
+                    }*/
+                   // writer.writeNext("\n");
+                    //writer.flush();
+                }
+                ss.add(headers);
+                writer.writeAll(ss);
+                
+                ff = new File(fn+".csv");
                 writer.close();
-                //ff = new File(fn+".csv");
                 //e.toExcel(jTable1, ff);
-            } catch (IOException ex) {
-                Logger.getLogger(RelatorioVendas.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
+            } catch (IOException | SQLException ex) {
                 Logger.getLogger(RelatorioVendas.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+        //recepcao.gcr@gmail.com
         
     }//GEN-LAST:event_exportarActionPerformed
+
+    private void vDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vDiaActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_vDiaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,18 +460,17 @@ public class RelatorioVendas extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RelatorioVendas().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new RelatorioVendas().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton attVendas;
     private javax.swing.JButton exportar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton vDia;
+    private javax.swing.JButton voltarB;
     // End of variables declaration//GEN-END:variables
 }

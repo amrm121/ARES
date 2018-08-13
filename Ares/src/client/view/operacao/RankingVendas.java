@@ -9,6 +9,8 @@ import data.DataBaseAcess;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -96,9 +98,14 @@ public class RankingVendas extends javax.swing.JFrame {
         // TODO add your handling code here:
         rank();
     }//GEN-LAST:event_formWindowOpened
-    private void rank(){
+    private void at(java.awt.event.MouseMotionAdapter ev){
+        System.out.println(ev);
+    }
+    public void rank(){
+        ZonedDateTime times = ZonedDateTime.now();
+        String hora = times.format(DateTimeFormatter.ISO_LOCAL_DATE);
         String qry = "SELECT nome, ramal FROM usuario WHERE idtipo_usuario = 6";
-        String qry1 = "SELECT ramal, statusCrivo, planoEscolhido FROM vendas";
+        String qry1 = "SELECT ramal, statusCrivo, planoEscolhido, quantidadeChipsAEnviar FROM vendas WHERE dataVenda ='"+hora+"'";
         HashMap<String, Integer> crivo = new HashMap<>();
         HashMap<String, Integer> bruto = new HashMap<>();
         ArrayList<String> ramais = new ArrayList<>();
@@ -117,8 +124,8 @@ public class RankingVendas extends javax.swing.JFrame {
             ResultSet rs = dba.execQry(qry1);
             while(rs.next()){
                 if(rs.getString("statusCrivo").equalsIgnoreCase("sim")){
-                    crivo.replace(rs.getString("ramal"), crivo.get(rs.getString("ramal"))+1);
-                    bruto.replace(rs.getString("ramal"), crivo.get(rs.getString("ramal"))+1);
+                    crivo.replace(rs.getString("ramal"), (crivo.get(rs.getString("ramal")) + rs.getInt("quantidadeChipsAEnviar")));
+                    //bruto.replace(rs.getString("ramal"), crivo.get(rs.getString("ramal"))+1);
                 }else{
                     bruto.replace(rs.getString("ramal"), crivo.get(rs.getString("ramal"))+1);
                 }
@@ -145,6 +152,7 @@ public class RankingVendas extends javax.swing.JFrame {
         jTable1.setModel(dm);
         jTable1.setAutoCreateRowSorter(true);
     }
+    
     
     /**
      * @param args the command line arguments
@@ -174,10 +182,8 @@ public class RankingVendas extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RankingVendas().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new RankingVendas().setVisible(true);
         });
     }
 

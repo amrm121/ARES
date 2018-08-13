@@ -216,7 +216,9 @@ public class Vendas extends javax.swing.JFrame {
         vPlano = new javax.swing.JLabel();
         vplano = new javax.swing.JLabel();
         protocolo = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
+        score = new javax.swing.JTextField();
+        enviarVenda = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -355,7 +357,7 @@ public class Vendas extends javax.swing.JFrame {
                             .addComponent(comp)
                             .addGroup(pEnd2Layout.createSequentialGroup()
                                 .addComponent(jLabel62)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                                 .addComponent(jLabel2)
                                 .addContainerGap())))))
         );
@@ -696,7 +698,7 @@ public class Vendas extends javax.swing.JFrame {
                                     .addComponent(pau1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ptel1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel74))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
                                 .addGroup(tDadosC1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel75)
                                     .addComponent(jLabel76)
@@ -978,8 +980,8 @@ public class Vendas extends javax.swing.JFrame {
                                 .addComponent(remD))
                             .addComponent(emailD, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel21))
-                        .addGap(0, 478, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 855, Short.MAX_VALUE))
+                        .addGap(0, 446, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 829, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -1014,11 +1016,11 @@ public class Vendas extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(emailD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        redesSociasA1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        redesSociasA1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         redesSociasA1.setText("Optou redes sociais");
         redesSociasA1.setActionCommand("");
         redesSociasA1.addActionListener(new java.awt.event.ActionListener() {
@@ -1028,7 +1030,7 @@ public class Vendas extends javax.swing.JFrame {
         });
 
         jLabel3.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel3.setText("Ao escolher a imagem, não precisa definir um nome");
+        jLabel3.setText("colocar qualquer nome.");
 
         tChips.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tChips.setText("Quantidade TOTAL de Chips à enviar: ");
@@ -1047,6 +1049,9 @@ public class Vendas extends javax.swing.JFrame {
 
         protocolo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#"))));
 
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel23.setText("Score:");
+
         javax.swing.GroupLayout tDadosVLayout = new javax.swing.GroupLayout(tDadosV);
         tDadosV.setLayout(tDadosVLayout);
         tDadosVLayout.setHorizontalGroup(
@@ -1056,86 +1061,84 @@ public class Vendas extends javax.swing.JFrame {
                 .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(tDadosVLayout.createSequentialGroup()
-                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(tDadosVLayout.createSequentialGroup()
-                                    .addComponent(portabilidadeV)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(nPortab))
-                                .addComponent(email, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(tDadosVLayout.createSequentialGroup()
-                                    .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel5)
-                                        .addComponent(dVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel4)
-                                        .addComponent(estadoV, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jLabel8)
-                                .addComponent(planoV, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel11))
-                            .addGroup(tDadosVLayout.createSequentialGroup()
-                                .addGap(139, 139, 139)
-                                .addComponent(jLabel15))
-                            .addGroup(tDadosVLayout.createSequentialGroup()
-                                .addComponent(tChips)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(chipN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
-                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(tDadosVLayout.createSequentialGroup()
-                                    .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(tDadosVLayout.createSequentialGroup()
-                                            .addComponent(vencV, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGap(7, 7, 7))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tDadosVLayout.createSequentialGroup()
-                                            .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(tDadosVLayout.createSequentialGroup()
-                                                    .addComponent(jLabel12)
-                                                    .addGap(84, 84, 84))
-                                                .addComponent(protocolo))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                        .addGroup(tDadosVLayout.createSequentialGroup()
-                                            .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel9)
-                                                .addComponent(prot))
-                                            .addGap(95, 95, 95)))
-                                    .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(tipoV, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel13)
-                                        .addComponent(jLabel10)))
-                                .addGroup(tDadosVLayout.createSequentialGroup()
-                                    .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel6)
-                                        .addComponent(campV, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel7)
-                                        .addComponent(resCrivo, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tDadosVLayout.createSequentialGroup()
-                                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(print, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel16))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(opV, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(redesSociasA1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(tDadosVLayout.createSequentialGroup()
                         .addComponent(vPlano)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(vplano, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tDadosVLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addGap(211, 211, 211)))
+                    .addGroup(tDadosVLayout.createSequentialGroup()
+                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tDadosVLayout.createSequentialGroup()
+                                .addComponent(portabilidadeV)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(nPortab))
+                            .addGroup(tDadosVLayout.createSequentialGroup()
+                                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(email, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(tDadosVLayout.createSequentialGroup()
+                                            .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel5)
+                                                .addComponent(dVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(18, 18, 18)
+                                            .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel4)
+                                                .addComponent(estadoV, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jLabel8)
+                                        .addComponent(planoV, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel11))
+                                    .addGroup(tDadosVLayout.createSequentialGroup()
+                                        .addComponent(tChips)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(chipN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(tDadosVLayout.createSequentialGroup()
+                                        .addGap(139, 139, 139)
+                                        .addComponent(jLabel15)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(tDadosVLayout.createSequentialGroup()
+                                .addComponent(redesSociasA1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(180, 180, 180)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tDadosVLayout.createSequentialGroup()
+                                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(protocolo, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tDadosVLayout.createSequentialGroup()
+                                            .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel9)
+                                                .addComponent(prot)
+                                                .addComponent(vencV, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addGap(95, 95, 95))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tDadosVLayout.createSequentialGroup()
+                                            .addComponent(jLabel23)
+                                            .addGap(173, 173, 173))
+                                        .addComponent(score))
+                                    .addComponent(jLabel12))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tipoV, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10)
+                                    .addComponent(opV, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13)
+                                    .addComponent(print, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(tDadosVLayout.createSequentialGroup()
+                                        .addComponent(jLabel16)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel3))))
+                            .addGroup(tDadosVLayout.createSequentialGroup()
+                                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(campV, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(resCrivo, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap())
         );
         tDadosVLayout.setVerticalGroup(
             tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tDadosVLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
@@ -1154,59 +1157,71 @@ public class Vendas extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addComponent(jLabel9)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(planoV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(vencV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tipoV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
+                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(planoV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tipoV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(vencV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tDadosVLayout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addGap(7, 7, 7)
-                        .addComponent(protocolo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)
-                        .addComponent(prot)
-                        .addGap(24, 24, 24)
-                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel16))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(portabilidadeV)
-                            .addComponent(nPortab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(print)
-                            .addComponent(redesSociasA1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3))
+                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tDadosVLayout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(protocolo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(opV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(1, 1, 1)
+                                .addComponent(prot))
+                            .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel13)
+                                .addComponent(jLabel12)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tDadosVLayout.createSequentialGroup()
+                                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel3))
+                                .addGap(7, 7, 7)
+                                .addComponent(print))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tDadosVLayout.createSequentialGroup()
+                                .addComponent(jLabel23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(score, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4))))
                     .addGroup(tDadosVLayout.createSequentialGroup()
                         .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(vPlano)
-                            .addComponent(vplano, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE))
+                            .addComponent(vplano, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel13))
+                        .addComponent(redesSociasA1)
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(opV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(90, 90, 90)))
+                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 15, Short.MAX_VALUE)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(portabilidadeV)
+                    .addComponent(nPortab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(tDadosVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tChips)
                     .addComponent(chipN))
                 .addGap(15, 15, 15)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(31, 31, 31))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         tVendas.addTab("Dados da Venda:", tDadosV);
 
-        jButton1.setText("Enviar");
-        jButton1.setToolTipText("");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        enviarVenda.setText("Enviar");
+        enviarVenda.setToolTipText("");
+        enviarVenda.setMultiClickThreshhold(1L);
+        enviarVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                enviarVendaActionPerformed(evt);
             }
         });
 
@@ -1220,7 +1235,7 @@ public class Vendas extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("APENAS APERTAR ENVIAR APÓS PREENCHER TODOS OS DADOS - 1ª PESSOA AUTORIZADA OBRIGATÓRIO 2ª OPCIONAL!");
+        jLabel1.setText("1 e 2 PESSOA AUTORIZADA / 2 NUMEROS DE CONTATO OBRIGATÓRIOS! ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1232,10 +1247,10 @@ public class Vendas extends javax.swing.JFrame {
                     .addComponent(tVendas)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(jLabel1)
+                        .addGap(154, 154, 154)
+                        .addComponent(enviarVenda)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -1246,7 +1261,7 @@ public class Vendas extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
-                    .addComponent(jButton1)
+                    .addComponent(enviarVenda)
                     .addComponent(jLabel1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1267,75 +1282,83 @@ public class Vendas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void enviarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarVendaActionPerformed
 
-        int entregaAlternativa, optouPortabilidade, fidelizadaAno, optouAppsDataFree, boletoDigital, vendaAceitaCliente;
-        String nomeOperador, dataVenda, regiaoVenda, aceitoCrivo, planoEscolhido, nomeCliente, cpfCliente, telefone1Cliente, telefone2Cliente, dataNascCliente, 
-                nomeMaeCliente, cepCliente, cidadeCliente, estadoCliente, logradouroCliente, numeroCliente, complementoCliente, bairroCliente, 
-                pontoReferencia1, pontoReferencia2, nomePessoaAutorizada1, nomePessoaAutorizada2, telefonePessoaAutorizada1, telefonePessoaAutorizada2, 
-                email, portabilidadeDDD, dataVencimento, cepAlternativo, estadoAlternativo, cidadeAlternativa, bairroAlternativo, logradouroAlternativo, 
-                numeroAlternativo, complementoAlternativo, operadoraOrigem;
-        int qtdChipsEnviar;
+        int pedido, score, qtdChips;
+        double valorPlano;
+        String nomeOperador, dataVenda, protocolo, regiaoVenda, plano, nomeCliente, 
+            cpf, contato, dataNasc, nomeMae, cepEnd,  crivo, fidelizado,
+            redeSociais, cidade, estado, nomeRua, nRua, complemento, bairro, cep, pontosRef,
+            pAutorizadas, tipoBoleto, email, portabilidade, nPortabilidade, dataVenc, aceite;
+        String entAlt, telAu1, telAu2, operadoraOrigem, estadoAlt, cidadeAlt, bairroAlt, endAlt, numAlt, compAlt, fidelizadaAno;
+        //entregaAlternativa = 0;
+        aceite = "NAO";
+        entAlt = "NAO";
+        portabilidade = "NAO";
+        fidelizado = "NAO";
+        redeSociais = "NAO";
+        tipoBoleto = "IMPRESSA";
+        aceite = statusVenda.getItemAt(statusVenda.getSelectedIndex());
         
-        entregaAlternativa = 0;
-        optouPortabilidade = 0;
-        fidelizadaAno = 0;
-        optouAppsDataFree = 0;
-        boletoDigital = 0;
-        vendaAceitaCliente = 0;
-        pontoReferencia1 = pref1.getText();
-        pontoReferencia2 = pref2.getText();
-        nomePessoaAutorizada1 = pau1.getText();
-        nomePessoaAutorizada2 = pau2.getText();
+        pontosRef = pref1.getText().toUpperCase() + " " +pref2.getText().toUpperCase();
+        //pontoReferencia2 = pref2.getText();
+        pAutorizadas = pau1.getText().toUpperCase() + " " +pau2.getText().toUpperCase();
+        /*nomePessoaAutorizada2 = pau2.getText();
         telefonePessoaAutorizada1 = ptel1.getText();
-        telefonePessoaAutorizada2 = ptel2.getText();
+        telefonePessoaAutorizada2 = ptel2.getText();*/
         nomeOperador = this.nome;
         dataVenda = ZonedDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE);
         regiaoVenda = estadoV.getItemAt(statusVenda.getSelectedIndex());
-        aceitoCrivo = resCrivo.getItemAt(resCrivo.getSelectedIndex());
-        planoEscolhido = planoV.getItemAt(planoV.getSelectedIndex());
+        crivo = resCrivo.getItemAt(resCrivo.getSelectedIndex());
+        plano = planoV.getItemAt(planoV.getSelectedIndex());
         operadoraOrigem = opV.getItemAt(opV.getSelectedIndex());
         nomeCliente = cliente.getText();
-        cpfCliente = this.cpftit.getText();
-        telefone1Cliente = tel.getText();
-        telefone2Cliente = tel1.getText();
-        dataNascCliente = datanas.getText();
-        nomeMaeCliente = maenome.getText();
-        cepCliente = cep.getText();
-        cidadeCliente = this.cidade.getText();
-        estadoCliente = this.estado.getText();
-        logradouroCliente = this.end.getText();
-        numeroCliente = this.num.getText();
-        complementoCliente = this.comp.getText();
-        bairroCliente = this.bairro.getText();
+        cpf = this.cpftit.getText();
+        contato = tel.getText() + " " +tel1.getText();
+        //telefone2Cliente = tel1.getText();
+        dataNasc = datanas.getText();
+        nomeMae = maenome.getText();
+        cepEnd = this.cep.getText();
+        cidade = this.cidade.getText();
+        estado = this.estado.getText();
+        nomeRua = this.end.getText();
+        nRua = this.num.getText();
+        complemento = this.comp.getText();
+        bairro = this.bairro.getText();
         email = this.email.getText();
-        portabilidadeDDD = nPortab.getText();
-        dataVencimento = vencV.getItemAt(vencV.getSelectedIndex());
-        cepAlternativo = cepDif.getText();
-        estadoAlternativo = this.estadoDif.getText();
-        cidadeAlternativa = this.cidDif.getText();
-        bairroAlternativo = this.bairroDif.getText();
-        logradouroAlternativo = endDif.getText();
-        numeroAlternativo = this.nDif.getText();
-        complementoAlternativo = this.compDif.getText();
-        qtdChipsEnviar = this.qtChip;
+        nPortabilidade = nPortab.getText();
+        //portabilidade
+        dataVenc = vencV.getItemAt(vencV.getSelectedIndex());
+        cep = cepDif.getText();
+        estadoAlt = this.estadoDif.getText();
+        cidadeAlt = this.cidDif.getText();
+        bairroAlt = this.bairroDif.getText();
+        endAlt = endDif.getText();
+        numAlt = this.nDif.getText();
+        compAlt = this.compDif.getText();
+        qtdChips = this.qtChip;
         String[] aux = new String[5];
         for(int i = 0; i < 4; i++){
             aux[i] = "null";
         }
         aux = planoV.getItemAt(planoV.getSelectedIndex()).split(" ");
-        if(portabilidadeV.isSelected())
-            optouPortabilidade = 1;
+        if(portabilidadeV.isSelected()){
+            portabilidade = "SIM";
+            
+        }else{
+            operadoraOrigem = "TROCOU DE PLANO";
+        }
+            
         if(endif.isSelected())
-            entregaAlternativa = 1;
+            entAlt = "SIM";
         if(aux.length > 3)
-            fidelizadaAno = 1;
+            fidelizadaAno = "SIM";
         if(redesSociasA1.isSelected())
-            optouAppsDataFree = 1;
+            redeSociais = "SIM";
         if(tipoV.getItemAt(tipoV.getSelectedIndex()).equals("Digital"))
-            boletoDigital = 1;
+            tipoBoleto = "ONLINE";
         if(statusVenda.getItemAt(statusVenda.getSelectedIndex()).equals("Aceita"));
-            vendaAceitaCliente = 1;
+            aceite = "SIM";
             
         String qry = "INSERT INTO `teleconectividade`.`vendas` (`nomeOperador`, `ramal`,"
                 + "`dataVenda`, `regiaoVenda`, `planoEscolhido`, `nomeCliente`, "
@@ -1347,15 +1370,15 @@ public class Vendas extends javax.swing.JFrame {
                 + "`telefonePessoaAutorizada1`, `telefonePessoaAutorizada2`, `quantidadeChipsAEnviar`, "
                 + "`boletoDigital`, `email`, `optouPortabilidade`, `portabilidadeDDD`, `dataVencimento`, "
                 + "`aceite`, `cepAlternativo`, `estadoAlternativo`, `cidadeAlternativa`, `bairroAlternativo`, "
-                + "`logradouroAlternativo`, `numeroAlternativo`, `complementoAlternativo`, `enderecoAlternativo`, `operadoraOrigem`) "
-                + "VALUES ('"+nomeOperador+"', '"+ramal+"', '"+dataVenda+"', '"+regiaoVenda+"', '"+planoEscolhido+"', '"+nomeCliente+"', '"+cpfCliente+"', "
-                + "'"+telefone1Cliente+"', '"+telefone2Cliente+"', '"+dataNascCliente+"', '"+nomeMaeCliente+"', '"+aceitoCrivo+"', "
-                + "'"+fidelizadaAno+"', '"+optouAppsDataFree+"', '"+cepCliente+"', '"+cidadeCliente+"', '"+estadoCliente+"', '"+logradouroCliente+"', "
-                + "'"+numeroCliente+"', '"+complementoCliente+"', '"+bairroCliente+"', '"+pontoReferencia1+"', '"+pontoReferencia2+"', "
-                + "'"+nomePessoaAutorizada1+"', '"+nomePessoaAutorizada2+"', '"+telefonePessoaAutorizada1+"', '"+telefonePessoaAutorizada2+"', "
-                + "'"+qtdChipsEnviar+"', '"+boletoDigital+"', '"+email+"', '"+optouPortabilidade+"', '"+portabilidadeDDD+"', '"+dataVencimento+"', "
-                + "'"+vendaAceitaCliente+"', '"+cepAlternativo+"', '"+estadoAlternativo+"', '"+cidadeAlternativa+"', "
-                + "'"+bairroAlternativo+"', '"+logradouroAlternativo+"', '"+numeroAlternativo+"', '"+complementoAlternativo+"', '"+entregaAlternativa+"' ,'"+operadoraOrigem+"')";
+                + "`logradouroAlternativo`, `numeroAlternativo`, `complementoAlternativo`, `enderecoAlternativo`, `operadoraOrigem`, `score`) "
+                + "VALUES ('"+nomeOperador+"', '"+ramal+"', '"+dataVenda+"', '"+regiaoVenda+"', '"+plano+"', '"+nomeCliente+"', '"+cpf+"', "
+                + "'"+tel.getText()+"', '"+tel1.getText()+"', '"+dataNasc+"', '"+nomeMae+"', '"+crivo+"', "
+                + "'"+fidelizado+"', '"+redeSociais+"', '"+cepEnd+"', '"+cidade+"', '"+estado+"', '"+nomeRua+"', "
+                + "'"+nRua+"', '"+complemento+"', '"+bairro+"', '"+pref1.getText()+"', '"+pref2.getText()+"', "
+                + "'"+pau1.getText()+"', '"+pau2.getText()+"', '"+ptel1.getText()+"', '"+ptel2.getText()+"', "
+                + "'"+qtdChips+"', '"+tipoBoleto+"', '"+email+"', '"+portabilidade+"', '"+nPortabilidade+"', '"+dataVenc+"', "
+                + "'"+aceite+"', '"+cep+"', '"+estadoAlt+"', '"+cidadeAlt+"', "
+                + "'"+bairroAlt+"', '"+endAlt+"', '"+numAlt+"', '"+compAlt+"', '"+entAlt+"' ,'"+operadoraOrigem+"' ,'"+ this.score.getText()+"')";
         //Query do protocolo+dependentes
         
        
@@ -1366,7 +1389,7 @@ public class Vendas extends javax.swing.JFrame {
             rs.last();
             int idvenda = rs.getInt("idvendas");
             String qryp = "INSERT INTO `teleconectividade`.`protocolo` (`ramal`, `idvendas`, `protocolo`, `data`) VALUES "
-                + "('"+ramal+"', '"+idvenda+"', '"+protocolo.getText()+"', '"+dataVenda+"')";
+                + "('"+ramal+"', '"+idvenda+"', '"+this.protocolo.getText()+"', '"+dataVenda+"')";
             //while(rs.next()) System.out.println(rs.getInt("idvendas"));
             
             if(dependTable.getRowCount() > 0){
@@ -1394,27 +1417,11 @@ public class Vendas extends javax.swing.JFrame {
         } finally {
             this.setVisible(false);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_enviarVendaActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void redesSociasA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redesSociasA1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_redesSociasA1ActionPerformed
-
-    private void emailDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailDActionPerformed
-
-    private void celDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_celDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_celDActionPerformed
-
-    private void nPortabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nPortabActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nPortabActionPerformed
 
     private void jButton5jLabel68VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jButton5jLabel68VetoableChange
         // TODO add your handling code here:
@@ -1550,34 +1557,93 @@ public class Vendas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_datanasActionPerformed
 
-    private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
-        String data = ZonedDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE);
-        
-        JFileChooser fileC = new JFileChooser();
-        int status = fileC.showSaveDialog(this);
-        File ff;
-        if(status == JFileChooser.APPROVE_OPTION){
-            try {
-            ff = fileC.getSelectedFile();
-            FileClient fc = new FileClient(ramal+"_"+cpftit.getText(), data, "10.81.32.11", 9000, ff);
-            
-            }catch (InterruptedException ex) {
-                Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            //POPOUT OK ACK SERVER
-         JOptionPane.showMessageDialog(this, "Print enviado com sucesso.");
-         this.print.setEnabled(false);
-        }
-    }//GEN-LAST:event_printActionPerformed
-
     private void tVendasComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tVendasComponentShown
         // TODO add your handling code here:
         
     }//GEN-LAST:event_tVendasComponentShown
 
+    private void redesSociasA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redesSociasA1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_redesSociasA1ActionPerformed
+
+    private void emailDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailDActionPerformed
+
+    private void celDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_celDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_celDActionPerformed
+
+    private void remDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remDActionPerformed
+        // TODO add your handling code here:
+        if(dependTable.getRowCount() > 0){
+            int sr = dependTable.getSelectedRow();
+            if(sr != -1){
+                this.qtChip--;
+                chipN.setText(""+this.qtChip);
+                DefaultTableModel tm = (DefaultTableModel) dependTable.getModel();
+                tm.removeRow(sr);
+            }
+        }
+
+    }//GEN-LAST:event_remDActionPerformed
+
+    private void adcDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adcDActionPerformed
+        // TODO add your handling code here:
+        //System.out.println(dependTable.getRowCount());
+        if(dependTable.getRowCount() < 4){
+            String tipo = tipoD.getItemAt(tipoD.getSelectedIndex());
+            String num = celD.getText();
+            String portabilidade = portD.getItemAt(portD.getSelectedIndex());
+            String plano = planoV1.getItemAt(planoV1.getSelectedIndex());
+            String email = emailD.getText();
+
+            this.qtChip++;
+            chipN.setText(""+this.qtChip);
+            Object[] rowData = new Object[5];
+            rowData[0] = tipo;
+            rowData[1] = num;
+            rowData[2] = plano;
+            rowData[3] = portabilidade;
+            rowData[4] = email;
+            DefaultTableModel tm = (DefaultTableModel) dependTable.getModel();
+            tm.addRow(rowData);
+            dependTable.setModel(tm);
+            celD.setText("");
+            emailD.setText("");
+        }else{
+            JOptionPane.showMessageDialog(this, "Máximo de dependentes.");
+        }
+
+    }//GEN-LAST:event_adcDActionPerformed
+
+    private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
+        String data = ZonedDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE);
+
+        JFileChooser fileC = new JFileChooser();
+        int status = fileC.showSaveDialog(this);
+        File ff;
+        if(status == JFileChooser.APPROVE_OPTION){
+            try {
+                ff = fileC.getSelectedFile();
+                FileClient fc = new FileClient(ramal+"_"+cpftit.getText(), data, "10.81.32.11", 9000, ff);
+
+            }catch (InterruptedException ex) {
+                Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            //POPOUT OK ACK SERVER
+            JOptionPane.showMessageDialog(this, "Print enviado com sucesso.");
+            this.print.setEnabled(false);
+        }
+    }//GEN-LAST:event_printActionPerformed
+
+    private void nPortabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nPortabActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nPortabActionPerformed
+
     private void portabilidadeVItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_portabilidadeVItemStateChanged
         // TODO add your handling code here:
-       /* if(evt.getStateChange() == 1){
+        /* if(evt.getStateChange() == 1){
             this.qtChip--;
             chipN.setText(""+this.qtChip);
         }else{
@@ -1593,52 +1659,6 @@ public class Vendas extends javax.swing.JFrame {
             vplano.setText("R$:"+valor.get(planoV.getSelectedIndex()));
         }
     }//GEN-LAST:event_planoVItemStateChanged
-
-    private void adcDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adcDActionPerformed
-        // TODO add your handling code here:
-        //System.out.println(dependTable.getRowCount());
-        if(dependTable.getRowCount() < 4){
-            String tipo = tipoD.getItemAt(tipoD.getSelectedIndex());
-            String num = celD.getText();
-            String portabilidade = portD.getItemAt(portD.getSelectedIndex());
-            String plano = planoV1.getItemAt(planoV1.getSelectedIndex());
-            String email = emailD.getText();
-
-            if(portabilidade.equalsIgnoreCase("nao")){
-                this.qtChip++;
-                chipN.setText(""+this.qtChip);
-            }
-            Object[] rowData = new Object[5];
-            rowData[0] = tipo;
-            rowData[1] = num;
-            rowData[2] = plano;
-            rowData[3] = portabilidade;
-            rowData[4] = email;
-            DefaultTableModel tm = (DefaultTableModel) dependTable.getModel();
-            tm.addRow(rowData);
-            dependTable.setModel(tm);
-            celD.setText("");
-            emailD.setText("");
-        }else{
-            JOptionPane.showMessageDialog(this, "Máximo de dependentes.");
-        }
-        
-    }//GEN-LAST:event_adcDActionPerformed
-
-    private void remDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remDActionPerformed
-        // TODO add your handling code here:
-        if(dependTable.getRowCount() > 0){
-            int sr = dependTable.getSelectedRow();
-            Object op = dependTable.getValueAt(sr, 3);
-            if(op.toString().equalsIgnoreCase("nao")){
-                this.qtChip--;
-                chipN.setText(""+this.qtChip);
-            }
-            DefaultTableModel tm = (DefaultTableModel) dependTable.getModel();
-            tm.removeRow(sr);
-        }       
-        
-    }//GEN-LAST:event_remDActionPerformed
     
     /**
      * @param args the command line arguments
@@ -1668,10 +1688,8 @@ public class Vendas extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Vendas(ramal, nome).setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Vendas(ramal, nome).setVisible(true);
         });
     }
 
@@ -1698,10 +1716,10 @@ public class Vendas extends javax.swing.JFrame {
     private javax.swing.JTextField end;
     private javax.swing.JTextField endDif;
     private javax.swing.JCheckBox endif;
+    private javax.swing.JButton enviarVenda;
     private javax.swing.JTextField estado;
     private javax.swing.JTextField estadoDif;
     private javax.swing.JComboBox<String> estadoV;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -1720,6 +1738,7 @@ public class Vendas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1782,6 +1801,7 @@ public class Vendas extends javax.swing.JFrame {
     private javax.swing.JCheckBox redesSociasA1;
     private javax.swing.JButton remD;
     private javax.swing.JComboBox<String> resCrivo;
+    private javax.swing.JTextField score;
     private javax.swing.JComboBox<String> statusVenda;
     private javax.swing.JLabel tChips;
     private javax.swing.JPanel tDadosC1;

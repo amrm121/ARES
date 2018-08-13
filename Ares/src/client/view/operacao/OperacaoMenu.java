@@ -12,6 +12,8 @@ import controller.ControladorLogin;
 import controller.SipConnector;
 import data.APIAcess;
 import data.DataBaseAcess;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.*;
@@ -21,6 +23,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
@@ -54,6 +57,7 @@ public class OperacaoMenu extends javax.swing.JFrame {
         idlog  = session.toString().substring(session.toString().indexOf("@")+1);
         initComponents();
         
+        
     }
     
     /**
@@ -67,6 +71,15 @@ public class OperacaoMenu extends javax.swing.JFrame {
 
         menuInfo = new javax.swing.JTextField();
         logoutButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         MenuBar1 = new javax.swing.JMenuBar();
         mSetores1 = new javax.swing.JMenu();
@@ -79,6 +92,7 @@ public class OperacaoMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Teleconectividade :: Ares");
         setLocationByPlatform(true);
+        setPreferredSize(new java.awt.Dimension(400, 340));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -88,13 +102,14 @@ public class OperacaoMenu extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         menuInfo.setEditable(false);
         menuInfo.setBackground(new java.awt.Color(204, 204, 204));
         menuInfo.setAutoscrolls(false);
         menuInfo.setBorder(null);
-        getContentPane().add(menuInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 259, 400, 20));
+        getContentPane().add(menuInfo);
+        menuInfo.setBounds(0, 259, 400, 20);
 
         logoutButton.setText("LOGOUT");
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -102,11 +117,71 @@ public class OperacaoMenu extends javax.swing.JFrame {
                 logoutButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 100, 30));
+        getContentPane().add(logoutButton);
+        logoutButton.setBounds(290, 220, 100, 30);
+
+        jLabel3.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel3.setText("META DIÁRIA:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(20, 20, 80, 14);
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(20, 40, 0, 0);
+
+        jLabel6.setText("Próxima att:");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(250, 10, 70, 14);
+
+        jLabel9.setText("Banco de horas.");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(270, 50, 90, 20);
+
+        jLabel8.setText("Botões de pausa;");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(270, 30, 110, 20);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 50));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel2.setText("5 CRIVOS: R$20,00");
+
+        jLabel5.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel5.setText("1º DO RANKING: R$50,00");
+
+        jLabel7.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel7.setText("1 CRIVO = 1 BALÃO!!!");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(10, 10, 170, 110);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/resources/bg.jpg"))); // NOI18N
         jLabel1.setToolTipText("");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 400, 279);
 
         mSetores1.setText("Operações");
         mSetores1.add(jSeparator2);
@@ -160,6 +235,19 @@ public class OperacaoMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_rVendasActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+         
+         Timer timer = new Timer(120000, new ActionListener() {
+            RankingVendas r = new RankingVendas(); 
+        @Override
+        public void actionPerformed(ActionEvent arg0) {
+            
+            r.dispose();
+            r = new RankingVendas();
+            r.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+            r.setVisible(true);
+        }
+    });
+    timer.start();
         menuInfo.setText(ramalUsuario+" : "+nomeUsuario + " | Logado às: " + dataLogin);
         try {            
             boolean ponto = dba.execute("INSERT INTO controle_ponto (ssid, ramal, nome, data, hora_login) "
@@ -171,8 +259,6 @@ public class OperacaoMenu extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(OperacaoMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -284,6 +370,15 @@ public class OperacaoMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JButton logoutButton;
     private javax.swing.JMenu mConfig1;

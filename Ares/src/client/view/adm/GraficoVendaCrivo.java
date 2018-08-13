@@ -76,12 +76,14 @@ public class GraficoVendaCrivo extends ApplicationFrame{
             String qry = "SELECT planoEscolhido, optouAppsDataFree, quantidadeChipsAEnviar, statusCrivo FROM vendas WHERE dataVenda = '"+hora+"'";
             String qry1 = "SELECT descricao FROM plano";
             ResultSet rs, rs1;
+            HashMap<String, Integer> chips = new HashMap<>();
             ArrayList<String> pl = new ArrayList<>();
             HashMap<String, Integer> hmc = new HashMap<>();
             HashMap<String, Integer> hmb = new HashMap<>();
             try {
                 rs1 = dba.execQry(qry1);
                 while(rs1.next()){
+                    
                     pl.add(rs1.getString("descricao"));
                     hmc.put(rs1.getString("descricao"), 0);
                     hmb.put(rs1.getString("descricao"), 0);
@@ -95,11 +97,13 @@ public class GraficoVendaCrivo extends ApplicationFrame{
                
                 while(rs.next()){
                     String plano = rs.getString("planoEscolhido");
+                    int chip = rs.getInt("quantidadeChipsAEnviar");
+                    //System.out.println(plano + " " + chip);
                     if(rs.getString("statusCrivo").equalsIgnoreCase("sim")){
-                         hmc.replace(plano, hmc.get(plano)+1);
-                         hmb.replace(plano, hmb.get(plano)+1);
+                         hmc.replace(plano, (hmc.get(plano))+chip);
+                         //hmb.replace(plano, (hmb.get(plano))+chip);
                     }else{
-                        hmb.replace(plano, hmb.get(plano)+1);
+                        hmb.replace(plano, (hmb.get(plano))+chip);
                     }
                 }
                 
