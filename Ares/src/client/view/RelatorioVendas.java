@@ -525,10 +525,7 @@ public class RelatorioVendas extends javax.swing.JFrame {
                    ss.add(rows);
                    rows = new String[33];
            }
-                
-                
-                
-                
+
                 writer.writeAll(ss);
                 ff = new File(fn+".csv");
                 writer.close();
