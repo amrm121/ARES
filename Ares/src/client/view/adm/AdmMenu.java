@@ -13,6 +13,7 @@ import client.view.supervisao.PaLogadas;
 import controller.SipConnector;
 import data.APIAcess;
 import data.DataBaseAcess;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -64,6 +65,8 @@ public class AdmMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         menuInfo = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         MenuBar1 = new javax.swing.JMenuBar();
         GerarRelatorioVendas = new javax.swing.JMenu();
@@ -93,6 +96,22 @@ public class AdmMenu extends javax.swing.JFrame {
         menuInfo.setBackground(new java.awt.Color(204, 204, 204));
         menuInfo.setBorder(null);
         getContentPane().add(menuInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 259, 400, 20));
+
+        jButton1.setText("PA's Falando");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, -1, -1));
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/resources/bg.jpg"))); // NOI18N
         jLabel1.setToolTipText("");
@@ -235,6 +254,24 @@ public class AdmMenu extends javax.swing.JFrame {
         pa.setVisible(true);
     }//GEN-LAST:event_jMenu2MouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        //SocketIn si = new SocketIn();
+        //40417si.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            // TODO add your handling code here:
+            ResultSet rs = dba.execQry("call A_VendasxRegiao()");
+            
+            System.out.println(rs.next());
+                    } catch (SQLException ex) {
+            Logger.getLogger(AdmMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -276,6 +313,8 @@ public class AdmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem RelatorioDeVendas;
     private javax.swing.JMenu admFaturamento;
     private javax.swing.JMenuItem fatCrivoDia;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
