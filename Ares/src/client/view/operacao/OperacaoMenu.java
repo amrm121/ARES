@@ -222,7 +222,7 @@ public class OperacaoMenu extends javax.swing.JFrame {
                 this.dispose();
                 System.exit(0);
             }else{
-                JOptionPane.showMessageDialog(this, "Espere a Supervisão liberar o Login!", "ARES :: Teleconectividade", JOptionPane.ERROR_MESSAGE);    
+                JOptionPane.showMessageDialog(this, "Espere a Supervisão liberar o Logout!", "ARES :: Teleconectividade", JOptionPane.ERROR_MESSAGE);    
             }                  
            
         } catch (SQLException ex) {
