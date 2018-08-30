@@ -1,6 +1,7 @@
 package client.view;
 
 import client.view.adm.AdmMenu;
+import client.view.backoffice.BackOfficeMenu;
 import client.view.operacao.OperacaoMenu;
 import client.view.supervisao.SupervisaoMenu;
 import controller.ControladorLogin;
@@ -141,9 +142,12 @@ public class Login extends javax.swing.JFrame {
                        
             
             String statusRamal = api.login(ramal.getText());
+            System.out.println(statusRamal);
             for(int i = 0; i < 5; i++) if(statusRamal.equalsIgnoreCase(results[i])) key = i;
             String[] user = log.getNomeID(ramal.getText()).split(";");
-            
+            if(statusRamal.equalsIgnoreCase("ramal ja esta logado")){
+                key = 2;
+            }
             switch(key){
             case 0:
                 errorDialog(key);
@@ -156,8 +160,9 @@ public class Login extends javax.swing.JFrame {
             case 2:
                 log.logIn(ramal.getText());
                 String idtipo = user[1];
-                if(idtipo.equals("1")){ //CPD                        
-                        SupervisaoMenu menu = new SupervisaoMenu(user[0], ramal.getText());
+                if(idtipo.equals("1")){ //CPD       
+                        BackOfficeMenu menu = new BackOfficeMenu(user[0], ramal.getText());
+                        //SupervisaoMenu menu = new SupervisaoMenu(user[0], ramal.getText());
                         //AdmMenu menu = new AdmMenu(user[0], ramal.getText());
                         //OperacaoMenu menu = new OperacaoMenu(user[0], ramal.getText());
                         menu.setVisible(true);
